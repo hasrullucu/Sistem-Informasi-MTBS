@@ -1,0 +1,64 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--bagian judul-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.85">
+        <!--textview judul mtbs-->
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manajemen Terpadu"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:id="@+id/judul2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Balita Sakit"
+            android:textSize="30dp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+
+    <!--bagian tombol-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0.15">
+        <!--button mulai pemeriksaan-->
+        <Button
+            android:id="@+id/btn_mulai"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Mulai Pemeriksaan"
+
+            />
+
+        <!--button tentang mtbs-->
+        <Button
+            android:id="@+id/btn_petunjuk"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Petunjuk Penggunaan MTBS"/>
+    </LinearLayout>
+
+</LinearLayout>
