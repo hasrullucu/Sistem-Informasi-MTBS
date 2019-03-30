@@ -5,8 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Initializer_HomePage initializer_homePage;
     private Initializer_Petunjuk initializer_petunjuk;
     private FragmentManager fragmentManager;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    @Override
+    public void onClick(View v) {
+        Log.d("" , "masuk main activity");
+    }
 }

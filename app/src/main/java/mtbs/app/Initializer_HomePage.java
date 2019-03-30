@@ -1,6 +1,6 @@
 package mtbs.app;
 
-public class Initializer_HomePage extends Initializer {
+public class Initializer_HomePage extends Initializer  {
     private MainActivity activity;
     private HomePage homePage ;
 

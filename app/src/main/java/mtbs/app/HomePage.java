@@ -17,8 +17,9 @@ import android.widget.Button;
 public class HomePage extends Fragment implements View.OnClickListener {
     private MainActivity activity;
 
-    private Button btn_Mulai;
-    private Button btn_Petunjuk ;
+    private Button btn_mulai ;
+    private Button btn_petunjuk ;
+
 
     public HomePage() {
         // Required empty public constructor
@@ -35,21 +36,22 @@ public class HomePage extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home_page, container, false);
-        this.btn_Mulai = v.findViewById(R.id.btn_mulai);
-        this.btn_Petunjuk = v.findViewById(R.id.btn_petunjuk);
+        this.btn_mulai = (Button) v.findViewById(R.id.btn_mulai);
+        this.btn_petunjuk = (Button) v.findViewById(R.id.btn_petunjuk);
 
-        this.btn_Mulai.setOnClickListener(this);
-        this.btn_Petunjuk.setOnClickListener(this);
+        this.btn_mulai.setOnClickListener(this);
+        this.btn_petunjuk.setOnClickListener(this);
         return v;
     }
 
     @Override
     public void onClick(View v) {
-        Log.d("", "masuk");
-        if(v.getId() == this.btn_Mulai.getId()){
+        Log.d("pertama" , "mantappkeun");
+        if(v.getId() == this.btn_mulai.getId() ){
 
-        }else if(v.getId() == this.btn_Petunjuk.getId()){
-            this.activity.changeToHomePage();
+        }else if(v.getId()== this.btn_petunjuk.getId()){
+            Log.d("mantap" , "masuk");
+            this.activity.changeToPetunjuk_1();
         }
     }
 }
