@@ -57,7 +57,15 @@
             android:text="Belum ada klasifikasi"
             android:textSize="20dp"
             android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bangsat kau"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
     </LinearLayout>
+
 
 
     <LinearLayout
