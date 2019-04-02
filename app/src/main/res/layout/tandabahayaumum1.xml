@@ -52,21 +52,25 @@
             android:textAlignment="center" />
 
         <CheckBox
+            android:id="@+id/checkboxMinum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tidak bisa minum atau menyusu"
             android:textSize="30dp" />
         <CheckBox
+            android:id="@+id/checkboxSianosis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Biru(sianosis)"
             android:textSize="30dp" />
         <CheckBox
+            android:id="@+id/checkboxLetargis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Letargis atau tidak sadar"
             android:textSize="30dp" />
         <CheckBox
+            android:id="@+id/checkboxPucat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ujung tangan dan kaki pucat dingin"
