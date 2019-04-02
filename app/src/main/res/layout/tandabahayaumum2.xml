@@ -52,16 +52,19 @@
             android:textAlignment="center" />
 
         <CheckBox
+            android:id="@+id/checkboxKejang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Kejang"
             android:textSize="30dp" />
         <CheckBox
+            android:id="@+id/checkboxMuntah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Memuntahkan semuanya"
             android:textSize="30dp" />
         <CheckBox
+            android:id="@+id/checkboxStridor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ada stridor"
