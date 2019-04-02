@@ -46,11 +46,9 @@ public class HomePage extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Log.d("pertama" , "mantappkeun");
         if(v.getId() == this.btn_mulai.getId() ){
 
         }else if(v.getId()== this.btn_petunjuk.getId()){
-            Log.d("mantap" , "masuk");
             this.activity.changeToPetunjuk_1();
         }
     }
