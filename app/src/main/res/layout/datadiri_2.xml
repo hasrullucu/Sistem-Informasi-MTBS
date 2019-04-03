@@ -1,0 +1,143 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--bagian judul data diri-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+        <!--textview judul mtbs-->
+        <TextView
+            android:id="@+id/isiDataAnak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Isi Data Anak"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <!--bagian gambar-->
+
+
+    <!--bagian isi data diri-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.8">
+        <!--data diri-->
+
+        <!--alamat-->
+        <TextView
+            android:id="@+id/tanggalPemeriksaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"/>
+
+        <!--isi alamat-->
+        <EditText
+            android:id="@+id/alamatFill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            />
+
+        <!--tanggal lahir-->
+        <TextView
+            android:id="@+id/tanggalPemeriksaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Lahir"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"/>
+
+        <!--tanggal lahir picker-->
+        <!--<DatePicker-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scaleX="0.5"-->
+        <!--android:scaleY="0.5">-->
+        <!--</DatePicker>-->
+
+        <!--umur ke update sendiri-->
+        <TextView
+            android:id="@+id/umurAuto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1 Tahun 2 Bulan"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"/>
+
+        <!--suhu-->
+        <TextView
+            android:id="@+id/suhu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suhu"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"/>
+
+        <!--isi manual suhu-->
+        <EditText
+            android:id="@+id/suhuFill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <!--bagian progress bar-->
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:max="100"
+        android:progress="45"/>
+
+    <!--bagian footer-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0.1">
+
+
+        <TextView
+            android:id="@+id/jenisKelamin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Â© 2019 Manajemen Terpadu Balita Sakit"
+            android:textSize="10dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
