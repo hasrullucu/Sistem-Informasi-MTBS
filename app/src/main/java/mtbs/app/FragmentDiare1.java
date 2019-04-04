@@ -1,5 +1,6 @@
 package mtbs.app;
 
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,21 +12,21 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentTandaBahayaUmum2 extends Fragment implements View.OnClickListener {
+public class FragmentDiare1 extends Fragment implements View.OnClickListener{
     protected Button btnNext, btnBack, btnGejala, btnKlas, btnTindakan;
     protected Context context;
     protected MainActivity activity;
 
-    public FragmentTandaBahayaUmum2() {
+    public FragmentDiare1() {
         // Required empty public constructor
     }
 
-    public FragmentTandaBahayaUmum2(Context context){
-        this.context = context;
+    public FragmentDiare1(Context context){
+        this.context=context;
     }
 
-    public static FragmentTandaBahayaUmum2 newInstance(MainActivity activity){
-        FragmentTandaBahayaUmum2 result = new FragmentTandaBahayaUmum2();
+    public static FragmentDiare1 newInstance(MainActivity activity){
+        FragmentDiare1 result = new FragmentDiare1();
         result.activity=activity;
         return result;
     }
@@ -33,7 +34,7 @@ public class FragmentTandaBahayaUmum2 extends Fragment implements View.OnClickLi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View result = inflater.inflate(R.layout.tandabahayaumum2, container, false);
+        View result = inflater.inflate(R.layout.diare1, container, false);
         this.btnBack = result.findViewById(R.id.btnBack);
         this.btnNext = result.findViewById(R.id.btnNext);
         this.btnGejala = result.findViewById(R.id.btnGejala);
@@ -65,4 +66,6 @@ public class FragmentTandaBahayaUmum2 extends Fragment implements View.OnClickLi
 
         }
     }
+
 }
+
