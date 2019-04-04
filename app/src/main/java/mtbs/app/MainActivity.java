@@ -1,5 +1,7 @@
 package mtbs.app;
+import mtbs.app.model.DatabaseHelper;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +15,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Initializer_Petunjuk initializer_petunjuk;
     private FragmentManager fragmentManager;
 
+    // database
+   private DatabaseHelper db;
+
 
 
     @Override
@@ -21,8 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         this.fragmentManager = this.getSupportFragmentManager();
+        Log.d("ea" , "berhasilhorray");
+        this.db = new DatabaseHelper(getApplicationContext() , this);
         initAll();
         changeToHomePage();
+
+
+//        getApplicationContext().deleteDatabase("MTBS");
     }
 
     /**
