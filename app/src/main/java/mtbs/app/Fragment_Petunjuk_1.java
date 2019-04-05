@@ -12,18 +12,18 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Petunjuk_1 extends Fragment implements View.OnClickListener {
+public class Fragment_Petunjuk_1 extends Fragment implements View.OnClickListener {
     private MainActivity activity;
 
     private Button btn_Lanjut ;
     private Button btn_Kembali;
 
-    public Petunjuk_1() {
+    public Fragment_Petunjuk_1() {
         // Required empty public constructor
     }
 
-    public static Petunjuk_1 newInstance(MainActivity activity){
-        Petunjuk_1 res = new Petunjuk_1();
+    public static Fragment_Petunjuk_1 newInstance(MainActivity activity){
+        Fragment_Petunjuk_1 res = new Fragment_Petunjuk_1();
         res.activity =activity;
         return res;
     }
@@ -46,7 +46,7 @@ public class Petunjuk_1 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId() == this.btn_Lanjut.getId()){
-
+            this.activity.changeToPetunjuk_2();
         }else if(v.getId() == this.btn_Kembali.getId()){
             this.activity.changeToHomePage();
         }

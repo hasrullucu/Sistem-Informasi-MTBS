@@ -1,5 +1,10 @@
 package mtbs.app.model;
 
+/**
+ * Kelas  Jenis Obat untuk identifikasi jenis obat seperti
+ * (Kapsul , sirup)
+ *
+ */
 public class JenisObat {
     private int idJenisObat;
     private String namaJenisObat ;
@@ -14,22 +19,42 @@ public class JenisObat {
     }
 
 
+    /**
+     *
+     * @return id jenis obat
+     */
     public int getIdJenisObat() {
         return idJenisObat;
     }
 
+    /**
+     * Setter dari id jenis obat
+     * @param idJenisObat
+     */
     public void setIdJenisObat(int idJenisObat) {
         this.idJenisObat = idJenisObat;
     }
 
+    /**
+     * Getter dari nama jenis obat
+     * @return
+     */
     public String getNamaJenisObat() {
         return namaJenisObat;
     }
 
+    /**
+     * Setter dari nama jenis
+     * @param namaJenisObat
+     */
     public void setNamaJenisObat(String namaJenisObat) {
         this.namaJenisObat = namaJenisObat;
     }
 
+    /**
+     * Getter dari dosis
+     * @return
+     */
     public int getDosis() {
         return dosis;
     }
