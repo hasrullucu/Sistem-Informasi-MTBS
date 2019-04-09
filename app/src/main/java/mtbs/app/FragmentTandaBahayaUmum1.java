@@ -15,6 +15,7 @@ import android.widget.Button;
 public class FragmentTandaBahayaUmum1 extends Fragment implements View.OnClickListener {
     protected Button btnBack, btnNext, btnGejala, btnKlas, btnTindakan;
     protected Context context;
+    protected MainActivity activity;
 
     public FragmentTandaBahayaUmum1() {
         // Required empty public constructor
@@ -22,6 +23,12 @@ public class FragmentTandaBahayaUmum1 extends Fragment implements View.OnClickLi
 
     public FragmentTandaBahayaUmum1(Context context){
         this.context = context;
+    }
+
+    public static FragmentTandaBahayaUmum1 newInstance(MainActivity activity){
+        FragmentTandaBahayaUmum1 result = new FragmentTandaBahayaUmum1();
+        result.activity = activity;
+        return result;
     }
 
     @Override

@@ -41,7 +41,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1"
+        android:layout_weight="0.05"
         android:orientation="vertical">
 
         <TextView
@@ -53,40 +53,57 @@
             android:textAlignment="center" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apakah anak menderita diare?"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.5">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Apakah balita menderita diare?"
-            android:textSize="20dp" />
-
+        android:orientation="horizontal"
+        android:layout_weight="0.05">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:text="Ya"
             android:textSize="20dp"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:text="Tidak"
-            android:textSize="20dp"
+            android:textSize="20dp"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sudah berapa lama?"
+            android:textAlignment="center"
             android:textSize="20dp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:orientation="horizontal"
+        android:textAlignment="center">
         <Button
             android:id="@+id/decrease"
             android:layout_width="wrap_content"
@@ -112,35 +129,47 @@
             android:onClick="increaseInteger"
             android:text="+" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Apakah ada darah dalam tinja?"
-            android:textSize="20dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:text="Ya"
-            android:textSize="20dp"/>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:text="Tidak"
-            android:textSize="20dp"/>
-
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.1"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:text="Apakah ada darah dalam tinja?"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:orientation="horizontal">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ya"
+            android:textSize="20dp"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tidak"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+
+        android:weightSum="1"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnBack"
@@ -153,15 +182,15 @@
         <ProgressBar
             android:id="@+id/progressBar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_weight="0.9"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.9" />
-
+            android:layout_height="match_parent" />
         <Button
             android:id="@+id/btnNext"
+            android:layout_weight="0.05"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.05"
+
             android:text=">"
             android:textColor="#FFFFFF" />
     </LinearLayout>
@@ -174,7 +203,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="© 2019 Manajemen Terpadu Balita Sakit"
+
+            android:text="Â© 2019 Manajemen Terpadu Balita Sakit"
             android:textAlignment="center"/>
     </LinearLayout>
 </LinearLayout>
