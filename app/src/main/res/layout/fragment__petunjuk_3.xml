@@ -19,8 +19,6 @@
         android:orientation="vertical"
         android:layout_weight="0.85">
         <!--textview judul mtbs-->
-
-
         <TextView
             android:id="@+id/judul"
             android:layout_width="match_parent"
@@ -41,7 +39,7 @@
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MTBS digunakan sebagai standar pelayanan bayi dan balita sakit sekaligus sebagai pedoman bagi tenaga keperawatan (bidan dan perawat) khususnya di fasilitas pelayanan kesehatan dasar."
+            android:text="Suatu manajemen untuk balita yang datang di pelayanan kesehatan, dilaksanakan secara terpadu mengenai klasifikasi, status gizi, status imun maupun penanganan dan konseling yang diberikan."
             android:textSize="20dp"
             android:textAlignment="gravity"/>
 
@@ -66,12 +64,11 @@
 
         <!--button tentang mtbs-->
         <Button
-            android:id="@+id/btn_Lanjut"
+            android:id="@+id/btn_MenuUtama"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:text="Lanjut" />
-
+            android:text="Menu "
+            android:layout_weight="0.5"/>
     </LinearLayout>
 
 

@@ -1,10 +1,8 @@
 package mtbs.app;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +12,19 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomePage extends Fragment implements View.OnClickListener {
+public class FragmentHomePage extends Fragment implements View.OnClickListener {
     private MainActivity activity;
 
     private Button btn_mulai ;
     private Button btn_petunjuk ;
 
 
-    public HomePage() {
+    public FragmentHomePage() {
         // Required empty public constructor
     }
 
-    public static HomePage newInstance(MainActivity activity){
-        HomePage res = new HomePage();
+    public static FragmentHomePage newInstance(MainActivity activity){
+        FragmentHomePage res = new FragmentHomePage();
         res.activity = activity;
         return res;
     }
@@ -46,11 +44,9 @@ public class HomePage extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Log.d("pertama" , "mantappkeun");
         if(v.getId() == this.btn_mulai.getId() ){
 
         }else if(v.getId()== this.btn_petunjuk.getId()){
-            Log.d("mantap" , "masuk");
             this.activity.changeToPetunjuk_1();
         }
     }
