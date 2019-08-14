@@ -1,0 +1,169 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--bagian judul data diri-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.3">
+        <!--textview judul mtbs-->
+        <TextView
+            android:id="@+id/isiDataAnak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Isi Data Anak"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/lato_bold"
+            />
+    </LinearLayout>
+
+    <!--bagian gambar-->
+
+
+    <!--bagian isi data diri-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.6"
+        android:weightSum="6">
+        <!--data diri-->
+
+        <!--alamat-->
+        <TextView
+            android:id="@+id/keluhanUtama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Keluhan Utama Balita"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_bold"/>
+
+        <!--isi alamat-->
+        <EditText
+            android:id="@+id/keluhanFill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:textSize="20dp"
+            android:background="#2156ab"
+            android:fontFamily="@font/lato_bold"
+            />
+
+        <!--tanggal lahir-->
+        <TextView
+            android:id="@+id/perhatian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PERHATIAN!!"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_bold"/>
+
+        <!--tanggal lahir picker-->
+        <!--<DatePicker-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scaleX="0.5"-->
+        <!--android:scaleY="0.5">-->
+        <!--</DatePicker>-->
+
+        <!--umur ke update sendiri-->
+        <TextView
+            android:id="@+id/tindakanAuto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Proses MTBS akan dilakukan sesuai prosedur untuk balita umur 2 bulan - 5 tahun"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_bold"/>
+
+
+    </LinearLayout>
+
+    <!--bagian progress bar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:weightSum="4"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Kembali"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/my_button_bg"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Lanjut"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/my_button_bg"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"/>
+    </LinearLayout>
+
+    <!--bagian footer-->
+    <LinearLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0.1">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© 2019 Manajemen Terpadu Balita Sakit"
+            android:textSize="10dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/lato_bold"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

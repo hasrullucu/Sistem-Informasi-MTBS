@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    tools:context=".view.pemeriksaan.PemeriksaanMain">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:weightSum="3"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGejala"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="gejala"
+            android:background="@drawable/my_button_bg"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:fontFamily="@font/lato_medium"
+            />
+
+        <Button
+            android:id="@+id/btnKlas"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="klasifikasi"
+            android:background="@drawable/my_button_bg"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:fontFamily="@font/lato_medium"/>
+
+        <Button
+            android:id="@+id/btnTindakan"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="tindakan"
+            android:background="@drawable/my_button_bg"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:fontFamily="@font/lato_medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/tvTBU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TANDA BAHAYA UMUM"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:layout_weight="0.1"
+            android:textStyle="bold"
+            android:fontFamily="@font/lato_medium"
+            />
+
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"
+            />
+        <CheckBox
+            android:id="@+id/checkbox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"/>
+        <CheckBox
+            android:id="@+id/checkbox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"/>
+        <CheckBox
+            android:id="@+id/checkbox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp" />
+        <CheckBox
+            android:id="@+id/checkbox5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"/>
+        <CheckBox
+            android:id="@+id/checkbox6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"/>
+        <CheckBox
+            android:id="@+id/checkbox7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"/>
+        <CheckBox
+            android:id="@+id/checkbox8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/lato_medium"
+            android:button="@drawable/checkbox_button"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+
+    <!--mantap-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.08"
+        android:weightSum="4"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Kembali"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/my_button_bg"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Lanjut"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/my_button_bg"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="© 2019 Manajemen Terpadu Balita Sakit"
+            android:textAlignment="center" />
+    </LinearLayout>
+</LinearLayout>
