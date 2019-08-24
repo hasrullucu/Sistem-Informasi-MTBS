@@ -31,7 +31,7 @@ public class Gejala {
     public static long insert_All_Row(SQLiteDatabase db){
         // gejala Tanda Bahaya umum
          insert_One_Row(db,1 , "Tidak Bisa Minum Atau Menyusu ?");
-         insert_One_Row(db , 2 ,"Memuntahkan semua makanan dan/ atau minuman");
+         insert_One_Row(db , 2 ,"Memuntahkan semua makanan dan atau minuman");
        insert_One_Row(db , 3 , "Pernah atau sedang mengalami kejang ?");
        insert_One_Row(db , 4 , "Gelisah ?");
         insert_One_Row(db , 5 , "Letargis atau Tidak Sadar ?");

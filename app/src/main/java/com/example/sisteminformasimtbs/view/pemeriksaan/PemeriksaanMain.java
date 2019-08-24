@@ -5,13 +5,31 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.Toast;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
+import com.example.sisteminformasimtbs.testing.Batuk_Test;
+import com.example.sisteminformasimtbs.testing.Klasifikasi_Test;
+import com.example.sisteminformasimtbs.testing.TandaBahayaUmum_Test;
+import com.example.sisteminformasimtbs.testing.Presenter;
+import com.example.sisteminformasimtbs.testing.TindakanResult;
+import com.example.sisteminformasimtbs.testing.Tindakan_Test;
+
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class PemeriksaanMain extends AppCompatActivity {
 
+    public Presenter presenter ;
+
+    // test fragment
+    private TandaBahayaUmum_Test tandaBahayaUmum_test;
+    private Batuk_Test batuk_test;
+
+
+    // LinkedList Of TindakanFragment
+    private LinkedList<Tindakan_Test> collectionOfTindakanFragment ;
 
     //kelas inisialisasi fragment datadiri
     private Initializer_DataDiri initializer_dataDiri;
@@ -49,8 +67,63 @@ public class PemeriksaanMain extends AppCompatActivity {
         setContentView(R.layout.activity_pemeriksaan_main);
         this.db = new DatabaseHelper(getApplicationContext(), this);
         initAll();
-        changeToDataDiri_1();
+
+
+        this.presenter = new Presenter();
+        // test
+        this.tandaBahayaUmum_test  = TandaBahayaUmum_Test.newInstance(this);
+        this.batuk_test = Batuk_Test.newInstance(this);
+
+        this.collectionOfTindakanFragment = new LinkedList<>();
+//        changeToDataDiri_1();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragContainer, this.tandaBahayaUmum_test );
+        fragmentTransaction.commit();
     }
+
+    public void changeToBatukTest(){
+        changeFragment(this.batuk_test);
+    }
+
+    public void changeToTandaBahayaUmumTest(){
+        changeFragment(this.tandaBahayaUmum_test);
+    }
+
+    public void changeToKlasifikasiTest(HashMap<String , Integer> collectionOfClassificationResult){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.remove(Klasifikasi_Test.newInstance(this , collectionOfClassificationResult)).commit();
+
+        FragmentTransaction fr2 = getSupportFragmentManager().beginTransaction();
+        fr2.replace(R.id.fragContainer, Klasifikasi_Test.newInstance(this , collectionOfClassificationResult));
+        fr2.commit();
+    }
+
+    public void changeToTindakanTest(){
+        this.collectionOfTindakanFragment.clear();
+        LinkedList<LinkedList<TindakanResult>> collectionOfLinkedListTindakan = this.presenter.getAllTindakan();
+        if(collectionOfLinkedListTindakan.size() !=0 ){
+            for(int i = 0 ; i  < collectionOfLinkedListTindakan.size() ; i++){
+                LinkedList<TindakanResult> listOfTindakan = collectionOfLinkedListTindakan.get(i);
+                // initialize the fragment
+                Tindakan_Test now = Tindakan_Test.newInstance(this , listOfTindakan , i);
+                this.collectionOfTindakanFragment.add(now);
+            }
+            changeFragment(this.collectionOfTindakanFragment.get(0));
+        }else{
+            Toast.makeText(getBaseContext() , "belum ada tindakan" , Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void changeToPreviousOrNextTindakan(int index){
+        Tindakan_Test now = this.collectionOfTindakanFragment.get(index);
+        changeFragment(now);
+    }
+
+    public int getCollectionFragmentTindakanSize(){
+        return this.collectionOfTindakanFragment.size();
+    }
+
+
 
     /**
      * @param

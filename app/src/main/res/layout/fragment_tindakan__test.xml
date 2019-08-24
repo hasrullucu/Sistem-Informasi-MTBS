@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".testing.Tindakan_Test">
+
+    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/back_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/tindakanRecyclerView"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        tools:listitem="@layout/list_tindakan_test"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/nextTindakan"
+    android:text="next"
+    />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/previousTindakan"
+            android:text="previous"
+            />
+</LinearLayout>
