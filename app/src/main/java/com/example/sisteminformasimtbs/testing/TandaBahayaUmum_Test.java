@@ -22,6 +22,7 @@ import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +38,14 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
     private Checkbox_Model cb_3;
     private CheckBox checkBox_4 ;
     private Checkbox_Model cb_4;
+    private CheckBox checkBox_5;
+    private Checkbox_Model cb_5;
+    private CheckBox checkBox_6 ;
+    private Checkbox_Model cb_6;
+    private CheckBox checkBox_7;
+     private Checkbox_Model cb_7 ;
+     private CheckBox checkBox_8;
+     private Checkbox_Model cb_8;
 
 
     // header button
@@ -48,7 +57,9 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
     private Button btn_Kembali ;
     private Button btn_Selanjutnya ;
 
+    private HashMap<String, Integer> collectionOfGejalaFromDatabase ;
 
+    public static final int ID_TOPIK = 1 ;
 
 
     public TandaBahayaUmum_Test() {
@@ -58,6 +69,7 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
     public static TandaBahayaUmum_Test newInstance(PemeriksaanMain activity){
         TandaBahayaUmum_Test result = new TandaBahayaUmum_Test();
         result.activity = activity;
+        result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(result.ID_TOPIK);
         return result;
     }
 
@@ -87,17 +99,69 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         this.checkBox_2 = res.findViewById(R.id.cb_2) ;
         this.checkBox_3 = res.findViewById(R.id.cb_3);
         this.checkBox_4 = res.findViewById(R.id.cb_4);
+        this.checkBox_5 =res.findViewById(R.id.cb_5) ;
+        this.checkBox_6 = res.findViewById(R.id.cb_6) ;
+        this.checkBox_7 = res.findViewById(R.id.cb_7);
+        this.checkBox_8 = res.findViewById(R.id.cb_8) ;
 
         // set text cb 1 cb 2 cb 3
 
-        this.cb_1 = new Checkbox_Model("Tidak bisa minum atau menyusu" , 1);
-        this.cb_2 = new Checkbox_Model("Memuntahkan semua makanan dan atau minuman" , 2);
-//         cb _3
-//        cb_4
+        int i = 0 ;
+        for(Map.Entry<String, Integer> item : this.collectionOfGejalaFromDatabase.entrySet()){
+            switch (i){
+            case 0 :
+                this.cb_1 = new Checkbox_Model(item.getKey() , item.getValue());
+                this.checkBox_1.setText(this.cb_1.getText_Checkbox());
+                break;
+                case 1 :
+                    this.cb_2 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_2.setText(this.cb_2.getText_Checkbox());
+
+                    break ;
+                case 2 :
+
+                    this.cb_3 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_3.setText(this.cb_3.getText_Checkbox());
+
+                    break;
+
+                case 3:
+                    this.cb_4 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_4.setText(this.cb_4.getText_Checkbox());
+                    break;
+
+                case 4 :
+                    this.cb_5 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_5.setText(this.cb_5.getText_Checkbox());
+
+                    break ;
+                case 5 :
+                    this.cb_6 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_6.setText(this.cb_6.getText_Checkbox());
+
+                    break;
+                case 6 :
+                    this.cb_7 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_7.setText(this.cb_7.getText_Checkbox());
+
+                    break ;
+                case 7 :
+                    this.cb_8 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_8.setText(this.cb_8.getText_Checkbox());
+
+                    break;
+
+            }
+            i++;
+        }
         this.checkBox_1.setOnClickListener(this);
         this.checkBox_2.setOnClickListener(this);
         this.checkBox_4.setOnClickListener(this);
         this.checkBox_3.setOnClickListener(this);
+        this.checkBox_5.setOnClickListener(this);
+        this.checkBox_6.setOnClickListener(this);
+        this.checkBox_7.setOnClickListener(this);
+        this.checkBox_8.setOnClickListener(this);
         return res;
     }
 
@@ -106,16 +170,21 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if(this.checkBox_1.getId() == view.getId()){
-            Toast.makeText(getContext() , "cb1 ", Toast.LENGTH_SHORT).show();
             toggle(cb_1 , checkBox_1);
-
         }else if(this.checkBox_2.getId() == view.getId()){
             toggle(cb_2 , checkBox_2);
-            Toast.makeText(getContext(), "cb2" , Toast.LENGTH_SHORT).show();
         }else if(this.checkBox_3.getId() == view.getId()){
-//
+            toggle(cb_3, checkBox_3);
         }else if(this.checkBox_4.getId() == view.getId()){
-//
+            toggle(cb_4 , checkBox_4);
+        }else if(this.checkBox_5.getId() == view.getId()){
+            toggle(cb_5, checkBox_5);
+        }else if(this.checkBox_6.getId() == view.getId()){
+            toggle(cb_6 , checkBox_6) ;
+        }else if(this.checkBox_7.getId() == view.getId()){
+            toggle(cb_7 , checkBox_7);
+        }else if(this.checkBox_8.getId() == view.getId()){
+            toggle(cb_8 , checkBox_8);
         }
         else if(this.btn_Kembali == view){
             this.activity.changeToDataDiri_4();
@@ -144,5 +213,4 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         }
     }
 
-//    method to get all id's and gejala from the database
 }

@@ -2,6 +2,7 @@ package com.example.sisteminformasimtbs.database;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -18,7 +19,12 @@ import com.example.sisteminformasimtbs.model.relation.GejalaMemilikiKlasifikasi;
 import com.example.sisteminformasimtbs.model.relation.KlasifikasiMemilikiTindakan;
 import com.example.sisteminformasimtbs.model.relation.ObatMemilikiBentukObat;
 import com.example.sisteminformasimtbs.model.relation.TindakanMemilikiBentukObat;
+import com.example.sisteminformasimtbs.testing.TindakanResult;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper{
@@ -252,5 +258,46 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         KlasifikasiMemilikiTindakan.insert_All_Row(db);
     }
 
+    public HashMap<String , Integer> getGejalaByIdTopik (int idTopik)
+    {
+        String query = "SELECT Gejala.idGejala, namaGejala FROM Gejala " +
+                "INNER JOIN GejalaMemilikiKlasifikasi ON Gejala.idGejala = GejalaMemilikiKlasifikasi.idGejala " +
+                "INNER JOIN Klasifikasi ON GejalaMemilikiKlasifikasi.idKlasifikasi = Klasifikasi.idKlasifikasi " +
+                "WHERE idTopik = " + idTopik;
 
+        Cursor c = this.getReadableDatabase().rawQuery(query, null);
+
+        HashMap<String, Integer> hashMapGejala = new HashMap<>();
+
+        while(c.moveToNext())
+        {
+            Integer idGejala = c.getInt(c.getColumnIndex("idGejala"));
+            String namaGejala = c.getString(c.getColumnIndex("namaGejala"));
+
+            hashMapGejala.put(namaGejala, idGejala);
+        }
+
+        return hashMapGejala ;
+    }
+
+    public LinkedList<TindakanResult> getTindakanByIdKlasifikasi(int idKlasifikasi){
+        String query = "SELECT Tindakan.idTindakan, namaTindakan FROM Tindakan\n" +
+                " INNER JOIN KlasifikasiMemilikiTindakan ON Tindakan.idTindakan = KlasifikasiMemilikiTindakan.idTindakan\n" +
+                " WHERE idKlasifikasi = " + idKlasifikasi;
+
+
+        Cursor c = this.getReadableDatabase().rawQuery(query, null);
+
+        LinkedList<TindakanResult> listTindakan = new LinkedList<>();
+
+        while(c.moveToNext())
+        {
+            Integer idTindakan = c.getInt(c.getColumnIndex("idTindakan"));
+            String namaTindakan = c.getString(c.getColumnIndex("namaTindakan"));
+            TindakanResult tindakanResult = new TindakanResult(idTindakan , namaTindakan);
+            listTindakan.add(tindakanResult);
+        }
+
+        return listTindakan;
+    }
 }

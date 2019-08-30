@@ -64,8 +64,7 @@ public class PemeriksaanMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pemeriksaan_main);
-        this.db = new DatabaseHelper(getApplicationContext(), this);
-        this.presenter = new Presenter();
+        this.presenter = new Presenter(this);
         initAll();
         // test
 
@@ -237,7 +236,7 @@ public class PemeriksaanMain extends AppCompatActivity {
             // inisalisasi data diri
             this.initializer_dataDiri = new Initializer_DataDiri(this);
             // inisialisasi  semua fragment yang dibutuhkan untuk pemeriksaan 2 bulan - 5 tahun
-            this.initializer_tandaBahayaUmum = new Initializer_TandaBahayaUmum(this, this.db.getReadableDatabase());
+            this.initializer_tandaBahayaUmum = new Initializer_TandaBahayaUmum(this);
             this.initializer_batuk = new Initializer_Batuk(this);
             this.initializer_diare = new Initializer_Diare(this);
             this.initializer_demam = new Initializer_Demam(this);

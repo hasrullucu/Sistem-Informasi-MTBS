@@ -14,9 +14,9 @@ public class TopikPenyakit  {
 
 
     //COLUMN NAME TABLE - PENYAKIT
-    private static final String COL_IDTOPIKPENYAKIT = "idTopikPenyakit";
-    private static final String COL_NAMATOPIKPENYAKIT = "namaTopikPenyakit";
-    private static final String COL_TIPEPENYAKIT = "tipePenyakit";
+    private static final String COL_IDTOPIKPENYAKIT = "idTopik";
+    private static final String COL_NAMATOPIKPENYAKIT = "namaTopik";
+    private static final String COL_TIPEPENYAKIT = "tipeTopik";
 
     //  CREATE TABLE-PENYAKIT
     public static final String CREATE_PENYAKIT = "create table "+ TABLE_TOPIKPENYAKIT

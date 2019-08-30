@@ -10,8 +10,8 @@ public class TandaBahayaUmum_Classifier extends Classifier{
     private int id_klasifikasi_1 = 1 ;
 
 
-    public TandaBahayaUmum_Classifier() {
-        this.collectionOfGejalaInDatabase = new HashMap<String ,Integer>();
+    public TandaBahayaUmum_Classifier(HashMap<String ,Integer> fromDatabase) {
+        this.collectionOfGejalaInDatabase = fromDatabase;
         setAllGejalaInDatabase();
     }
 

@@ -12,13 +12,13 @@ public class KlasifikasiPenyakit {
    private int idTopikPenyakit ;
 
    // NAMA TABEL
-   public static final String TABLE_KLASIFIKASIPENYAKIT = "KlasifikasiPenyakit";
+   public static final String TABLE_KLASIFIKASIPENYAKIT = "Klasifikasi";
 
     //COLUMN NAME TABLE - KLASIFIKASI
     public static final String COL_IDKLASIFIKASIPENYAKIT = "idKlasifikasi";
     public static final String COL_NAMAKLASIFIKASI =  "namaKlasifikasi";
     public static final String COL_SYARATMINIMAL = "syaratMinimal";
-    public static final String COL_IDTOPIKPENYAKIT = "idTopikPenyakit";
+    public static final String COL_IDTOPIKPENYAKIT = "idTopik";
 
     public static final String CREATE_KLASIFIKASI = " create table "+ TABLE_KLASIFIKASIPENYAKIT
             +" ("
@@ -26,7 +26,7 @@ public class KlasifikasiPenyakit {
             +  COL_NAMAKLASIFIKASI+"  varchar(255),"
             +  COL_SYARATMINIMAL+ " int,"
             +  COL_IDTOPIKPENYAKIT+ " int,"
-            +     "  foreign key (idTopikPenyakit) references TopikPenyakit (idTopikPenyakit)"
+            +     "  foreign key (idTopik) references TopikPenyakit (idTopik)"
             +  ");" ;
 
     public int getIdKlasifikasi() {

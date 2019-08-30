@@ -1,8 +1,12 @@
 package com.example.sisteminformasimtbs.testing;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.sisteminformasimtbs.database.DatabaseHelper;
+import com.example.sisteminformasimtbs.model.Pemeriksaan;
 import com.example.sisteminformasimtbs.model.dataclass.Tindakan;
+import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Presenter {
+    private PemeriksaanMain activity ;
     // collection of gejala from the patients
     // String namaGejala and integer id gejala
     private HashMap<String , Integer> collectionOfGejala ;
@@ -17,11 +22,16 @@ public class Presenter {
   //  create a collection of classifier
      private List<Classifier> listOfClassifier;
 
+     private DatabaseHelper db ;
 
-    public Presenter(){
+    public Presenter(PemeriksaanMain activity ){
+        Log.d("debug", "masuk prsenter");
+        this.activity = activity;
         this.collectionOfGejala = new HashMap<String ,Integer>();
         this.listOfClassifier = new LinkedList<>();
+        this.db = new DatabaseHelper(activity.getApplicationContext(), activity);
         addAllClassifier();
+
     }
 
     public void addGejala(String gejala , int id){
@@ -32,6 +42,13 @@ public class Presenter {
     public void removeGejala(String gejala){
         this.collectionOfGejala.remove(gejala);
         printToLog();
+    }
+
+    public HashMap<String, Integer> getGejalaByIdTopik(int idTopik)
+    {
+        HashMap<String , Integer > res = this.db.getGejalaByIdTopik(1);
+        return res ;
+
     }
 
     private String printListOfGejala(){
@@ -67,7 +84,7 @@ public class Presenter {
      * classifier model like tanda bahaya umum , batuk dll
      */
     private void addAllClassifier(){
-        this.listOfClassifier.add(new TandaBahayaUmum_Classifier());
+        this.listOfClassifier.add(new TandaBahayaUmum_Classifier(this.db.getGejalaByIdTopik(TandaBahayaUmum_Test.ID_TOPIK)));
         this.listOfClassifier.add(new Batuk_Classifier());
     }
 
@@ -81,24 +98,11 @@ public class Presenter {
         // insert the linkedlist ot the collecctionof linked list tindakan
 
         // add dummy data for testing
-        LinkedList<TindakanResult> tindakanClassification_1 = new LinkedList<TindakanResult>();
-        tindakanClassification_1.add(new TindakanResult(1, "Bila sedang kejang beri diazepam"));
-        tindakanClassification_1.add(new TindakanResult(2, "Bila ada stridor pastikan tidak ada sumbatan jalan napas"));
-        tindakanClassification_1.add(new TindakanResult(3, "Bila ada stridor, sianosis dan ujung tangan dan kaki pucat dan dingin berikan oksigen 3-5 liter/menit melalui nasal prong dengan perangkat oksigen standar (tabung O dan 2 humidifier) Cegah agar gula"));
-        tindakanClassification_1.add(new TindakanResult(4 , "Bila sedang kejang beri diazepam"));
-        tindakanClassification_1.add(new TindakanResult(5, "Jaga anak tetap hangat"));
-        tindakanClassification_1.add(new TindakanResult(7, "RUJUK SEGERA"));
-        collectionOfLinkedListTindakan.add(tindakanClassification_1);
-
-        LinkedList<TindakanResult> tindakanClassification_2 = new LinkedList<TindakanResult>();
-        tindakanClassification_2.add(new TindakanResult(8, "Beri Oksigen maksimal 2-3 liter/menit dengan menggunakan nasal prong"));
-        tindakanClassification_2.add(new TindakanResult(9 , "Beri dosis pertama antibiotik yang sesuai"));
-        collectionOfLinkedListTindakan.add(tindakanClassification_2);
-
-
+        for(Map.Entry<String, Integer> itemKlasifikasi : collectionOfClassification.entrySet()){
+            LinkedList<TindakanResult> linkedList = db.getTindakanByIdKlasifikasi(itemKlasifikasi.getValue());
+            collectionOfLinkedListTindakan.add(linkedList);
+        }
         return collectionOfLinkedListTindakan ;
-
-
     }
 
 
