@@ -83,7 +83,7 @@
         android:weightSum="1">
         <!--button mulai pemeriksaan-->
         <Button
-            android:id="@+id/btn_Kembali"
+            android:id="@+id/btn_Selanjutnya"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Kembali"

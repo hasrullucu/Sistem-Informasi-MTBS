@@ -1,169 +1,71 @@
 <?xml version = "1.0" encoding = "utf-8" ?>
-
-
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:weightSum="1"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/greenBackground"
+    tools:context=".view.pemeriksaan.PemeriksaanMain">
+    <include layout="@layout/btn_kembali_layout" android:id="@+id/btn_Kembali"></include>
 
-    <!--bagian judul data diri-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.3">
-        <!--textview judul mtbs-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="181dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="139dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="320dp"
+        android:background="@color/mustardColor"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:id="@+id/isiDataAnak"
-            android:layout_width="match_parent"
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Isi Data Anak"
-            android:textSize="40dp"
-            android:textAlignment="center"
-            android:fontFamily="@font/lato_bold"
-            />
-    </LinearLayout>
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
 
-    <!--bagian gambar-->
+            android:layout_marginRight="8dp"
 
+            android:fontFamily="@font/montserratbold"
+            android:text="PERHATIAN"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!--bagian isi data diri-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.6"
-        android:weightSum="6">
-        <!--data diri-->
-
-        <!--alamat-->
-        <TextView
-            android:id="@+id/keluhanUtama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Keluhan Utama Balita"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/lato_bold"/>
-
-        <!--isi alamat-->
-        <EditText
-            android:id="@+id/keluhanFill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:textColor="#FFF"
-            android:textSize="20dp"
-            android:background="#2156ab"
-            android:fontFamily="@font/lato_bold"
-            />
-
-        <!--tanggal lahir-->
-        <TextView
-            android:id="@+id/perhatian"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PERHATIAN!!"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/lato_bold"/>
-
-        <!--tanggal lahir picker-->
-        <!--<DatePicker-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:scaleX="0.5"-->
-        <!--android:scaleY="0.5">-->
-        <!--</DatePicker>-->
-
-        <!--umur ke update sendiri-->
         <TextView
             android:id="@+id/tindakanAuto"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Proses MTBS akan dilakukan sesuai prosedur untuk balita umur 2 bulan - 5 tahun"
-            android:textSize="20dp"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/lato_bold"/>
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="35dp"
+            android:text="Proses MTBS akan dilakukan \n sesuai prosedur untuk \n balita umur 2 bulan - 5 Tahun"
+            android:textColor="@color/white"
+            app:fontFamily="@font/montserratbold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+    <include layout="@layout/btn_selanjutnya_layout" android:id="@+id/btn_Selanjutnya">
 
-    <!--bagian progress bar-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:weightSum="4"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Kembali"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/my_button_bg"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"/>
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Lanjut"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/my_button_bg"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"/>
-    </LinearLayout>
+    </include>
 
-    <!--bagian footer-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="0.1">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="© 2019 Manajemen Terpadu Balita Sakit"
-            android:textSize="10dp"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:fontFamily="@font/lato_bold"/>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

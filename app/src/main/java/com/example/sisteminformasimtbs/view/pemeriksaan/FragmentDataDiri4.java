@@ -2,11 +2,10 @@ package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -14,10 +13,8 @@ import androidx.fragment.app.Fragment;
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.DateLogic;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 
@@ -26,8 +23,11 @@ import java.util.Locale;
  */
 public class FragmentDataDiri4 extends Fragment implements View.OnClickListener{
     protected PemeriksaanMain activity;
-    protected Button btnBack, btnNext;
+
     protected TextView tindakanAuto;
+
+    private LinearLayout btn_Kembali ;
+    private LinearLayout btn_Selanjutnya ;
 
     private SimpleDateFormat dateFormatter ;
     private DateLogic dateLogic;
@@ -46,8 +46,9 @@ public class FragmentDataDiri4 extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View res = inflater.inflate(R.layout.datadiri_4, container, false);
-        this.btnBack = res.findViewById(R.id.btnBack);
-        this.btnNext = res.findViewById(R.id.btnNext);
+        this.btn_Kembali  =res.findViewById(R.id.btn_Kembali) ;
+        this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
+
         this.tindakanAuto = res.findViewById(R.id.tindakanAuto);
 
         this.dateFormatter = new SimpleDateFormat("dd MMM yyyy", Locale.US);
@@ -79,27 +80,20 @@ public class FragmentDataDiri4 extends Fragment implements View.OnClickListener{
         DateLogic dateLogic = new DateLogic();
         boolean resultUmur = dateLogic.checkDiAtas2BulanPemeriksaan(year, month);
 
-        if (resultUmur == true)
-        {
-            this.tindakanAuto.setText("Proses MTBS akan dilakukan sesuai prosedur untuk balita umur 2 bulan - 5 tahun");
-        }
-        else
-        {
-            this.tindakanAuto.setText("Proses MTBS akan dilakukan sesuai prosedur untuk balita berumur dibawah 2 bulan");
-        }
+//       this.tindakanAuto.setText(dateLogic.getStatus(resultUmur));
 
-        this.btnBack.setOnClickListener(this);
-        this.btnNext.setOnClickListener(this);
+       this.btn_Selanjutnya.setOnClickListener(this);
+       this.btn_Kembali.setOnClickListener(this);
         return res;
     }
 
     @Override
     public void onClick(View view) {
-        if(view==btnBack){
-            this.activity.changeToDataDiri_3();
+        if(view==btn_Kembali){
+            this.activity.changeToDataDiri_2();
         }
-        else if(view==btnNext){
-            this.activity.changeToTandaBahayaUmum1();
+        else if(view==btn_Selanjutnya){
+            this.activity.changeToTandaBahayaUmum();
         }
     }
 }

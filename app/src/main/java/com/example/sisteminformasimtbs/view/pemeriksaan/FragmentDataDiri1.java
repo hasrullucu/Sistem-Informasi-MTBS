@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.model.Pemeriksaan;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -25,9 +23,11 @@ import java.util.Locale;
  */
 public class FragmentDataDiri1 extends Fragment implements View.OnClickListener{
     protected PemeriksaanMain activity;
-    protected Button btnBack, btnNext;
     protected TextView tanggalPemeriksaanAuto;
     private SimpleDateFormat dateFormatter;
+
+    private LinearLayout btn_Kembali ;
+    private LinearLayout btn_Selanjutnya;
 
     public FragmentDataDiri1() {
         // Required empty public constructor
@@ -43,27 +43,28 @@ public class FragmentDataDiri1 extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View res = inflater.inflate(R.layout.datadiri_1, container, false);
-        this.btnBack = res.findViewById(R.id.btnBack);
-        this.btnNext = res.findViewById(R.id.btnNext);
-        this.tanggalPemeriksaanAuto = res.findViewById(R.id.tanggalPemeriksaanAuto);
 
-        this.btnBack.setOnClickListener(this);
-        this.btnNext.setOnClickListener(this);
+        this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
+        this.btn_Selanjutnya.setOnClickListener(this);
+
+        this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
+        this.btn_Kembali.setOnClickListener(this);
+
 
         Calendar nowDate = Calendar.getInstance();
 
         this.dateFormatter = new SimpleDateFormat("dd MMM yyyy", Locale.US);
-        this.tanggalPemeriksaanAuto.setText(dateFormatter.format(nowDate.getTime()));
+//        this.tanggalPemeriksaanAuto.setText(dateFormatter.format(nowDate.getTime()));
 
         return res;
     }
 
     @Override
     public void onClick(View view){
-        if(view==btnBack){
+        if(view.getId()==btn_Kembali.getId()){
             activity.finish();
         }
-        else if(view==btnNext){
+        else if(view.getId()==btn_Selanjutnya.getId()){
             this.activity.changeToDataDiri_2();
         }
     }

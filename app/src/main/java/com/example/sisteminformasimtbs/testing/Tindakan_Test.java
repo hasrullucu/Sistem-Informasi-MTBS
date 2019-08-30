@@ -79,7 +79,7 @@ public class Tindakan_Test extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if(this.back_Btn.getId() == view.getId()){
             // call activity to back to the current gejala
-            activity.changeToTandaBahayaUmumTest();
+            activity.changeToTandaBahayaUmum();
         }else if(this.nextTindakan.getId() == view.getId()){
             if(INDEX_TINDAKAN_FRAGMENT < activity.getCollectionFragmentTindakanSize()){
                 activity.changeToPreviousOrNextTindakan(INDEX_TINDAKAN_FRAGMENT+1);

@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.sisteminformasimtbs.R;
@@ -30,15 +33,20 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
     private Checkbox_Model cb_1;
     private CheckBox checkBox_2;
     private Checkbox_Model cb_2;
+    private CheckBox checkBox_3;
+    private Checkbox_Model cb_3;
+    private CheckBox checkBox_4 ;
+    private Checkbox_Model cb_4;
 
-    // classify button
-    private Button button ;
 
-    // next fragment button
-    private Button nextBtn;
+    // header button
+    private ConstraintLayout btn_Gejala ;
+    private ConstraintLayout btn_Klasifikasi ;
+    private ConstraintLayout btn_Tindakan ;
 
-    // tindakan Button
-    private Button tindakan_Btn ;
+   // footer
+    private Button btn_Kembali ;
+    private Button btn_Selanjutnya ;
 
 
 
@@ -64,24 +72,32 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         // Inflate the layout for this fragment
         View res = inflater.inflate(R.layout.fragment_tandabahayaumum_test, container, false);
 
+        this.btn_Gejala = res.findViewById(R.id.btn_Gejala) ;
+        this.btn_Gejala.setOnClickListener(this);
+        this.btn_Gejala.setBackground(ContextCompat.getDrawable(getContext(), R.color.mustardColor));
+
+        this.btn_Klasifikasi = res.findViewById(R.id.btn_Klasifikasi);
+        this.btn_Klasifikasi.setOnClickListener(this);
+
+        this.btn_Tindakan = res.findViewById(R.id.btn_Tindakan);
+        this.btn_Tindakan.setOnClickListener(this);
 
 
         this.checkBox_1 = res.findViewById(R.id.cb_1) ;
         this.checkBox_2 = res.findViewById(R.id.cb_2) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_3);
+        this.checkBox_4 = res.findViewById(R.id.cb_4);
 
-        this.button = res.findViewById(R.id.button);
-        this.button.setOnClickListener(this);
 
-        this.nextBtn = res.findViewById(R.id.nextBtn);
-        this.nextBtn.setOnClickListener(this);
-
-        this.tindakan_Btn = res.findViewById(R.id.tindakan_Btn) ;
-        this.tindakan_Btn.setOnClickListener(this);
 
         this.cb_1 = new Checkbox_Model("Tidak bisa minum atau menyusu" , 1);
         this.cb_2 = new Checkbox_Model("Memuntahkan semua makanan dan atau minuman" , 2);
+//         cb _3
+//        cb_4
         this.checkBox_1.setOnClickListener(this);
         this.checkBox_2.setOnClickListener(this);
+        this.checkBox_4.setOnClickListener(this);
+        this.checkBox_3.setOnClickListener(this);
         return res;
     }
 
@@ -96,14 +112,20 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         }else if(this.checkBox_2.getId() == view.getId()){
             toggle(cb_2 , checkBox_2);
             Toast.makeText(getContext(), "cb2" , Toast.LENGTH_SHORT).show();
-        }else if(this.button.getId()== view.getId() ){
-            HashMap<String , Integer> res = this.activity.presenter.classifyAll();
-            Toast.makeText(getContext(), "size : " + res.size() , Toast.LENGTH_SHORT).show();
-            this.activity.changeToKlasifikasiTest(res);
-        }else if(this.nextBtn.getId() == view.getId()){
-            this.activity.changeToBatukTest();
-        }else if(this.tindakan_Btn.getId() == view.getId()){
-            this.activity.changeToTindakanTest();
+        }else if(this.checkBox_3.getId() == view.getId()){
+//
+        }else if(this.checkBox_4.getId() == view.getId()){
+//
+        }
+        else if(this.btn_Kembali == view){
+            this.activity.changeToDataDiri_4();
+        }else if(this.btn_Selanjutnya == view){
+        }else if(btn_Tindakan == view){
+
+        }else if(this.btn_Gejala == view){
+        }else if(this.btn_Klasifikasi == view){
+            HashMap<String , Integer> collectionOfClassification = activity.presenter.classifyAll();
+            activity.changeToKlasifikasiTest(collectionOfClassification);
         }
     }
 

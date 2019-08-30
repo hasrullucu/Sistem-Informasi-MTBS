@@ -23,9 +23,8 @@ public class PemeriksaanMain extends AppCompatActivity {
 
     public Presenter presenter ;
 
-    // test fragment
-    private TandaBahayaUmum_Test tandaBahayaUmum_test;
-    private Batuk_Test batuk_test;
+
+    private Fragment lastGejala ;
 
 
     // LinkedList Of TindakanFragment
@@ -66,27 +65,24 @@ public class PemeriksaanMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pemeriksaan_main);
         this.db = new DatabaseHelper(getApplicationContext(), this);
-        initAll();
-
-
         this.presenter = new Presenter();
+        initAll();
         // test
-        this.tandaBahayaUmum_test  = TandaBahayaUmum_Test.newInstance(this);
-        this.batuk_test = Batuk_Test.newInstance(this);
 
         this.collectionOfTindakanFragment = new LinkedList<>();
-//        changeToDataDiri_1();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragContainer, this.tandaBahayaUmum_test );
-        fragmentTransaction.commit();
+        changeToDataDiri_1();
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.fragContainer, this.tandaBahayaUmum_test );
+//        fragmentTransaction.commit();
     }
 
-    public void changeToBatukTest(){
-        changeFragment(this.batuk_test);
-    }
+//    public void changeToBatukTest(){
+//        changeFragment(this.batuk_test);
+//    }
 
-    public void changeToTandaBahayaUmumTest(){
-        changeFragment(this.tandaBahayaUmum_test);
+    public void changeToTandaBahayaUmum(){
+        TandaBahayaUmum_Test fragment = this.initializer_tandaBahayaUmum.getTandaBahayaUmumFragment();
+        changeFragment(fragment);
     }
 
     public void changeToKlasifikasiTest(HashMap<String , Integer> collectionOfClassificationResult){
@@ -123,12 +119,15 @@ public class PemeriksaanMain extends AppCompatActivity {
         return this.collectionOfTindakanFragment.size();
     }
 
-
+    public void changeToLastGejala(){
+        changeFragment(this.lastGejala);
+    }
 
     /**
      * @param
      */
     private void changeFragment(Fragment now) {
+        this.lastGejala = now ;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragContainer, now);
         fragmentTransaction.commit();
@@ -155,10 +154,7 @@ public class PemeriksaanMain extends AppCompatActivity {
         changeFragment(now);
     }
 
-    public void changeToTandaBahayaUmum1() {
-        FragmentTandaBahayaUmum1 now = this.initializer_tandaBahayaUmum.getTandaBahayaUmum1();
-        changeFragment(now);
-    }
+
 
     public void changeToBatuk1() {
         FragmentBatuk1 now = this.initializer_batuk.getBatuk1();

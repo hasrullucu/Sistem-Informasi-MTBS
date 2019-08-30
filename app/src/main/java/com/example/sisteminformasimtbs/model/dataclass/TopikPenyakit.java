@@ -65,15 +65,12 @@ public class TopikPenyakit  {
         res.put(COL_TIPEPENYAKIT, tipePenyakit);
 
         long ret = db.insert(TABLE_TOPIKPENYAKIT , null , res);
-        Log.d("insert_query_topil" , ret+"");
+        Log.d("insert_query_topik" , ret+"");
         return ret;
     }
 
     public static void insert_All_Row(SQLiteDatabase db){
         insert_One_Row(db , 1 , "Tanad Bahaya Umum", 1);
-
-
-
     }
 
 

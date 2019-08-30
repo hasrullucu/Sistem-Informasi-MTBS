@@ -85,7 +85,7 @@ public class Batuk_Test extends Fragment implements View.OnClickListener{
             toggle(this.nafascepat_Model , this.nafascepat_CheckBox);
 
         }else if(this.backBtn.getId() == view.getId()){
-            this.activity.changeToTandaBahayaUmumTest();
+            this.activity.changeToTandaBahayaUmum();
         }else if(this.classify.getId() == view.getId()){
             Toast.makeText(getContext() ,"jumlah klasifikasi : " +  activity.presenter.classifyAll().size() ,Toast.LENGTH_SHORT ).show();
         }

@@ -83,7 +83,7 @@ public class FragmentBatuk1 extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if (v == this.btnBack)
         {
-            this.activity.changeToTandaBahayaUmum1();
+            this.activity.changeToTandaBahayaUmum();
         }
         else if (v == btnNext)
         {

@@ -1,96 +1,202 @@
 <?xml version = "1.0" encoding = "utf-8" ?>
-
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:weightSum="1"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
     tools:context=".view.mainmenu.MainMenu_Activity">
 
-    <!--bagian judul-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.85"
-        android:weightSum="3">
+        android:layout_height="360dp"
+        android:background="@color/greenBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="255dp"
+            android:layout_height="176dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserratbold"
+            android:gravity="top"
+            android:lineHeight="44sp"
+            android:shadowColor="@color/shadowColor"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="MANAJEMEN \nTERPADU \nBALITA \nSAKIT"
+            android:textColor="@color/greyBackground"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--bagian tombol-->
 
-        </LinearLayout>
+    <!--button mulai pemeriksaan mantap-->
+    <LinearLayout
+        android:id="@+id/btn_mulai"
+        android:layout_width="239dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="406dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="181dp"
+        android:background="@color/mustardColor"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:viewportWidth="239"
+        android:viewportHeight="53"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8">
 
             <TextView
-                android:id="@+id/judul"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manajemen Terpadu \n Balita Sakit"
-                android:textSize="40dp"
-                android:textAlignment="center"
-                android:fontFamily="@font/lato_bold"
-                android:layout_marginTop="20dp"
-                />
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserratbold"
+                android:text="MULAI PEMERIKSAAN"
+                android:textColor="@color/greyBackground"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@color/mustardBackground">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+    <LinearLayout
+    android:id="@+id/btn_petunjuk"
+    android:layout_width="239dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="551dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="181dp"
+        android:background="@color/mustardColor"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:viewportWidth="239"
+        android:viewportHeight="53"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserratbold"
+                android:text="@string/tentang_mtbs"
+                android:textColor="@color/greyBackground"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@color/mustardBackground">
+
+
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
 
     <!--bagian tombol-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="0.15"
-        android:weightSum="1">
-        <!--button mulai pemeriksaan mantap-->
-        <Button
-            android:id="@+id/btn_mulai"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Mulai \n Pemeriksaan"
-            android:layout_weight="0.5"
-            android:background="@drawable/my_button_bg"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:fontFamily="@font/lato_medium"/>
 
-        <!--button tentang mtbs-->
-        <Button
-            android:id="@+id/btn_petunjuk"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:text="Petunjuk \n Penggunaan"
-            android:background="@drawable/my_button_bg"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:fontFamily="@font/lato_medium"
-            />
+    <!--button mulai pemeriksaan mantap-->
 
-    </LinearLayout>
 
-</LinearLayout>
+
+    <!--<LinearLayout-->
+
+    <!--android:layout_width="239dp"-->
+    <!--android:layout_height="53dp"-->
+    <!--android:background="@color/mustardColor"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:weightSum="1"-->
+    <!--tools:layout_editor_absoluteX="86dp"-->
+    <!--tools:layout_editor_absoluteY="393dp">-->
+
+
+    <!--</LinearLayout>-->
+    <!--button tentang mtbs-->
+</androidx.constraintlayout.widget.ConstraintLayout>

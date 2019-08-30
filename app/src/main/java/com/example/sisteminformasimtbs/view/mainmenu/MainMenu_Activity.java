@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
@@ -13,8 +14,8 @@ import com.example.sisteminformasimtbs.view.petunjuk.Petunjuk_Activity;
 
 public class MainMenu_Activity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_Mulai;
-    private Button btn_Petunjuk;
+    private LinearLayout btn_Mulai;
+    private LinearLayout btn_Petunjuk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

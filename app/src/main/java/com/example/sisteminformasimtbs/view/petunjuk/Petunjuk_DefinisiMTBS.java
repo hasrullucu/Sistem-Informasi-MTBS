@@ -15,7 +15,7 @@ import com.example.sisteminformasimtbs.R;
 /**
  *
  */
-public class Petunjuk_FirstFragment extends Fragment implements View.OnClickListener {
+public class Petunjuk_DefinisiMTBS extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class Petunjuk_FirstFragment extends Fragment implements View.OnClickList
     private Button btn_Kembali;
 
 
-    public Petunjuk_FirstFragment() {
+    public Petunjuk_DefinisiMTBS() {
         // Required empty public constructor
     }
 
@@ -42,8 +42,8 @@ public class Petunjuk_FirstFragment extends Fragment implements View.OnClickList
      * @return A new instance of fragment Petunjuk_FirstFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Petunjuk_FirstFragment newInstance(String param1, String param2) {
-        Petunjuk_FirstFragment fragment = new Petunjuk_FirstFragment();
+    public static Petunjuk_DefinisiMTBS newInstance(String param1, String param2) {
+        Petunjuk_DefinisiMTBS fragment = new Petunjuk_DefinisiMTBS();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,7 +70,7 @@ public class Petunjuk_FirstFragment extends Fragment implements View.OnClickList
         this.btn_Lanjut = res.findViewById(R.id.btn_Lanjut);
         this.btn_Lanjut.setOnClickListener(this);
 
-        this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
+        this.btn_Kembali = res.findViewById(R.id.btn_Selanjutnya);
         this.btn_Kembali.setOnClickListener(this);
 
         return res;

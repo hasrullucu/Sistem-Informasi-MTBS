@@ -14,20 +14,22 @@ public class Petunjuk_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petunjuk);
-        goToPetunjuk1();
+        goToMenuPetunjuk();
     }
 
     public void goToPetunjuk1(){
-        changeFragment(new Petunjuk_FirstFragment());
+        changeFragment(new Petunjuk_DefinisiMTBS());
     }
 
     public void goToPetunjuk2(){
-        changeFragment(new Petunjuk_SecondFragment());
+        changeFragment(new Petunjuk_FungsiMTBS());
     }
 
     public void goToPetunjuk3(){
-        changeFragment(new Petunjuk_ThirdFragment());
+        changeFragment(new Petunjuk_TahapanMTBS());
     }
+
+    public void goToMenuPetunjuk(){changeFragment(PetunjukMenu_Fragment.newInstance());}
 
     private void changeFragment(Fragment fragTarget){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

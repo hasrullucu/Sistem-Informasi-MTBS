@@ -37,4 +37,9 @@ public class DateLogic{
             else return false;
         }
     }
+
+    public String getStatus(boolean status){
+        if(status) return "Proses MTBS akan dilakukan sesuai prosedur untuk balita umur 2 bulan - 5 tahun" ;
+        else return "Proses MTBS akan dilakukan sesuai prosedur untuk balita berumur dibawah 2 bulan";
+    }
 }

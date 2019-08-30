@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,7 +17,11 @@ import com.example.sisteminformasimtbs.R;
  */
 public class FragmentDataDiri3 extends Fragment implements View.OnClickListener{
     protected PemeriksaanMain activity;
-    protected Button btnBack, btnNext;
+
+    private LinearLayout btn_Kembali ;
+    private LinearLayout btn_Selanjutnya ;
+
+
 
     public FragmentDataDiri3() {
         // Required empty public constructor
@@ -33,21 +37,20 @@ public class FragmentDataDiri3 extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View res = inflater.inflate(R.layout.datadiri_3, container, false);
-        this.btnBack = res.findViewById(R.id.btnBack);
-        this.btnNext = res.findViewById(R.id.btnNext);
+        this.btn_Kembali = res.findViewById(R.id.btn_Selanjutnya) ;
+        this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya) ;
 
-        this.btnBack.setOnClickListener(this);
-        this.btnNext.setOnClickListener(this);
+        this.btn_Kembali.setOnClickListener(this);
+        this.btn_Selanjutnya.setOnClickListener(this);
         return res;
     }
 
     @Override
     public void onClick(View view){
-        if(view==btnBack){
-            this.activity.changeToDataDiri_2();
+        if(view==btn_Selanjutnya){
+            activity.changeToDataDiri_2();
         }
-        else if(view==btnNext){
-            this.activity.changeToDataDiri_4();
+        else if(view==btn_Selanjutnya){
         }
     }
 }

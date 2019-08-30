@@ -3,4 +3,14 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="greyBackground">#E5E5E5</color>
+    <color name="greenBackground">#419178</color>
+    <color name="shadowColor">#40000000</color>
+    <color name="mustardColor">#FF9C58</color>
+    <color name="mustardBackground">#EA8F50</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blackgrey">#40000000</color>
+    <color name="tosca">#82C6B1</color>
+    <color name="redstatus">#FB4040</color>
+    <color name="yellowStatus">#FFE663</color>
 </resources>

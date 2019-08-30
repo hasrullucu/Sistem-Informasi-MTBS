@@ -1,208 +1,185 @@
 <?xml version = "1.0" encoding = "utf-8" ?>
 
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:weightSum="5"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/greenBackground"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context=".view.pemeriksaan.PemeriksaanMain">
 
-    <!--bagian judul data diri-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+    <include layout="@layout/btn_kembali_layout" android:id="@+id/btn_Kembali"></include>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <!--textview judul mtbs-->
-        <TextView
-            android:id="@+id/isiDataAnak"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Isi Data Anak"
-            android:textSize="40dp"
-            android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/lato_bold"
-            />
-    </LinearLayout>
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="534dp"
+        android:shadowColor="@color/shadowColor"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:text="ISI DATA ANAK"
+        android:textColor="@color/mustardColor"
+        android:textSize="36sp"
+        app:fontFamily="@font/montserratbold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pickCalendar"
+        android:layout_width="302dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="408dp"
+        android:background="@color/mustardColor"
+        android:drawableRight="@drawable/ic_logocalendar"
+        android:elevation="4dp"
+        android:fontFamily="@font/montserratbold"
+        android:gravity="center|left"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="tanggal lahir"
+        android:textAllCaps="false"
+        android:textColor="@color/shadowColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:elevation="4dp"
+        android:id="@+id/berat_EditText"
+        android:layout_width="121.5dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginLeft="209dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="321dp"
+        android:background="@color/mustardColor"
+        android:ems="10"
+        android:fontFamily="@font/montserratbold"
+        android:hint="tinggi badan"
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/shadowColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:elevation="4dp"
+        android:id="@+id/tinggi_EditText"
+        android:layout_width="121.5dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="211dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="235dp"
+        android:background="@color/mustardColor"
+        android:ems="10"
+        android:fontFamily="@font/montserratbold"
+        android:hint="@string/suhu_badan"
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/shadowColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:elevation="4dp"
+        android:id="@+id/suhu_EditText"
+        android:layout_width="121.5dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="211dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="321dp"
+        android:background="@color/mustardColor"
+        android:ems="10"
+        android:fontFamily="@font/montserratbold"
+        android:hint="suhu"
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/shadowColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:elevation="4dp"
+        android:id="@+id/kunjungan_EditText"
+        android:layout_width="121.5dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="209dp"
+        android:layout_marginLeft="209dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="235dp"
+        android:background="@color/mustardColor"
+        android:ems="10"
+        android:fontFamily="@font/montserratbold"
+        android:hint="kunjungan"
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/shadowColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/keluhan_EditText"
+        android:layout_width="302dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="442dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/mustardColor"
+        android:drawableRight="@drawable/ic_searchlogo"
+        android:fontFamily="@font/montserratbold"
+        android:hint="@string/keluhan_utama_anak"
+        android:inputType="textPersonName"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+
+        android:textColorHint="@color/shadowColor"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776" />4
+
+    <include layout="@layout/btn_selanjutnya_layout" android:id="@+id/btn_Selanjutnya"></include>
 
 
-    <!--bagian isi tanggal pemeriksaan-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <!--data diri-->
-
-        <!--tanggal-->
-        <TextView
-            android:id="@+id/alamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alamat"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/lato_bold"/>
-
-        <EditText
-            android:id="@+id/alamatFill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:background="#2156ab"
-            android:textSize="20dp"
-            android:textColor="#FFF"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            tools:ignore="DuplicateIds" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <!--nama anak-->
-
-
-
-        <!--isi nama anak-->
-
-        <Button
-            android:id="@+id/btn_PickDate"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tanggal Lahir"
-            android:visibility="visible" />
-    </LinearLayout>
-
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-        <!--data diri-->
-        <TextView
-            android:id="@+id/suhu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Suhu"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            tools:ignore="DuplicateIds"
-            android:layout_weight="1"
-            android:fontFamily="@font/lato_bold"/>
-
-        <!--isi nama ibu-->
-        <EditText
-            android:inputType="number"
-            android:id="@+id/suhuFill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:textColor="#FFF"
-            android:layout_weight="1"
-            android:background="#2156ab"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/lato_bold"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:weightSum="2">
-
-
-
-
-    </LinearLayout>
-
-
-    <!--bagian progress bar-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:weightSum="4"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Kembali"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/my_button_bg"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"/>
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Lanjut"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/my_button_bg"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"/>
-    </LinearLayout>
-
-    <!--bagian footer-->
-    <LinearLayout
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="0.1">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="© 2019 Manajemen Terpadu Balita Sakit"
-            android:textSize="10dp"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
