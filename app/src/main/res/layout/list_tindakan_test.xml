@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:padding="4dp"
         android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
+        android:backgroundTint="@color/redstatus"
         android:id="@+id/tindakanContainer"
         >
         <TextView
@@ -17,6 +20,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/namaTindakan"
             android:text="tindakan"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserratbold"
+
             />
         <TextView
             android:layout_width="wrap_content"

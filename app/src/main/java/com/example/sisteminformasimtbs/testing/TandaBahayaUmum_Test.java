@@ -88,7 +88,7 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         this.checkBox_3 = res.findViewById(R.id.cb_3);
         this.checkBox_4 = res.findViewById(R.id.cb_4);
 
-
+        // set text cb 1 cb 2 cb 3
 
         this.cb_1 = new Checkbox_Model("Tidak bisa minum atau menyusu" , 1);
         this.cb_2 = new Checkbox_Model("Memuntahkan semua makanan dan atau minuman" , 2);
@@ -121,9 +121,13 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
             this.activity.changeToDataDiri_4();
         }else if(this.btn_Selanjutnya == view){
         }else if(btn_Tindakan == view){
+            activity.saveLastGejala(this);
+            activity.changeToTindakanTest();
 
         }else if(this.btn_Gejala == view){
+
         }else if(this.btn_Klasifikasi == view){
+            activity.saveLastGejala(this);
             HashMap<String , Integer> collectionOfClassification = activity.presenter.classifyAll();
             activity.changeToKlasifikasiTest(collectionOfClassification);
         }

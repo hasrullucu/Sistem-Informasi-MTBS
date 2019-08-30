@@ -99,7 +99,7 @@ public class Klasifikasi_Test extends Fragment implements View.OnClickListener{
        }else if(view ==this.btn_Klasifikasi){
 
        }else if(view ==this.btn_Tindakan){
-
+            this.activity.changeToTindakanTest();
        }
     }
 }

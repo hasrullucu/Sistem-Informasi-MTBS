@@ -18,6 +18,9 @@
             android:id="@+id/tv_NamaKlasifikasi"
             android:text="TES"
             android:fontFamily="@font/montserratbold"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -27,8 +30,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/white"
-            android:textSize="24sp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

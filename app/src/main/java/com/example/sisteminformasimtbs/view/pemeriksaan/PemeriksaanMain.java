@@ -127,7 +127,6 @@ public class PemeriksaanMain extends AppCompatActivity {
      * @param
      */
     private void changeFragment(Fragment now) {
-        this.lastGejala = now ;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragContainer, now);
         fragmentTransaction.commit();
@@ -229,6 +228,10 @@ public class PemeriksaanMain extends AppCompatActivity {
 //            FragmentTindakanTandaBahayaUmum now = this.initializer_tindakanTandaBahayaUmum.getTindakanTandaBahayaUmum();
 //            changeFragment(now);
 //        }
+
+        public void saveLastGejala(Fragment fragment){
+            this.lastGejala = fragment;
+    }
 
         private void initAll(){
             // inisalisasi data diri
