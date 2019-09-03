@@ -22,6 +22,7 @@ import com.example.sisteminformasimtbs.model.relation.TindakanMemilikiBentukObat
 import com.example.sisteminformasimtbs.testing.TindakanResult;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -299,5 +300,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
 
         return listTindakan;
+    }
+
+    public ArrayList<String> getLangkahTindakanByTindakan(int idTindakan){
+        String query = "SELECT idLangkahTindakan, namaLangkahTindakan FROM LangkahTindakan WHERE idtindakan =" + idTindakan ;
+
+        Cursor c = this.getReadableDatabase().rawQuery(query, null);
+
+        ArrayList<String> listTindakan = new ArrayList<String>();
+
+        while(c.moveToNext())
+        {
+            String namaLangkahTindakan  =  c.getString(1);
+            listTindakan.add(namaLangkahTindakan);
+        }
+
+        return listTindakan ;
+
+
     }
 }

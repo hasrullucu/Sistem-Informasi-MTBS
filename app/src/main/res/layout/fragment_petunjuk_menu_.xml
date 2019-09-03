@@ -12,31 +12,33 @@
     >
 
 
-    <include layout="@layout/btn_kembali_layout"></include>
+    <include layout="@layout/btn_kembali_layout"
+        android:id="@+id/btn_Kembali"
+        ></include>
     <!--DEFINISI MTBS-->
     <LinearLayout
         android:id="@+id/btn_Definisi"
-        android:layout_width="240dp"
+        android:layout_width="335dp"
         android:layout_height="114dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="300dp"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:orientation="horizontal"
         android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.95">
+            android:layout_weight="0.8">
 
             <TextView
                 android:id="@+id/textView2"
@@ -80,39 +82,47 @@
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_weight="0.05"
             android:layout_height="match_parent"
-            android:background="@color/mustardBackground"
-            ></androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_weight="0.2"
+            android:background="@color/mustardBackground">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
     <!--FUNGSI MTBS-->
     <LinearLayout
         android:id="@+id/btn_Fungsi"
-        android:layout_width="240dp"
+        android:layout_width="335dp"
         android:layout_height="114dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="420dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="200dp"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:orientation="horizontal"
         android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318">
+        app:layout_constraintTop_toBottomOf="@+id/btn_Definisi">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.95">
+            android:layout_weight="0.8"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="-61dp">
 
             <TextView
                 android:id="@+id/tv_fungsi"
@@ -156,12 +166,18 @@
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_weight="0.05"
             android:layout_height="match_parent"
-            android:background="@color/mustardBackground"
-            >
+            android:layout_weight="0.2"
+            android:background="@color/mustardBackground">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -170,27 +186,27 @@
     <!--TAHAPAN MTBS-->
     <LinearLayout
         android:id="@+id/btn_Tahapan"
-        android:layout_width="240dp"
+        android:layout_width="335dp"
         android:layout_height="114dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="610dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="70dp"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:orientation="horizontal"
         android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318">
+        app:layout_constraintTop_toBottomOf="@+id/btn_Fungsi">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.95">
+            android:layout_weight="0.8">
 
             <TextView
                 android:id="@+id/tv_tahapan"
@@ -234,23 +250,22 @@
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_weight="0.05"
             android:layout_height="match_parent"
-            android:background="@color/mustardBackground"
-            >
+            android:layout_weight="0.2"
+            android:background="@color/mustardBackground">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sa Maka"
-        tools:layout_editor_absoluteX="435dp"
-        tools:layout_editor_absoluteY="609dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

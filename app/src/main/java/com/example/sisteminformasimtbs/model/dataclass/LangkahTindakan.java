@@ -16,7 +16,7 @@ public class LangkahTindakan {
 
     // COLUMN NAME TABLE - LANGKAHTINDAKAN
     private static final String COL_IDLANGKAHTINDAKAN = "idlangkahtindakan";
-    private static final String COL_KETERANGAN  = "keterangan";
+    private static final String COL_KETERANGAN  = "namalangkahtindakan";
     private static final String COL_IDTINDAKAN = "idTindakan";
 
     public static final String CREATE_LANGKAHTINDAKAN = "create table "+ TABLE_LANGKAHTINDAKAN

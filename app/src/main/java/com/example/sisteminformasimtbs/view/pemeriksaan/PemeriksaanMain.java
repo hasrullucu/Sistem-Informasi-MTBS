@@ -11,7 +11,7 @@ import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
 import com.example.sisteminformasimtbs.testing.Batuk_Test;
 import com.example.sisteminformasimtbs.testing.Klasifikasi_Test;
-import com.example.sisteminformasimtbs.testing.TandaBahayaUmum_Test;
+import com.example.sisteminformasimtbs.testing.TandaBahayaUmum_Fragment;
 import com.example.sisteminformasimtbs.testing.Presenter;
 import com.example.sisteminformasimtbs.testing.TindakanResult;
 import com.example.sisteminformasimtbs.testing.Tindakan_Test;
@@ -80,7 +80,7 @@ public class PemeriksaanMain extends AppCompatActivity {
 //    }
 
     public void changeToTandaBahayaUmum(){
-        TandaBahayaUmum_Test fragment = this.initializer_tandaBahayaUmum.getTandaBahayaUmumFragment();
+        TandaBahayaUmum_Fragment fragment = this.initializer_tandaBahayaUmum.getTandaBahayaUmumFragment();
         changeFragment(fragment);
     }
 
@@ -154,20 +154,12 @@ public class PemeriksaanMain extends AppCompatActivity {
 
 
 
-    public void changeToBatuk1() {
-        FragmentBatuk1 now = this.initializer_batuk.getBatuk1();
+    public void changeToBatuk_Fragment() {
+        Batuk_Test now = this.initializer_batuk.getBatuk_Fragment();
         changeFragment(now);
     }
 
-    public void changeToBatuk2() {
-        FragmentBatuk2 now = this.initializer_batuk.getBatuk2();
-        changeFragment(now);
-    }
 
-    public void changeToBatuk3() {
-        FragmentBatuk3 now = this.initializer_batuk.getBatuk3();
-        changeFragment(now);
-    }
 
     public void changeToDiare1() {
         FragmentDiare1 now = this.initializer_diare.getFragmentDiare1();

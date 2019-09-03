@@ -82,7 +82,7 @@ public class FragmentDiare1 extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view==btnBack){
-            this.activity.changeToBatuk3();
+//            this.activity.changeToBatuk3();
         }
         else if(view==btnNext){
             this.activity.changeToDiare2();

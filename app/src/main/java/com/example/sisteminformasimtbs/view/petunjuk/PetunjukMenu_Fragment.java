@@ -22,6 +22,8 @@ public class PetunjukMenu_Fragment extends Fragment implements View.OnClickListe
     private LinearLayout btn_Fungsi ;
     private LinearLayout btn_Tahapan;
 
+    private LinearLayout btn_Kembali ;
+
     public PetunjukMenu_Fragment() {
         // Required empty public constructor
     }
@@ -46,17 +48,22 @@ public class PetunjukMenu_Fragment extends Fragment implements View.OnClickListe
         this.btn_Tahapan = res.findViewById(R.id.btn_Tahapan);
         this.btn_Tahapan.setOnClickListener(this);
 
+        this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
+        this.btn_Kembali.setOnClickListener(this);
+
         return res;
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId() == this.btn_Tahapan.getId()){
-            Toast.makeText(getContext()  , "DEFINISI"  , Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext()  , "Tahapan"  , Toast.LENGTH_SHORT).show();
         }else if(view.getId() == this.btn_Fungsi.getId()){
             Toast.makeText(getContext() ,"FUNGSI" , Toast.LENGTH_SHORT).show();
         }else if(view.getId() ==this.btn_Definisi.getId()){
             Toast.makeText(getContext(),"Definisi" , Toast.LENGTH_SHORT).show();
+        }else if(view == this.btn_Kembali){
+            getActivity().finish();
         }
     }
 }

@@ -79,7 +79,7 @@ public class Tindakan_Test extends Fragment implements View.OnClickListener {
        this.btn_Tindakan  = res.findViewById(R.id.btn_Tindakan);
        this.btn_Tindakan.setBackground(getResources().getDrawable(R.color.mustardColor));
        this.tindakanRecyclerView = res.findViewById(R.id.tindakanRecyclerView);
-       this.tindakanListAdapter = new TindakanListAdapter(listOfTindakan);
+       this.tindakanListAdapter = new TindakanListAdapter(listOfTindakan , activity);
        this.tindakanRecyclerView.setHasFixedSize(true);
 
        this.tindakanRecyclerView.setLayoutManager(new LinearLayoutManager(activity));

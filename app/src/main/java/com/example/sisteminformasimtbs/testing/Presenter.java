@@ -1,13 +1,11 @@
 package com.example.sisteminformasimtbs.testing;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
-import com.example.sisteminformasimtbs.model.Pemeriksaan;
-import com.example.sisteminformasimtbs.model.dataclass.Tindakan;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -46,9 +44,13 @@ public class Presenter {
 
     public HashMap<String, Integer> getGejalaByIdTopik(int idTopik)
     {
-        HashMap<String , Integer > res = this.db.getGejalaByIdTopik(1);
+        HashMap<String , Integer > res = this.db.getGejalaByIdTopik(idTopik);
         return res ;
+    }
 
+    public ArrayList<String> getLangkahTindakan(int idTindakan){
+        ArrayList<String> res = this.db.getLangkahTindakanByTindakan(idTindakan) ;
+        return res ;
     }
 
     private String printListOfGejala(){
@@ -84,7 +86,7 @@ public class Presenter {
      * classifier model like tanda bahaya umum , batuk dll
      */
     private void addAllClassifier(){
-        this.listOfClassifier.add(new TandaBahayaUmum_Classifier(this.db.getGejalaByIdTopik(TandaBahayaUmum_Test.ID_TOPIK)));
+        this.listOfClassifier.add(new TandaBahayaUmum_Classifier(this.db.getGejalaByIdTopik(TandaBahayaUmum_Fragment.ID_TOPIK)));
         this.listOfClassifier.add(new Batuk_Classifier());
     }
 

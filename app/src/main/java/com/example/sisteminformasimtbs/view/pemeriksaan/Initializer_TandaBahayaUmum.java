@@ -1,14 +1,11 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
-import android.database.sqlite.SQLiteDatabase;
-
-import com.example.sisteminformasimtbs.database.DatabaseHelper;
-import com.example.sisteminformasimtbs.testing.TandaBahayaUmum_Test;
+import com.example.sisteminformasimtbs.testing.TandaBahayaUmum_Fragment;
 
 public class Initializer_TandaBahayaUmum extends Initializer
 {
     private PemeriksaanMain activity;
-    private TandaBahayaUmum_Test tandaBahayaUmumFragment ;
+    private TandaBahayaUmum_Fragment tandaBahayaUmumFragment ;
 
 
 
@@ -22,10 +19,10 @@ public class Initializer_TandaBahayaUmum extends Initializer
     public void initAll()
     {
 
-        this.tandaBahayaUmumFragment= TandaBahayaUmum_Test.newInstance(activity);
+        this.tandaBahayaUmumFragment= TandaBahayaUmum_Fragment.newInstance(activity);
     }
 
-    public TandaBahayaUmum_Test getTandaBahayaUmumFragment() {
+    public TandaBahayaUmum_Fragment getTandaBahayaUmumFragment() {
         return tandaBahayaUmumFragment;
     }
 }

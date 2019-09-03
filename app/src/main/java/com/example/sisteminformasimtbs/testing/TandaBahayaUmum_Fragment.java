@@ -9,14 +9,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
@@ -27,7 +24,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListener {
+public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickListener , Toggler {
     private PemeriksaanMain activity ;
 
     private CheckBox checkBox_1;
@@ -62,12 +59,12 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
     public static final int ID_TOPIK = 1 ;
 
 
-    public TandaBahayaUmum_Test() {
+    public TandaBahayaUmum_Fragment() {
         // Required empty public constructor
     }
 
-    public static TandaBahayaUmum_Test newInstance(PemeriksaanMain activity){
-        TandaBahayaUmum_Test result = new TandaBahayaUmum_Test();
+    public static TandaBahayaUmum_Fragment newInstance(PemeriksaanMain activity){
+        TandaBahayaUmum_Fragment result = new TandaBahayaUmum_Fragment();
         result.activity = activity;
         result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(result.ID_TOPIK);
         return result;
@@ -156,12 +153,19 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         }
         this.checkBox_1.setOnClickListener(this);
         this.checkBox_2.setOnClickListener(this);
-        this.checkBox_4.setOnClickListener(this);
         this.checkBox_3.setOnClickListener(this);
+        this.checkBox_4.setOnClickListener(this);
         this.checkBox_5.setOnClickListener(this);
         this.checkBox_6.setOnClickListener(this);
         this.checkBox_7.setOnClickListener(this);
         this.checkBox_8.setOnClickListener(this);
+
+
+        this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
+        this.btn_Kembali.setOnClickListener(this);
+
+        this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
+        this.btn_Selanjutnya.setOnClickListener(this);
         return res;
     }
 
@@ -189,6 +193,7 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         else if(this.btn_Kembali == view){
             this.activity.changeToDataDiri_4();
         }else if(this.btn_Selanjutnya == view){
+            this.activity.changeToBatuk_Fragment();
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();
@@ -202,7 +207,7 @@ public class TandaBahayaUmum_Test extends Fragment implements View.OnClickListen
         }
     }
 
-    private void toggle(Checkbox_Model cm , CheckBox cb){
+    public void toggle(Checkbox_Model cm , CheckBox cb){
         if(cb.isChecked()) {
             cm.setStatus_Check(true);
             activity.presenter.addGejala(cm.getText_Checkbox(),cm.getId());

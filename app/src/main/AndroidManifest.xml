@@ -9,9 +9,26 @@
         android:roundIcon="@drawable/logo_dinkes"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.petunjuk.Petunjuk_Activity"></activity>
-        <activity android:name=".view.pemeriksaan.PemeriksaanMain" />
-        <activity android:name=".view.mainmenu.MainMenu_Activity">
+        <activity
+            android:name=".testing.LangkahTindakanActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity
+            android:name=".view.petunjuk.Petunjuk_Activity"
+            android:screenOrientation="portrait"
+
+            ></activity>
+        <activity
+            android:name=".view.pemeriksaan.PemeriksaanMain"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".view.mainmenu.MainMenu_Activity"
+            android:screenOrientation="portrait"
+
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

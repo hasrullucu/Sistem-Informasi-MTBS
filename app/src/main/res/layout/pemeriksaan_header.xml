@@ -42,7 +42,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="Gejala"
+            android:text="gejala"
             android:fontFamily="@font/montserratbold"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"

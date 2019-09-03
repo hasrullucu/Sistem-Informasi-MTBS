@@ -1,11 +1,12 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
+import com.example.sisteminformasimtbs.testing.Batuk_Test;
+
 public class Initializer_Batuk extends Initializer
 {
     private PemeriksaanMain activity;
-    private FragmentBatuk1 batuk1;
-    private FragmentBatuk2 batuk2;
-    private FragmentBatuk3 batuk3;
+    private Batuk_Test batuk_Fragment ;
+
 
     public Initializer_Batuk (PemeriksaanMain activity)
     {
@@ -16,18 +17,10 @@ public class Initializer_Batuk extends Initializer
     @Override
     public void initAll()
     {
-        this.batuk1 = FragmentBatuk1.newInstance(activity);
-        this.batuk2 = FragmentBatuk2.newInstance(activity);
-        this.batuk3 = FragmentBatuk3.newInstance(activity);
+        this.batuk_Fragment = Batuk_Test.newInstance(activity);
     }
 
-    public FragmentBatuk1 getBatuk1() {
-        return batuk1;
+    public Batuk_Test getBatuk_Fragment() {
+        return batuk_Fragment;
     }
-
-    public FragmentBatuk2 getBatuk2() {
-        return batuk2;
-    }
-
-    public FragmentBatuk3 getBatuk3() { return batuk3; }
 }

@@ -3,6 +3,8 @@ package com.example.sisteminformasimtbs.testing;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,32 +17,50 @@ import android.widget.Toast;
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Batuk_Test extends Fragment implements View.OnClickListener{
+public class Batuk_Test extends Fragment implements View.OnClickListener , Toggler{
     private PemeriksaanMain activity ;
 
-    private CheckBox tarikan_CheckBox ;
-    private Checkbox_Model tarikan_Model ;
+//    buttton header
+    private ConstraintLayout btn_Gejala ;
+    private ConstraintLayout btn_Klasifikasi ;
+    private ConstraintLayout btn_Tindakan ;
 
-    private CheckBox saturasiOksigen_CheckBox ;
-    private Checkbox_Model saturasiOksigen_Model ;
+  // checkboxes
+    private CheckBox checkBox_1;
+    private Checkbox_Model cb_1;
 
-    private CheckBox nafascepat_CheckBox ;
-    private Checkbox_Model nafascepat_Model;
+    private CheckBox checkBox_2;
+    private Checkbox_Model cb_2;
 
-    private Button backBtn;
-    private Button classify  ;
+    private CheckBox checkBox_3;
+    private Checkbox_Model cb_3;
+
+    private CheckBox checkBox_4;
+    private Checkbox_Model cb_4;
+
+
+    //    button footer
+    private Button btn_Selanjutnya ;
+    private Button btn_Kembali ;
+
+    private HashMap<String ,Integer> collectionOfGejalaFromDatabase;
+    public static final int ID_TOPIK = 2;
     public Batuk_Test() {
         // Required empty public constructor
     }
 
     public static Batuk_Test newInstance(PemeriksaanMain activity){
-        Batuk_Test res = new Batuk_Test();
-        res.activity = activity ;
+        Batuk_Test result = new Batuk_Test();
+        result.activity = activity ;
+        result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(result.ID_TOPIK);
 
-        return res ;
+        return result ;
     }
 
 
@@ -49,49 +69,94 @@ public class Batuk_Test extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View res =  inflater.inflate(R.layout.fragment_batuk__test, container, false);
-        this.tarikan_Model = new Checkbox_Model("Tarikan dinding dada ke dalam", 9) ;
-        this.tarikan_CheckBox = res.findViewById(R.id.tarikan);
-        this.tarikan_CheckBox.setText(this.tarikan_Model.getText_Checkbox());
-        this.tarikan_CheckBox.setOnClickListener(this);
+
+        this.btn_Gejala = res.findViewById(R.id.btn_Gejala) ;
+        this.btn_Gejala.setOnClickListener(this);
+        this.btn_Gejala.setBackground(ContextCompat.getDrawable(getContext(), R.color.mustardColor));
+
+        this.btn_Klasifikasi = res.findViewById(R.id.btn_Klasifikasi);
+        this.btn_Klasifikasi.setOnClickListener(this);
+
+        this.btn_Tindakan = res.findViewById(R.id.btn_Tindakan);
+        this.btn_Tindakan.setOnClickListener(this);
+
+        this.checkBox_1 = res.findViewById(R.id.cb_1) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_2) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_3);
+        this.checkBox_4 = res.findViewById(R.id.cb_4);
+
+        int i = 0 ;
+        for(Map.Entry<String, Integer> item : this.collectionOfGejalaFromDatabase.entrySet()){
+            switch (i){
+                case 0 :
+                    this.cb_1 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_1.setText(this.cb_1.getText_Checkbox());
+                    break;
+                case 1 :
+                    this.cb_2 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_2.setText(this.cb_2.getText_Checkbox());
+
+                    break ;
+                case 2 :
+
+                    this.cb_3 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_3.setText(this.cb_3.getText_Checkbox());
+
+                    break;
+
+                case 3:
+                    this.cb_4 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_4.setText(this.cb_4.getText_Checkbox());
+                    break;
 
 
-        this.saturasiOksigen_Model = new Checkbox_Model("Saturasi Oksigen < 90%" , 10);
-        this.saturasiOksigen_CheckBox = res.findViewById(R.id.saturasi);
-        this.saturasiOksigen_CheckBox.setText(this.saturasiOksigen_Model.getText_Checkbox());
-        this.saturasiOksigen_CheckBox.setOnClickListener(this);
 
-        this.nafascepat_Model= new Checkbox_Model("Nafas cepat" , 11 );
-        this.nafascepat_CheckBox = res.findViewById(R.id.nafascepat);
-        this.nafascepat_CheckBox.setText(this.nafascepat_Model.getText_Checkbox());
-        this.nafascepat_CheckBox.setOnClickListener(this);
+            }
+            i++;
+        }
 
+        this.checkBox_1.setOnClickListener(this);
+        this.checkBox_2.setOnClickListener(this);
+        this.checkBox_3.setOnClickListener(this);
+        this.checkBox_4.setOnClickListener(this);
 
-        this.backBtn  = res.findViewById(R.id.back_btn) ;
-        this.backBtn.setOnClickListener(this);
+        this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
+        this.btn_Kembali.setOnClickListener(this);
 
-        this.classify = res.findViewById(R.id.classify);
-        this.classify.setOnClickListener(this);
+        this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
+        this.btn_Selanjutnya.setOnClickListener(this);
 
         return res ;
     }
 
     @Override
     public void onClick(View view) {
-        if(this.tarikan_CheckBox.getId() == view.getId()){
-                toggle(this.tarikan_Model , this.tarikan_CheckBox);
-        }else if(this.saturasiOksigen_CheckBox.getId() == view.getId()){
-                toggle(this.saturasiOksigen_Model , this.saturasiOksigen_CheckBox);
-        }else if(this.nafascepat_CheckBox.getId() == view.getId()) {
-            toggle(this.nafascepat_Model , this.nafascepat_CheckBox);
-
-        }else if(this.backBtn.getId() == view.getId()){
+        if(this.checkBox_1.getId() == view.getId()){
+            toggle(cb_1 , checkBox_1);
+        }else if(this.checkBox_2.getId() == view.getId()){
+            toggle(cb_2 , checkBox_2);
+        }else if(this.checkBox_3.getId() == view.getId()){
+            toggle(cb_3, checkBox_3);
+        }else if(this.checkBox_4.getId() == view.getId()) {
+            toggle(cb_4, checkBox_4);
+        }  else if(this.btn_Kembali == view){
             this.activity.changeToTandaBahayaUmum();
-        }else if(this.classify.getId() == view.getId()){
-            Toast.makeText(getContext() ,"jumlah klasifikasi : " +  activity.presenter.classifyAll().size() ,Toast.LENGTH_SHORT ).show();
+        }else if(this.btn_Selanjutnya == view){
+
+        }else if(btn_Tindakan == view){
+            activity.saveLastGejala(this);
+            activity.changeToTindakanTest();
+
+        }else if(this.btn_Gejala == view){
+
+        }else if(this.btn_Klasifikasi == view){
+            activity.saveLastGejala(this);
+            HashMap<String , Integer> collectionOfClassification = activity.presenter.classifyAll();
+            activity.changeToKlasifikasiTest(collectionOfClassification);
         }
     }
 
-    private void toggle(Checkbox_Model cm , CheckBox cb){
+    public void toggle(Checkbox_Model cm , CheckBox cb){
         if(cb.isChecked()) {
             cm.setStatus_Check(true);
             activity.presenter.addGejala(cm.getText_Checkbox(),cm.getId());
