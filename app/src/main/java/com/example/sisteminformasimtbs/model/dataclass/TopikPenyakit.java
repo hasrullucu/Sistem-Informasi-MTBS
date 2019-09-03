@@ -71,9 +71,12 @@ public class TopikPenyakit  {
 
     public static void insert_All_Row(SQLiteDatabase db){
         insert_One_Row(db , 1 , "Tanad Bahaya Umum", 1);
+        insert_One_Row(db, 2,"Batuk atau Sukar Bernapas",1);
+        insert_One_Row(db, 3,"Diare",1);
+        insert_One_Row(db, 4,"Demam",1);
+        insert_One_Row(db, 5,"Masalah Telinga",1);
+        insert_One_Row(db, 6,"Status Gizi",1);
+        insert_One_Row(db, 7,"Anemia",1);
+        insert_One_Row(db, 8,"HIV",1);
     }
-
-
-
-
 }
