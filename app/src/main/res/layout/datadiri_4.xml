@@ -9,7 +9,7 @@
     tools:context=".view.pemeriksaan.PemeriksaanMain">
     <include layout="@layout/btn_kembali_layout" android:id="@+id/btn_Kembali"></include>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="300dp"
         android:layout_height="181dp"
         android:layout_marginStart="30dp"
@@ -18,51 +18,50 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="320dp"
-        android:background="@color/mustardColor"
+        android:background="@color/redstatus"
+        android:padding="4dp"
         android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+
+        android:weightSum="1"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:src="@drawable/ic_warning"
+            android:layout_weight="0.3"
+            />
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-
-            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:textAlignment="center"
 
             android:fontFamily="@font/montserratbold"
             android:text="PERHATIAN"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+             />
 
         <TextView
             android:id="@+id/tindakanAuto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginRight="9dp"
-            android:layout_marginBottom="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:textAlignment="center"
             android:text="Proses MTBS akan dilakukan \n sesuai prosedur untuk \n balita umur 2 bulan - 5 Tahun"
             android:textColor="@color/white"
             app:fontFamily="@font/montserratbold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+             />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <include layout="@layout/btn_selanjutnya_layout" android:id="@+id/btn_Selanjutnya">
 

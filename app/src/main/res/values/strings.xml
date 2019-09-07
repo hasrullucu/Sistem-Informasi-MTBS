@@ -12,4 +12,7 @@
     <string name="perempuan">Perempuan</string>
     <string name="suhu_badan">suhu badan</string>
     <string name="keluhan_utama_anak">keluhan utama anak</string>
+    <string name="content_definisi">Suatu manajemen untuk balita yang datang di pelayanan kesehatan, dilaksanakan secara terpadu mengenai klasifikasi, status gizi, status imun maupun penanganan dan konseling yang diberikan.</string>
+    <string name="content_fungsi">MTBS digunakan sebagai standar pelayanan bayi dan balita sakit sekaligus sebagai pedoman bagi tenaga keperawatan (bidan dan perawat) khususnya di fasilitas pelayanan kesehatan dasar</string>
+    <string name="content_tahapan">Terdapat beberapa tahap dalam MTBS standar yaitu: \n Pengisian Data Diri Pemeriksaan Balita Klasifikasi Penyakit Balita Tindakan Penyakit Balita</string>
 </resources>

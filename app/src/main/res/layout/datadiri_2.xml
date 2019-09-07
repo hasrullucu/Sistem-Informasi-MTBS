@@ -28,7 +28,7 @@
         android:shadowDy="4"
         android:shadowRadius="4"
         android:text="ISI DATA ANAK"
-        android:textColor="@color/mustardColor"
+        android:textColor="@color/white"
         android:textSize="36sp"
         app:fontFamily="@font/montserratbold"
         app:layout_constraintBottom_toBottomOf="parent"

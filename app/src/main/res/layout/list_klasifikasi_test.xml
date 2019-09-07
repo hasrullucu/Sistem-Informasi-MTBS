@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="75dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/redstatus"
         android:gravity="center_horizontal"
+        android:id="@+id/klasifikasi_container"
         android:elevation="4dp"
         >
 
@@ -21,7 +22,7 @@
             android:fontFamily="@font/montserratbold"
             android:textColor="@color/white"
             android:textSize="24sp"
-
+            android:textAlignment="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

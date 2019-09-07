@@ -56,12 +56,13 @@ public class PetunjukMenu_Fragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+         Petunjuk_Activity activity = (Petunjuk_Activity) getActivity();
         if(view.getId() == this.btn_Tahapan.getId()){
-            Toast.makeText(getContext()  , "Tahapan"  , Toast.LENGTH_SHORT).show();
+            activity.goToPetunjukTahapan();
         }else if(view.getId() == this.btn_Fungsi.getId()){
-            Toast.makeText(getContext() ,"FUNGSI" , Toast.LENGTH_SHORT).show();
+            activity.goToPetunjukFungsi();
         }else if(view.getId() ==this.btn_Definisi.getId()){
-            Toast.makeText(getContext(),"Definisi" , Toast.LENGTH_SHORT).show();
+            activity.goToPetunjukDefinisi();
         }else if(view == this.btn_Kembali){
             getActivity().finish();
         }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.sisteminformasimtbs.R;
 
@@ -16,8 +17,8 @@ import com.example.sisteminformasimtbs.R;
  */
 public class Petunjuk_FungsiMTBS extends Fragment implements View.OnClickListener {
 
-    private Button btn_Kembali;
-    private Button btn_Lanjut ;
+    private LinearLayout btn_Kembali;
+
 
 
 
@@ -51,11 +52,8 @@ public class Petunjuk_FungsiMTBS extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View res = inflater.inflate(R.layout.fragment_petunjuk__second, container, false);
-        this.btn_Lanjut = res.findViewById(R.id.btn_Lanjut);
-        this.btn_Lanjut.setOnClickListener(this);
-
-        this.btn_Kembali = res.findViewById(R.id.btn_Selanjutnya);
+        View res = inflater.inflate(R.layout.fragment_petunjuk__fungsi, container, false);
+        this.btn_Kembali = res.findViewById(R.id.btn_Kembali) ;
         this.btn_Kembali.setOnClickListener(this);
 
         return res;
@@ -72,10 +70,9 @@ public class Petunjuk_FungsiMTBS extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        if(this.btn_Lanjut.getId() == view.getId()){
-            ((Petunjuk_Activity)getActivity()).goToPetunjuk3();
-        }else if(this.btn_Kembali.getId() == view.getId()){
-            ((Petunjuk_Activity) getActivity()).goToPetunjuk1();
-        }
+      if(view == this.btn_Kembali){
+          Petunjuk_Activity activity = (Petunjuk_Activity) getActivity();
+          activity.goToMenuPetunjuk();
+      }
     }
 }

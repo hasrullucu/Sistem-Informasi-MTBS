@@ -113,13 +113,11 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
                 case 1 :
                     this.cb_2 = new Checkbox_Model(item.getKey() , item.getValue());
                     this.checkBox_2.setText(this.cb_2.getText_Checkbox());
-
                     break ;
                 case 2 :
 
                     this.cb_3 = new Checkbox_Model(item.getKey() , item.getValue());
                     this.checkBox_3.setText(this.cb_3.getText_Checkbox());
-
                     break;
 
                 case 3:
@@ -130,22 +128,18 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
                 case 4 :
                     this.cb_5 = new Checkbox_Model(item.getKey() , item.getValue());
                     this.checkBox_5.setText(this.cb_5.getText_Checkbox());
-
                     break ;
                 case 5 :
                     this.cb_6 = new Checkbox_Model(item.getKey() , item.getValue());
                     this.checkBox_6.setText(this.cb_6.getText_Checkbox());
-
                     break;
                 case 6 :
                     this.cb_7 = new Checkbox_Model(item.getKey() , item.getValue());
                     this.checkBox_7.setText(this.cb_7.getText_Checkbox());
-
                     break ;
                 case 7 :
                     this.cb_8 = new Checkbox_Model(item.getKey() , item.getValue());
                     this.checkBox_8.setText(this.cb_8.getText_Checkbox());
-
                     break;
 
             }
@@ -208,14 +202,8 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
     }
 
     public void toggle(Checkbox_Model cm , CheckBox cb){
-        if(cb.isChecked()) {
-            cm.setStatus_Check(true);
-            activity.presenter.addGejala(cm.getText_Checkbox(),cm.getId());
-        }
-        else {
-            cm.setStatus_Check(false);
-            activity.presenter.removeGejala(cm.getText_Checkbox());
-        }
+
+
     }
 
 }

@@ -17,15 +17,15 @@ public class Petunjuk_Activity extends AppCompatActivity {
         goToMenuPetunjuk();
     }
 
-    public void goToPetunjuk1(){
+    public void goToPetunjukDefinisi(){
         changeFragment(new Petunjuk_DefinisiMTBS());
     }
 
-    public void goToPetunjuk2(){
+    public void goToPetunjukFungsi(){
         changeFragment(new Petunjuk_FungsiMTBS());
     }
 
-    public void goToPetunjuk3(){
+    public void goToPetunjukTahapan(){
         changeFragment(new Petunjuk_TahapanMTBS());
     }
 

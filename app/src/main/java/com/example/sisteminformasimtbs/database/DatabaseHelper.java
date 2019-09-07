@@ -264,7 +264,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         String query = "SELECT Gejala.idGejala, namaGejala FROM Gejala " +
                 "INNER JOIN GejalaMemilikiKlasifikasi ON Gejala.idGejala = GejalaMemilikiKlasifikasi.idGejala " +
                 "INNER JOIN Klasifikasi ON GejalaMemilikiKlasifikasi.idKlasifikasi = Klasifikasi.idKlasifikasi " +
-                "WHERE idTopik = " + idTopik;
+                "WHERE idTopik = " + idTopik + " ORDER BY Gejala.idGejala ASC";
 
         Cursor c = this.getReadableDatabase().rawQuery(query, null);
 

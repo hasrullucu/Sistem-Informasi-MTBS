@@ -7,12 +7,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Toast;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
@@ -58,8 +58,8 @@ public class Batuk_Test extends Fragment implements View.OnClickListener , Toggl
     public static Batuk_Test newInstance(PemeriksaanMain activity){
         Batuk_Test result = new Batuk_Test();
         result.activity = activity ;
-        result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(result.ID_TOPIK);
-
+        result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(ID_TOPIK);
+        Log.d("size" , "size : " + result.collectionOfGejalaFromDatabase.size());
         return result ;
     }
 
@@ -142,7 +142,7 @@ public class Batuk_Test extends Fragment implements View.OnClickListener , Toggl
         }  else if(this.btn_Kembali == view){
             this.activity.changeToTandaBahayaUmum();
         }else if(this.btn_Selanjutnya == view){
-
+            this.activity.changeToDiare1();
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();

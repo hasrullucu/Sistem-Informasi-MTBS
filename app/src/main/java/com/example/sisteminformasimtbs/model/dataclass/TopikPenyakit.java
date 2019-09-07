@@ -70,7 +70,7 @@ public class TopikPenyakit  {
     }
 
     public static void insert_All_Row(SQLiteDatabase db){
-        insert_One_Row(db , 1 , "Tanad Bahaya Umum", 1);
+        insert_One_Row(db , 1 , "Tanda Bahaya Umum", 1);
         insert_One_Row(db, 2,"Batuk atau Sukar Bernapas",1);
         insert_One_Row(db, 3,"Diare",1);
         insert_One_Row(db, 4,"Demam",1);

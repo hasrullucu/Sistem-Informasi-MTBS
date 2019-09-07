@@ -56,6 +56,7 @@ public class Gejala {
         insert_One_Row(db, 20,"Tanpa dehidrasi");
         insert_One_Row(db, 21,"Diare 14 hari atau lebih");
         insert_One_Row(db, 22,"Ada darah dalam tinja");
+        insert_One_Row(db, 70,"Dengan dehidrasi");
 
         //demam
         insert_One_Row(db, 23,"Ada tanda bahaya umum");
@@ -111,7 +112,6 @@ public class Gejala {
         insert_One_Row(db, 67,"Anak dari ibu dengan HIV, masih mendapat ASI");
         insert_One_Row(db, 68,"Anak dari ibu dengan HIV, status HIV anak tidak diketahui");
         insert_One_Row(db, 69,"Tes HIV pada ibu atau anak negatif");
-        insert_One_Row(db, 70,"Dengan dehidrasi");
 
          return 1;
     }

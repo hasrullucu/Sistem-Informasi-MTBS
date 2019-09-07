@@ -81,7 +81,11 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserratbold"
                 android:text="MULAI PEMERIKSAAN"
-                android:textColor="@color/greyBackground"
+                android:textColor="@color/white"
+                android:shadowColor="@color/shadowColor"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:shadowRadius="4"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -147,11 +151,17 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserratbold"
                 android:text="@string/tentang_mtbs"
-                android:textColor="@color/greyBackground"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:shadowColor="@color/shadowColor"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:shadowRadius="4"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

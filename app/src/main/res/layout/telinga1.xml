@@ -1,166 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1"
     android:orientation="vertical"
-    tools:context=".view.pemeriksaan.PemeriksaanMain">
+    android:weightSum="1"
+    android:elevation="4dp"
+    android:background="@color/greenBackground"
+    tools:context=".testing.TandaBahayaUmum_Fragment">
 
-    <LinearLayout
+    <include layout="@layout/pemeriksaan_header">
+
+    </include>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:weightSum="3"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        >
 
-        <Button
-            android:id="@+id/btnGejala"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="gejala"
-            android:background="@drawable/my_button_bg"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:fontFamily="@font/lato_medium"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/montserratbold"
+            android:shadowColor="@color/shadowColor"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="MASALAH TELINGA"
+            android:textColor="@color/greyBackground"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        >
+
+        <CheckBox
+            android:id="@+id/cb_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/montserratbold"
+
             />
 
-        <Button
-            android:id="@+id/btnKlas"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="klasifikasi"
-            android:background="@drawable/my_button_bg"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:fontFamily="@font/lato_medium"/>
-
-        <Button
-            android:id="@+id/btnTindakan"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="tindakan"
-            android:background="@drawable/my_button_bg"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:fontFamily="@font/lato_medium"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.7"
-        android:orientation="vertical"
-        android:weightSum="5">
-
-        <TextView
-            android:id="@+id/tvTBU"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/cb_2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="MEMERIKSA MASALAH TELINGA (1/2)"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/lato_medium"/>
 
-        <TextView
-            android:layout_width="match_parent"
+
+            android:layout_marginTop="8dp"
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+            android:textColor="@color/white"
+
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_1"
+            android:fontFamily="@font/montserratbold"
+
+            />
+
+        <CheckBox
+            android:id="@+id/cb_3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Apakah anak memiliki masalah telinga?"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:fontFamily="@font/lato_medium"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+            android:layout_marginTop="8dp"
+            android:buttonTint="@color/white"
+
+            android:text="checkbox"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_4"
+            android:fontFamily="@font/montserratbold"
+
+            />
+
+        <CheckBox
+            android:id="@+id/cb_5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:weightSum="3">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ya"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:fontFamily="@font/lato_medium"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
-    </LinearLayout>
 
 
+            android:layout_marginTop="44dp"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.08"
-        android:weightSum="4"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Kembali"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/my_button_bg"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"/>
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Lanjut"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/my_button_bg"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"/>
-    </LinearLayout>
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_3"
+
+            android:fontFamily="@font/montserratbold"
+
+            />
+
+        <CheckBox
+            android:id="@+id/cb_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.02"
-        android:orientation="vertical">
+            android:layout_marginTop="8dp"
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_5"
+            android:fontFamily="@font/montserratbold"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="© 2019 Manajemen Terpadu Balita Sakit"
-            android:textAlignment="center"/>
-    </LinearLayout>
+            />
+
+        <CheckBox
+            android:id="@+id/cb_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginTop="8dp"
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_7"
+            android:fontFamily="@font/montserratbold"
+
+            />
+
+        <CheckBox
+            android:id="@+id/cb_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginTop="8dp"
+
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_3"
+            android:fontFamily="@font/montserratbold"
+
+            />
+
+        <CheckBox
+            android:id="@+id/cb_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginTop="8dp"
+            android:buttonTint="@color/white"
+            android:text="checkbox"
+
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_2"
+            android:fontFamily="@font/montserratbold"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include layout="@layout/pemeriksaan_footer">
+    </include>
+
+
 </LinearLayout>

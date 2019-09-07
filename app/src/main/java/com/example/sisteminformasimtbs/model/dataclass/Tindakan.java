@@ -86,6 +86,7 @@ public class Tindakan {
         insert_One_Row(db, 12,"Apabila batuk ≥ 14 hari RUJUK untuk pemeriksaan lanjutan",0);
         insert_One_Row(db, 13,"Nasehati kapan kembali segera",0);
         insert_One_Row(db, 14,"Kunjungan ulang 2 hari",0);
+        // diare
         insert_One_Row(db, 15,"Jika tidak ada klasifikasi berat lain : beri cairan untuk dehidrasi berat dan tablet Zinc sesuai rencana terapi C",1);
         insert_One_Row(db, 16,"Jika anak juga mempunyai klasifikasi berat lain : RUJUK SEGERA dan jika masih bisa minum, berikan ASI dan larutan oralit selama perjalanan",0);
         insert_One_Row(db, 17,"Jika anak > 2 tahun dan ada wabah kolera di daerah tersebut, beri antibiotik untuk kolera",0);
@@ -96,6 +97,7 @@ public class Tindakan {
         insert_One_Row(db, 22,"Nasihati pemberian makan untuk Diare Persisten",1);
         insert_One_Row(db, 23,"Beri tablet Zinc selama 10 hari berturut-turut",0);
         insert_One_Row(db, 24,"Beri antibiotik yang sesuai",0);
+        // demama
         insert_One_Row(db, 25,"Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",0);
         insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk demam ≥ 38,5 °C",0);
         insert_One_Row(db, 27,"Beri obat anti malaria oral pilihan pertama",0);
@@ -111,12 +113,14 @@ public class Tindakan {
         insert_One_Row(db, 37,"Jika tidak ada syok, tidak muntah dan masih mau minum, beri oralit atau cairan lain sebanyak mungkin dalam perjalanan ke rumah sakit",0);
         insert_One_Row(db, 38,"Beri dosis pertama parasetamol, jika demam tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",0);
         insert_One_Row(db, 39,"Kunjungan ulang 1 hari",0);
+        // masalah telinga
         insert_One_Row(db, 40,"Beri dosis pertama parasetamol untuk mengatasi nyeri",0);
         insert_One_Row(db, 41,"Beri antibiotik yang sesuai selama 7 hari",0);
         insert_One_Row(db, 42,"Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H O 3%.",1);
         insert_One_Row(db, 43,"Kunjungan ulang 5 hari",0);
         insert_One_Row(db, 44,"Beri tetes telinga yang sesuai",1);
         insert_One_Row(db, 45,"Tangani masalah telinga yang ditemukan",0);
+        // status gizi
         insert_One_Row(db, 46,"Beri vitamin A dosis pertama",0);
         insert_One_Row(db, 47,"Beri antibiotik yang sesuai selama 5 hari",0);
         insert_One_Row(db, 48,"RUJUK untuk penanganan gizi sangat kurus termasuk kemungkinan adanya penyakit penyerta",0);
@@ -126,6 +130,7 @@ public class Tindakan {
         insert_One_Row(db, 52,"Kunjungan ulang 30 hari.",0);
         insert_One_Row(db, 53,"Jika anak berumur kurang dari 2 tahun, lakukan penilaian pemberian makan dan nasihati sesuai “Anjuran Makan untuk Anak Sehat Maupun Sakit”. Bila ada masalah pemberian makan, kunjungan ulang 7 hari",0);
         insert_One_Row(db, 54,"Anjurkan untuk menimbang berat badan anak setiap bulan",0);
+        // anemia
         insert_One_Row(db, 55,"Bila masih menyusu, teruskan pemberian ASI",0);
         insert_One_Row(db, 56,"Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari",0);
         insert_One_Row(db, 57,"Beri zat besi",0);
@@ -133,6 +138,7 @@ public class Tindakan {
         insert_One_Row(db, 59,"Jika daerah Endemis Tinggi Malaria: periksa dan obati malaria terlebih dahulu jika positif.",0);
         insert_One_Row(db, 60,"Kunjungan ulang 14 hari",0);
         insert_One_Row(db, 61,"Jika anak < 2 tahun, nilai pemberian makanan pada anak. Jika ada masalah pemberian makan, kunjungan ulang 7 hari",0);
+        // status hiv
         insert_One_Row(db, 62,"Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan terapi ARV dan Kotrimoksasol profilaksis",0);
         insert_One_Row(db, 63,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis",0);
         insert_One_Row(db, 64,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis",0);

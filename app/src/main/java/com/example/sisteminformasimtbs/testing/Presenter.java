@@ -71,12 +71,24 @@ public class Presenter {
         //create result of hashmap
         // create container containing all the klasifikasi result from the
         HashMap<String , Integer> collectionOfKlasifikasiResult = new HashMap<String , Integer>();
-
+        Log.d("total gejala yang masuk" , this.collectionOfGejala.size()+"edan");
         // loop all the possible classifier
         for(int i = 0 ; i < this.listOfClassifier.size() ; i++){
+
             Classifier now = this.listOfClassifier.get(i) ;
-            DiagnosisResult hasil = now.classify(this.collectionOfGejala);
-            if(hasil.getIdKlasifikasi() != 0) collectionOfKlasifikasiResult.put(hasil.getNamaKlasifikasiPenyakit() , hasil.getIdKlasifikasi());
+            if(now instanceof Diare_Classifier){
+                Log.d("total gejala yang masuk" ,"edan");
+
+                ArrayList<DiagnosisResult> res = ((Diare_Classifier) now).multiClassify(collectionOfGejala);
+                 for(DiagnosisResult item : res){
+                     collectionOfKlasifikasiResult.put(item.getNamaKlasifikasiPenyakit() , item.getIdKlasifikasi());
+                 }
+
+            }else{
+                 DiagnosisResult hasil = now.classify(this.collectionOfGejala);
+                 if(hasil.getIdKlasifikasi() != 0) collectionOfKlasifikasiResult.put(hasil.getNamaKlasifikasiPenyakit() , hasil.getIdKlasifikasi());
+
+            }
         }
         return collectionOfKlasifikasiResult ;
     }
@@ -88,6 +100,9 @@ public class Presenter {
     private void addAllClassifier(){
         this.listOfClassifier.add(new TandaBahayaUmum_Classifier(this.db.getGejalaByIdTopik(TandaBahayaUmum_Fragment.ID_TOPIK)));
         this.listOfClassifier.add(new Batuk_Classifier());
+        this.listOfClassifier.add(new Diare_Classifier());
+        this.listOfClassifier.add(new StatusHiv_Classifier());
+        this.listOfClassifier.add(new Anemia_Classifier());
     }
 
     public LinkedList<LinkedList<TindakanResult>> getAllTindakan(){
