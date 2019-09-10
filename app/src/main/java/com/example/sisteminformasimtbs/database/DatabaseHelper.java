@@ -40,7 +40,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // DATABASE NAME
     private static final String DATABASE_NAME = "MTBS";
 
+    @Override
+    public SQLiteDatabase getWritableDatabase() {
+        final SQLiteDatabase db;
+        if(mDefaultWritableDatabase != null){
+            db = mDefaultWritableDatabase;
+        } else {
+            db = super.getWritableDatabase();
+        }
+        return db;
+    }
 
+    //
+    private SQLiteDatabase mDefaultWritableDatabase = null;
 
     // Nama-Nama Tabel
 //    private static final String TABLE_BALITA = "balita";
@@ -173,16 +185,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public DatabaseHelper(Context context , PemeriksaanMain activity ) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.activity = activity;
-        if(this == null){
-          onUpgrade(this.getWritableDatabase(), DATABASE_VERSION , DATABASE_VERSION );
-        }else{
-            insertion();
-        }
+        onUpgrade(this.getWritableDatabase(), DATABASE_VERSION , DATABASE_VERSION );
+
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        this.mDefaultWritableDatabase = sqLiteDatabase; 
 //        CREATE MAIN TABLE
 //        sqLiteDatabase.execSQL(Balita.CREATE_BALITA);
 //        sqLiteDatabase.execSQL(CREATE_KUNJUNGAN);
@@ -216,7 +226,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        this.mDefaultWritableDatabase = db;
+    }
+
+    @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        this.mDefaultWritableDatabase = sqLiteDatabase;
         Log.d("DATABASE" , "RELATION TABLE DROPPED");
 
 //        DROP IF EXISTS RELATION TABLE
