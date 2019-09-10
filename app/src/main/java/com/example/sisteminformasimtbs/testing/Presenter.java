@@ -70,6 +70,9 @@ public class Presenter {
     public HashMap<String, Integer> classifyAll(){
         //create result of hashmap
         // create container containing all the klasifikasi result from the
+        for(Map.Entry<String , Integer> item : this.collectionOfGejala.entrySet()){
+            Log.d("gejalamasuk" , item.getKey());
+        }
         HashMap<String , Integer> collectionOfKlasifikasiResult = new HashMap<String , Integer>();
         Log.d("total gejala yang masuk" , this.collectionOfGejala.size()+"edan");
         // loop all the possible classifier

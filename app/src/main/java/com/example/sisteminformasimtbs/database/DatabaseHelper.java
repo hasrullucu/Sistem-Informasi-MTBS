@@ -173,7 +173,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public DatabaseHelper(Context context , PemeriksaanMain activity ) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.activity = activity;
-        onUpgrade(this.getWritableDatabase(), DATABASE_VERSION , DATABASE_VERSION );
+        if(this == null){
+          onUpgrade(this.getWritableDatabase(), DATABASE_VERSION , DATABASE_VERSION );
+        }else{
+            insertion();
+        }
 
     }
 

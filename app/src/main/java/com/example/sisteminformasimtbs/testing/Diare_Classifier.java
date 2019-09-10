@@ -49,8 +49,9 @@ public class Diare_Classifier extends Classifier {
         int counterBerat = 0 ;
         int counterSedang = 0 ;
         for(Map.Entry<String , Integer> item : collectionOfGejala.entrySet()){
-            Log.d("gejala yang masuk" , item.getKey());
-            if(item.getKey().equals("Letargis atau Tidak Sadar ?") || item.getValue().equals("Mata cekung") || item.getValue().equals("Tidak bisa minum atau malas minum")
+
+
+            if(item.getKey().equals("Letargis atau Tidak Sadar ?") || item.getKey().equals("Mata cekung") || item.getKey().equals("Tidak bisa minum atau malas minum")
             || item.getKey().equals("Cubitan kulit perut kembali sangat lambat")){
                 counterBerat++;
             }
@@ -59,7 +60,7 @@ public class Diare_Classifier extends Classifier {
                 counterSedang++;
             }
         }
-
+        Log.d("counterberat" , "counter berat : " + counterBerat);
         if(counterBerat >= 2) res.add(new DiagnosisResult("DIARE DEHIDRASI BERAT" , 5) );
         else if(counterSedang >= 2) res.add(new DiagnosisResult("DIARE DEHIDRASI RINGAN / SEDANG" ,6));
         else res.add(new DiagnosisResult("DIARE TANPA DEHIDRASI", 7));

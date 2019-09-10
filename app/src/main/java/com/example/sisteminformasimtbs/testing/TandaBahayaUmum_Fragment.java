@@ -202,7 +202,14 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
     }
 
     public void toggle(Checkbox_Model cm , CheckBox cb){
-
+        if(cb.isChecked()) {
+            cm.setStatus_Check(true);
+            activity.presenter.addGejala(cm.getText_Checkbox(),cm.getId());
+        }
+        else {
+            cm.setStatus_Check(false);
+            activity.presenter.removeGejala(cm.getText_Checkbox());
+        }
 
     }
 
