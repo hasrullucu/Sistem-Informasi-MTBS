@@ -192,7 +192,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        this.mDefaultWritableDatabase = sqLiteDatabase; 
+        this.mDefaultWritableDatabase = sqLiteDatabase;
 //        CREATE MAIN TABLE
 //        sqLiteDatabase.execSQL(Balita.CREATE_BALITA);
 //        sqLiteDatabase.execSQL(CREATE_KUNJUNGAN);

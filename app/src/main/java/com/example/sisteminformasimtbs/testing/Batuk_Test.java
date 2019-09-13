@@ -80,10 +80,10 @@ public class Batuk_Test extends Fragment implements View.OnClickListener , Toggl
         this.btn_Tindakan = res.findViewById(R.id.btn_Tindakan);
         this.btn_Tindakan.setOnClickListener(this);
 
-        this.checkBox_1 = res.findViewById(R.id.cb_1) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_2) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_3);
-        this.checkBox_4 = res.findViewById(R.id.cb_4);
+        this.checkBox_1 = res.findViewById(R.id.cb_6) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_7) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_8);
+        this.checkBox_4 = res.findViewById(R.id.cb_10);
 
         int i = 0 ;
         for(Map.Entry<String, Integer> item : this.collectionOfGejalaFromDatabase.entrySet()){

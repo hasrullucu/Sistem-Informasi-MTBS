@@ -79,9 +79,9 @@ public class FragmentAnemia extends Fragment implements View.OnClickListener, To
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_1 = res.findViewById(R.id.cb_1) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_2) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_3);
+        this.checkBox_1 = res.findViewById(R.id.cb_6) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_7) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_8);
 
         // set text cb 1 cb 2 cb 3
 
@@ -131,7 +131,7 @@ public class FragmentAnemia extends Fragment implements View.OnClickListener, To
         else if(this.btn_Kembali == view){
             this.activity.changeToDataDiri_4();
         }else if(this.btn_Selanjutnya == view){
-            this.activity.changeToStatusHIV1();
+            this.activity.changeToMasalahTelinga1();
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();

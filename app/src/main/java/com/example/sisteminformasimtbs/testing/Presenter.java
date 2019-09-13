@@ -80,8 +80,6 @@ public class Presenter {
 
             Classifier now = this.listOfClassifier.get(i) ;
             if(now instanceof Diare_Classifier){
-                Log.d("total gejala yang masuk" ,"edan");
-
                 ArrayList<DiagnosisResult> res = ((Diare_Classifier) now).multiClassify(collectionOfGejala);
                  for(DiagnosisResult item : res){
                      collectionOfKlasifikasiResult.put(item.getNamaKlasifikasiPenyakit() , item.getIdKlasifikasi());
@@ -106,6 +104,7 @@ public class Presenter {
         this.listOfClassifier.add(new Diare_Classifier());
         this.listOfClassifier.add(new StatusHiv_Classifier());
         this.listOfClassifier.add(new Anemia_Classifier());
+        this.listOfClassifier.add(new MasalahTelinga_Classifier());
     }
 
     public LinkedList<LinkedList<TindakanResult>> getAllTindakan(){

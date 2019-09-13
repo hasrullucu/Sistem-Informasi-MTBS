@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
@@ -82,11 +81,11 @@ public class FragmentMasalahTelinga1 extends Fragment implements View.OnClickLis
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_1 = res.findViewById(R.id.cb_1) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_2) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_3);
-        this.checkBox_4 = res.findViewById(R.id.cb_4);
-        this.checkBox_5 =res.findViewById(R.id.cb_5) ;
+        this.checkBox_1 = res.findViewById(R.id.cb_6) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_7) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_8);
+        this.checkBox_4 = res.findViewById(R.id.cb_10);
+        this.checkBox_5 =res.findViewById(R.id.cb_9) ;
         this.checkBox_6 = res.findViewById(R.id.cb_6) ;
 
 
@@ -160,9 +159,8 @@ public class FragmentMasalahTelinga1 extends Fragment implements View.OnClickLis
             toggle(cb_6 , checkBox_6) ;
         }
         else if(this.btn_Kembali == view){
-            this.activity.changeToDataDiri_4();
+            this.activity.changeToStatusHIV1();
         }else if(this.btn_Selanjutnya == view){
-            this.activity.changeToBatuk_Fragment();
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();

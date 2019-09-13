@@ -18,7 +18,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1">
+        android:layout_weight="0.1"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,10 +29,11 @@
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/montserratbold"
             android:shadowColor="@color/shadowColor"
+            android:elevation="4dp"
             android:shadowDx="0"
             android:shadowDy="4"
             android:shadowRadius="4"
-            android:text="STATUS HIV"
+            android:text="DEMAM 1"
             android:textColor="@color/greyBackground"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-
+            android:fontFamily="@font/montserratbold"
             android:buttonTint="@color/white"
             android:text="checkbox"
             android:textColor="@color/white"
@@ -64,6 +66,7 @@
             android:id="@+id/cb_7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratbold"
 
 
             android:layout_marginTop="8dp"
@@ -82,6 +85,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:fontFamily="@font/montserratbold"
 
             android:layout_marginTop="8dp"
             android:buttonTint="@color/white"
@@ -98,32 +102,17 @@
             android:id="@+id/cb_9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratbold"
 
 
-            android:layout_marginTop="8dp"
-            android:buttonTint="@color/white"
-            android:text="checkbox"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_6" />
-
-        <CheckBox
-            android:id="@+id/cb_6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="44dp"
 
             android:buttonTint="@color/white"
             android:text="checkbox"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cb_8" />
 
@@ -131,6 +120,7 @@
             android:id="@+id/cb_10"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratbold"
 
 
             android:layout_marginTop="8dp"

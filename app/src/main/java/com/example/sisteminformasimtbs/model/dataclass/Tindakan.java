@@ -99,10 +99,10 @@ public class Tindakan {
         insert_One_Row(db, 24,"Beri antibiotik yang sesuai",0);
         // demama
         insert_One_Row(db, 25,"Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",0);
-        insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk demam ≥ 38,5 °C",0);
+        insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk fragment_fragmentdemam1 ≥ 38,5 °C",0);
         insert_One_Row(db, 27,"Beri obat anti malaria oral pilihan pertama",0);
-        insert_One_Row(db, 28,"Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut",0);
-        insert_One_Row(db, 29,"Obati penyebab lain dari demam",0);
+        insert_One_Row(db, 28,"Jika fragment_fragmentdemam1 berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut",0);
+        insert_One_Row(db, 29,"Obati penyebab lain dari fragment_fragmentdemam1",0);
         insert_One_Row(db, 30,"Beri vitamin A dosis pengobatan",0);
         insert_One_Row(db, 31,"Jika ada kekeruhan pada kornea atau nanah pada mata berikan salep mata antibiotik",0);
         insert_One_Row(db, 32,"Jika ada nanah pada mata, beri salep mata antibiotik",0);
@@ -111,7 +111,7 @@ public class Tindakan {
         insert_One_Row(db, 35,"Jika ada syok, beri Oksigen 2-4 liter/menit dan beri segera cairan intravena sesuai petunjuk",0);
         insert_One_Row(db, 36,"Jika tidak ada syok tapi sering muntah atau malas minum, beri cairan infus Ringer Laktat/Ringer Asetat, jumlah cairan rumatan",0);
         insert_One_Row(db, 37,"Jika tidak ada syok, tidak muntah dan masih mau minum, beri oralit atau cairan lain sebanyak mungkin dalam perjalanan ke rumah sakit",0);
-        insert_One_Row(db, 38,"Beri dosis pertama parasetamol, jika demam tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",0);
+        insert_One_Row(db, 38,"Beri dosis pertama parasetamol, jika fragment_fragmentdemam1 tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",0);
         insert_One_Row(db, 39,"Kunjungan ulang 1 hari",0);
         // masalah telinga
         insert_One_Row(db, 40,"Beri dosis pertama parasetamol untuk mengatasi nyeri",0);

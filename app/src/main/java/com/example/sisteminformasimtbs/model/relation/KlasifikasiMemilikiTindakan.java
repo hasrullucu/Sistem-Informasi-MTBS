@@ -119,7 +119,7 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 37,9,13);
         insert_One_Row(db, 38,9,19);
 
-        //demam
+        //fragment_fragmentdemam1
         insert_One_Row(db, 39,10,25);
         insert_One_Row(db, 40,10,8);
         insert_One_Row(db, 41,10,4);

@@ -84,11 +84,11 @@ public class FragmentDiare1 extends Fragment implements View.OnClickListener, To
         this.btn_Tindakan = res.findViewById(R.id.btn_Tindakan);
         this.btn_Tindakan.setOnClickListener(this);
 
-        this.checkBox_1 = res.findViewById(R.id.cb_1) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_2) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_3);
-        this.checkBox_4 = res.findViewById(R.id.cb_4);
-        this.checkBox_5 = res.findViewById(R.id.cb_5);
+        this.checkBox_1 = res.findViewById(R.id.cb_6) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_7) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_8);
+        this.checkBox_4 = res.findViewById(R.id.cb_10);
+        this.checkBox_5 = res.findViewById(R.id.cb_9);
         this.checkBox_6 = res.findViewById(R.id.cb_6);
 
         int i = 0 ;

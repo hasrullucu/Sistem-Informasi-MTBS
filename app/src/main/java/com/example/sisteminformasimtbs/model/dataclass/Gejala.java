@@ -58,13 +58,13 @@ public class Gejala {
         insert_One_Row(db, 22,"Ada darah dalam tinja");
         insert_One_Row(db, 70,"Dengan dehidrasi");
 
-        //demam
+        //fragment_fragmentdemam1
         insert_One_Row(db, 23,"Ada tanda bahaya umum");
         insert_One_Row(db, 24,"Kaku kuduk");
         insert_One_Row(db, 25,"Demam (pada anamnesis atau teraba panas atau suhu ≥ 37,5 °C)");
         insert_One_Row(db, 26,"Mikroskopis positif atau RDT positif");
         insert_One_Row(db, 27,"Mikroskopis negatif atau RDT negatif");
-        insert_One_Row(db, 28,"Ditemukan penyebab lain dari demam");
+        insert_One_Row(db, 28,"Ditemukan penyebab lain dari fragment_fragmentdemam1");
         insert_One_Row(db, 29,"Usia ≤ 3 bulan");
         insert_One_Row(db, 30,"Tidak ada tanda bahaya umum");
         insert_One_Row(db, 31,"Tidak ada kaku kuduk");

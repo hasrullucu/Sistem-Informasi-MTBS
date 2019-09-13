@@ -109,7 +109,7 @@ public class GejalaMemilikiKlasifikasi {
         insert_One_Row(db, 23,8,21);
         insert_One_Row(db, 24,9,22);
         insert_One_Row(db, 25,9,21);
-        // demam
+        // fragment_fragmentdemam1
 
         insert_One_Row(db, 26,10,23);
         insert_One_Row(db, 27,10,24);

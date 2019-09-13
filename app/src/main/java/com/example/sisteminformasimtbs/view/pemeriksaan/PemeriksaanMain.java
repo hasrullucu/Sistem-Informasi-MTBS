@@ -41,7 +41,7 @@ public class PemeriksaanMain extends AppCompatActivity {
 
     //         Kelas inisialisasi semua fragment diare
     private Initializer_Diare initializer_diare;
-//     Kelas inisalisasi semau fragment demam
+//     Kelas inisalisasi semau fragment fragment_fragmentdemam1
         private Initializer_Demam initializer_demam;
     // Kelas inisialisasi semua fragment masalah telinga
         private Initializer_MasalahTelinga initializer_masalahTelinga;

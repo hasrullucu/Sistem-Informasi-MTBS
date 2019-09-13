@@ -49,7 +49,7 @@
         >
 
         <CheckBox
-            android:id="@+id/cb_1"
+            android:id="@+id/cb_6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
@@ -63,7 +63,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
-            android:id="@+id/cb_2"
+            android:id="@+id/cb_7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratbold"
@@ -78,10 +78,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_1" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_6" />
 
         <CheckBox
-            android:id="@+id/cb_3"
+            android:id="@+id/cb_8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
@@ -96,10 +96,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_4" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_10" />
 
         <CheckBox
-            android:id="@+id/cb_5"
+            android:id="@+id/cb_9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratbold"
@@ -114,7 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_3" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_8" />
 
         <CheckBox
             android:id="@+id/cb_7"
@@ -131,7 +131,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_5" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_9" />
 
         <CheckBox
             android:id="@+id/cb_8"
@@ -166,10 +166,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_3" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_8" />
 
         <CheckBox
-            android:id="@+id/cb_4"
+            android:id="@+id/cb_10"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratbold"
@@ -184,7 +184,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_2" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

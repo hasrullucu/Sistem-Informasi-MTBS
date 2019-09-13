@@ -18,7 +18,7 @@ public class Diare_Classifier extends Classifier {
     private String namaKlasifikasi_7 = "DIARE TANPA DEHIDRASI";
     private int idKlasifikasi_7 = 7 ;
 
-    private String namaKlasifikasi_8 = "DIARE PERSISTEN";
+    private String namaKlasifikasi_8 = "DIARE PERSISTEN BERAT";
     private int idKlasifikasi_8 = 8 ;
 
     private String namaKlasifikasi_9 = "DISENTRI";
@@ -65,7 +65,7 @@ public class Diare_Classifier extends Classifier {
         else if(counterSedang >= 2) res.add(new DiagnosisResult("DIARE DEHIDRASI RINGAN / SEDANG" ,6));
         else res.add(new DiagnosisResult("DIARE TANPA DEHIDRASI", 7));
 
-        if (collectionOfGejala.containsKey("Dengan dehidrasi") && collectionOfGejala.containsKey("Diare 14 hari atau lebih"))
+        if (collectionOfGejala.containsKey("Tanpa dehidrasi") && collectionOfGejala.containsKey("Diare 14 hari atau lebih"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_35, idKlasifikasi_35));
         }
