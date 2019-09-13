@@ -73,8 +73,7 @@ public class Diare_Classifier extends Classifier {
         {
             res.add(new DiagnosisResult(namaKlasifikasi_8, idKlasifikasi_8));
         }
-
-        if (collectionOfGejala.containsKey("Ada darah dalam tinja"))
+        else if (collectionOfGejala.containsKey("Ada darah dalam tinja"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_9 , idKlasifikasi_9));
         }
