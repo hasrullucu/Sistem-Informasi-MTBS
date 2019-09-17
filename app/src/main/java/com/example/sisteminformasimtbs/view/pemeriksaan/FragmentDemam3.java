@@ -2,15 +2,16 @@ package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
 import android.os.Bundle;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.testing.Checkbox_Model;
@@ -21,20 +22,25 @@ import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
  */
-public class FragmentDemam1 extends Fragment implements View.OnClickListener , Toggler {
+public class FragmentDemam3 extends Fragment implements View.OnClickListener , Toggler {
     private PemeriksaanMain activity ;
 
-    private CheckBox checkBox_1;
-    private Checkbox_Model cb_1;
-    private CheckBox checkBox_2;
-    private Checkbox_Model cb_2;
-    private CheckBox checkBox_3;
-    private Checkbox_Model cb_3;
-    private CheckBox checkBox_4 ;
-    private Checkbox_Model cb_4;
-    private CheckBox checkBox_5;
-    private Checkbox_Model cb_5;
+    private CheckBox checkBox_11;
+    private Checkbox_Model cb_11;
+
+    private CheckBox checkBox_12;
+    private Checkbox_Model cb_12;
+
+    private CheckBox checkBox_13;
+    private Checkbox_Model cb_13;
+
+    private CheckBox checkBox_14 ;
+    private Checkbox_Model cb_14;
+
+    private CheckBox checkBox_15;
+    private Checkbox_Model cb_15;
 
     // header button
     private ConstraintLayout btn_Gejala ;
@@ -48,22 +54,26 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
     private HashMap<String, Integer> collectionOfGejalaFromDatabase ;
 
     public static final int ID_TOPIK = 4 ;
-    public FragmentDemam1() {
-        // Required empty public constructor
+
+    public FragmentDemam3() {
+
     }
 
-    public static FragmentDemam1 newInstance(PemeriksaanMain activity){
-        FragmentDemam1 result = new FragmentDemam1();
+    public static FragmentDemam3 newInstance(PemeriksaanMain activity){
+        // Required empty public constructor
+        FragmentDemam3 result = new FragmentDemam3();
         result.activity = activity;
         result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(result.ID_TOPIK);
         return result;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View res = inflater.inflate(R.layout.fragment_fragmentdemam1, container, false);
+        // Inflate the layout for this fragment
+        View res = inflater.inflate(R.layout.fragment_fragment_demam3, container, false);
 
         this.btn_Gejala = res.findViewById(R.id.btn_Gejala) ;
         this.btn_Gejala.setOnClickListener(this);
@@ -76,11 +86,11 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_1 = res.findViewById(R.id.cb_21) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_22) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_18);
-        this.checkBox_4 = res.findViewById(R.id.cb_20);
-        this.checkBox_5 =res.findViewById(R.id.cb_19) ;
+        this.checkBox_11 = res.findViewById(R.id.cb_21) ;
+        this.checkBox_12 = res.findViewById(R.id.cb_22) ;
+        this.checkBox_13= res.findViewById(R.id.cb_18);
+        this.checkBox_14 = res.findViewById(R.id.cb_19);
+        this.checkBox_15 =res.findViewById(R.id.cb_20) ;
 
 
         // set text cb 1 cb 2 cb 3
@@ -88,38 +98,38 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
         int i = 0 ;
         for(Map.Entry<String, Integer> item : this.collectionOfGejalaFromDatabase.entrySet()){
             switch (i){
-                case 0 :
-                    this.cb_1 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_1.setText(this.cb_1.getText_Checkbox());
+                case 10 :
+                    this.cb_11 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_11.setText(this.cb_11.getText_Checkbox());
                     break;
-                case 1 :
-                    this.cb_2 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_2.setText(this.cb_2.getText_Checkbox());
+                case 11 :
+                    this.cb_12 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_12.setText(this.cb_12.getText_Checkbox());
                     break ;
-                case 2 :
+                case 12 :
 
-                    this.cb_3 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_3.setText(this.cb_3.getText_Checkbox());
+                    this.cb_13 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_13.setText(this.cb_13.getText_Checkbox());
                     break;
 
-                case 3:
-                    this.cb_4 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_4.setText(this.cb_4.getText_Checkbox());
+                case 13:
+                    this.cb_14 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_14.setText(this.cb_14.getText_Checkbox());
                     break;
 
-                case 4 :
-                    this.cb_5 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_5.setText(this.cb_5.getText_Checkbox());
+                case 14 :
+                    this.cb_15 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_15.setText(this.cb_15.getText_Checkbox());
                     break ;
 
             }
             i++;
         }
-        this.checkBox_1.setOnClickListener(this);
-        this.checkBox_2.setOnClickListener(this);
-        this.checkBox_3.setOnClickListener(this);
-        this.checkBox_4.setOnClickListener(this);
-        this.checkBox_5.setOnClickListener(this);
+        this.checkBox_11.setOnClickListener(this);
+        this.checkBox_12.setOnClickListener(this);
+        this.checkBox_13.setOnClickListener(this);
+        this.checkBox_14.setOnClickListener(this);
+        this.checkBox_15.setOnClickListener(this);
 
 
 
@@ -133,20 +143,20 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
 
     @Override
     public void onClick(View view) {
-        if (this.checkBox_1.getId() == view.getId()) {
-            toggle(cb_1, checkBox_1);
-        } else if (this.checkBox_2.getId() == view.getId()) {
-            toggle(cb_2, checkBox_2);
-        } else if (this.checkBox_3.getId() == view.getId()) {
-            toggle(cb_3, checkBox_3);
-        } else if (this.checkBox_4.getId() == view.getId()) {
-            toggle(cb_4, checkBox_4);
-        } else if (this.checkBox_5.getId() == view.getId()) {
-            toggle(cb_5, checkBox_5);
+        if (this.checkBox_11.getId() == view.getId()) {
+            toggle(cb_11, checkBox_11);
+        } else if (this.checkBox_12.getId() == view.getId()) {
+            toggle(cb_12, checkBox_12);
+        } else if (this.checkBox_13.getId() == view.getId()) {
+            toggle(cb_13, checkBox_13);
+        } else if (this.checkBox_14.getId() == view.getId()) {
+            toggle(cb_14, checkBox_14);
+        } else if (this.checkBox_15.getId() == view.getId()) {
+            toggle(cb_15, checkBox_15);
         } else if (this.btn_Kembali == view) {
-            this.activity.changeToDiare2();
-        } else if (this.btn_Selanjutnya == view) {
             this.activity.changeToDemam2();
+        } else if (this.btn_Selanjutnya == view) {
+            this.activity.changeToDemam4();
         } else if (btn_Tindakan == view) {
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();
@@ -159,7 +169,6 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
             activity.changeToKlasifikasiTest(collectionOfClassification);
         }
     }
-
 
     @Override
     public void toggle(Checkbox_Model cm, CheckBox cb) {

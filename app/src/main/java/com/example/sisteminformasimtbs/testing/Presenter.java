@@ -79,13 +79,21 @@ public class Presenter {
         for(int i = 0 ; i < this.listOfClassifier.size() ; i++){
 
             Classifier now = this.listOfClassifier.get(i) ;
-            if(now instanceof Diare_Classifier){
+            if(now instanceof Diare_Classifier)
+            {
                 ArrayList<DiagnosisResult> res = ((Diare_Classifier) now).multiClassify(collectionOfGejala);
                  for(DiagnosisResult item : res){
                      collectionOfKlasifikasiResult.put(item.getNamaKlasifikasiPenyakit() , item.getIdKlasifikasi());
                  }
-
-            }else{
+            }
+            else if (now instanceof Demam_Classifier)
+            {
+                ArrayList<DiagnosisResult> res = ((Demam_Classifier) now).multiClassify(collectionOfGejala);
+                for(DiagnosisResult item : res){
+                    collectionOfKlasifikasiResult.put(item.getNamaKlasifikasiPenyakit() , item.getIdKlasifikasi());
+                }
+            }
+            else{
                  DiagnosisResult hasil = now.classify(this.collectionOfGejala);
                  if(hasil.getIdKlasifikasi() != 0) collectionOfKlasifikasiResult.put(hasil.getNamaKlasifikasiPenyakit() , hasil.getIdKlasifikasi());
 
@@ -105,6 +113,7 @@ public class Presenter {
         this.listOfClassifier.add(new StatusHiv_Classifier());
         this.listOfClassifier.add(new Anemia_Classifier());
         this.listOfClassifier.add(new MasalahTelinga_Classifier());
+        this.listOfClassifier.add(new Demam_Classifier());
     }
 
     public LinkedList<LinkedList<TindakanResult>> getAllTindakan(){

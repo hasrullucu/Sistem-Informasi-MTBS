@@ -79,9 +79,9 @@ public class FragmentAnemia extends Fragment implements View.OnClickListener, To
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_1 = res.findViewById(R.id.cb_6) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_7) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_8);
+        this.checkBox_1 = res.findViewById(R.id.cb_21) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_22) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_18);
 
         // set text cb 1 cb 2 cb 3
 

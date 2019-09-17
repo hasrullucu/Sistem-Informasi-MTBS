@@ -51,7 +51,7 @@
         >
 
         <CheckBox
-            android:id="@+id/cb_6"
+            android:id="@+id/cb_21"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -74,7 +74,7 @@
             />
 
         <CheckBox
-            android:id="@+id/cb_7"
+            android:id="@+id/cb_22"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -85,7 +85,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.317"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_6"
+            app:layout_constraintTop_toBottomOf="@+id/cb_21"
 
 
             android:buttonTint="@color/white"
@@ -97,7 +97,7 @@
             />
 
         <CheckBox
-            android:id="@+id/cb_8"
+            android:id="@+id/cb_18"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -108,7 +108,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.317"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_7"
+            app:layout_constraintTop_toBottomOf="@+id/cb_22"
 
 
             android:buttonTint="@color/white"
@@ -120,7 +120,7 @@
             />
 
         <CheckBox
-            android:id="@+id/cb_10"
+            android:id="@+id/cb_20"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -131,7 +131,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.317"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_8"
+            app:layout_constraintTop_toBottomOf="@+id/cb_18"
 
 
             android:buttonTint="@color/white"
@@ -143,7 +143,7 @@
             />
 
         <CheckBox
-            android:id="@+id/cb_9"
+            android:id="@+id/cb_19"
             android:layout_width="0dp"
 
             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_10"
+            app:layout_constraintTop_toBottomOf="@+id/cb_20"
 
 
             android:buttonTint="@color/white"
@@ -167,7 +167,7 @@
             />
 
         <CheckBox
-            android:id="@+id/cb_6"
+            android:id="@+id/cb_21"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -177,7 +177,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_9"
+            app:layout_constraintTop_toBottomOf="@+id/cb_19"
 
             android:buttonTint="@color/white"
             android:text="checkbox"

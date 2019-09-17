@@ -137,6 +137,7 @@ public class PemeriksaanMain extends AppCompatActivity {
         changeFragment(now);
     }
 
+
     public void changeToDataDiri_2() {
         FragmentDataDiri2 now = this.initializer_dataDiri.getDataDiri2();
         changeFragment(now);
@@ -170,8 +171,29 @@ public class PemeriksaanMain extends AppCompatActivity {
         FragmentDiare2 now = this.initializer_diare.getFragmentDiare2();
         changeFragment(now);
         }
+
         public void changeToDemam1(){
             FragmentDemam1 now = this.initializer_demam.getFragmentDemam1();
+            changeFragment(now);
+        }
+
+        public void changeToDemam2(){
+            FragmentDemam2 now = this.initializer_demam.getFragmentDemam2();
+            changeFragment(now);
+        }
+
+        public void changeToDemam3(){
+            FragmentDemam3 now = this.initializer_demam.getFragmentDemam3();
+            changeFragment(now);
+        }
+
+        public void changeToDemam4(){
+            FragmentDemam4 now = this.initializer_demam.getFragmentDemam4();
+            changeFragment(now);
+        }
+
+        public void changeToDemam5(){
+            FragmentDemam5 now = this.initializer_demam.getFragmentDemam5();
             changeFragment(now);
         }
 

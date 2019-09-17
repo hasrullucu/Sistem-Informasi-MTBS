@@ -1,4 +1,4 @@
-package com.example.sisteminformasimtbs.view;
+package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
 import android.os.Bundle;
@@ -16,7 +16,6 @@ import android.widget.CheckBox;
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.testing.Checkbox_Model;
 import com.example.sisteminformasimtbs.testing.Toggler;
-import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,7 +66,7 @@ public class FragmentDemam2 extends Fragment implements View.OnClickListener , T
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View res = inflater.inflate(R.layout.diare2, container, false);
+        View res = inflater.inflate(R.layout.fragment_fragment_demam2, container, false);
 
         this.btn_Gejala = res.findViewById(R.id.btn_Gejala) ;
         this.btn_Gejala.setOnClickListener(this);
@@ -80,11 +79,11 @@ public class FragmentDemam2 extends Fragment implements View.OnClickListener , T
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_6 = res.findViewById(R.id.cb_6) ;
-        this.checkBox_7 = res.findViewById(R.id.cb_7) ;
-        this.checkBox_8 = res.findViewById(R.id.cb_8);
-        this.checkBox_9 = res.findViewById(R.id.cb_9);
-        this.checkBox_10 =res.findViewById(R.id.cb_10) ;
+        this.checkBox_6 = res.findViewById(R.id.cb_21) ;
+        this.checkBox_7 = res.findViewById(R.id.cb_22) ;
+        this.checkBox_8 = res.findViewById(R.id.cb_18);
+        this.checkBox_9 = res.findViewById(R.id.cb_19);
+        this.checkBox_10 =res.findViewById(R.id.cb_20) ;
 
         // set text cb 1 cb 2 cb 3
 
@@ -148,9 +147,9 @@ public class FragmentDemam2 extends Fragment implements View.OnClickListener , T
             toggle(cb_10, checkBox_10);
         }
         else if(this.btn_Kembali == view){
-            this.activity.changeToDataDiri_4();
+            this.activity.changeToDemam1();
         }else if(this.btn_Selanjutnya == view){
-            this.activity.changeToBatuk_Fragment();
+            this.activity.changeToDemam3();
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();

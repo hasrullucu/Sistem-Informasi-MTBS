@@ -83,12 +83,12 @@ public class FragmentStatusHIV1 extends Fragment implements View.OnClickListener
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_1 = res.findViewById(R.id.cb_6) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_7) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_8);
-        this.checkBox_4 = res.findViewById(R.id.cb_10);
-        this.checkBox_5 =res.findViewById(R.id.cb_9) ;
-        this.checkBox_6 = res.findViewById(R.id.cb_6) ;
+        this.checkBox_1 = res.findViewById(R.id.cb_21) ;
+        this.checkBox_2 = res.findViewById(R.id.cb_22) ;
+        this.checkBox_3 = res.findViewById(R.id.cb_18);
+        this.checkBox_4 = res.findViewById(R.id.cb_20);
+        this.checkBox_5 =res.findViewById(R.id.cb_19) ;
+        this.checkBox_6 = res.findViewById(R.id.cb_21) ;
 
 
         // set text cb 1 cb 2 cb 3

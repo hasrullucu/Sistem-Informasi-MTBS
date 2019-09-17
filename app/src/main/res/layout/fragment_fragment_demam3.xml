@@ -11,9 +11,9 @@
     android:background="@color/greenBackground"
     tools:context=".testing.TandaBahayaUmum_Fragment">
 
-   <include layout="@layout/pemeriksaan_header">
+    <include layout="@layout/pemeriksaan_header">
 
-   </include>
+    </include>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:shadowDx="0"
             android:shadowDy="4"
             android:shadowRadius="4"
-            android:text="TANDA BAHAYA UMUM"
+            android:text="DEMAM 3"
             android:textColor="@color/greyBackground"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -103,68 +103,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratbold"
-
-
             android:layout_marginTop="44dp"
-
             android:buttonTint="@color/white"
             android:text="checkbox"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_18" />
-
-        <CheckBox
-            android:id="@+id/cb_22"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserratbold"
-
-
-            android:layout_marginTop="8dp"
-            android:buttonTint="@color/white"
-            android:text="checkbox"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_19" />
-
-        <CheckBox
-            android:id="@+id/cb_18"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserratbold"
-
-
-            android:layout_marginTop="8dp"
-            android:buttonTint="@color/white"
-            android:text="checkbox"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_22" />
-
-        <CheckBox
-            android:id="@+id/cb_21"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-            android:fontFamily="@font/montserratbold"
-
-            android:layout_marginTop="8dp"
-
-            android:buttonTint="@color/white"
-            android:text="checkbox"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cb_18" />
 
@@ -177,7 +122,6 @@
 
             android:layout_marginTop="8dp"
             android:buttonTint="@color/white"
-            android:textColorHint="@color/redstatus"
             android:text="checkbox"
 
             android:textColor="@color/white"
@@ -189,8 +133,8 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-  <include layout="@layout/pemeriksaan_footer">
-  </include>
+    <include layout="@layout/pemeriksaan_footer">
+    </include>
 
 
 </LinearLayout>

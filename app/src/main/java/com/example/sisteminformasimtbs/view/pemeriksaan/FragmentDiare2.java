@@ -85,12 +85,12 @@ public class FragmentDiare2 extends Fragment implements View.OnClickListener , T
         this.btn_Tindakan = res.findViewById(R.id.btn_Tindakan);
         this.btn_Tindakan.setOnClickListener(this);
 
-        this.checkBox_7 = res.findViewById(R.id.cb_6) ;
-        this.checkBox_8 = res.findViewById(R.id.cb_7) ;
-        this.checkBox_9 = res.findViewById(R.id.cb_8);
-        this.checkBox_10 = res.findViewById(R.id.cb_10);
-        this.checkBox_11= res.findViewById(R.id.cb_9);
-        this.checkBox_12= res.findViewById(R.id.cb_6);
+        this.checkBox_7 = res.findViewById(R.id.cb_21) ;
+        this.checkBox_8 = res.findViewById(R.id.cb_22) ;
+        this.checkBox_9 = res.findViewById(R.id.cb_18);
+        this.checkBox_10 = res.findViewById(R.id.cb_20);
+        this.checkBox_11= res.findViewById(R.id.cb_19);
+        this.checkBox_12= res.findViewById(R.id.cb_21);
 
         int i = 0 ;
         for(Map.Entry<String, Integer> item : this.collectionOfGejalaFromDatabase.entrySet()){
@@ -161,7 +161,7 @@ public class FragmentDiare2 extends Fragment implements View.OnClickListener , T
         } else if(this.btn_Kembali == view){
             this.activity.changeToDiare1();
         }else if(this.btn_Selanjutnya == view){
-           this.activity.changeToStatusHIV1();
+           this.activity.changeToDemam1();
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();

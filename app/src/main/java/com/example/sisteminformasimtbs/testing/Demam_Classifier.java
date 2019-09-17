@@ -1,5 +1,7 @@
 package com.example.sisteminformasimtbs.testing;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -77,7 +79,7 @@ public class Demam_Classifier extends Classifier
         {
             res.add(new DiagnosisResult(namaKlasifikasi_10, idKlasifikasi_10));
         }
-        else if (collectionOfGejala.containsKey("Demam (pada anamnesis atau teraba panas atau suhu ≥ 37,5 °C)") ||
+        else if (collectionOfGejala.containsKey("Demam (pada anamnesis atau teraba panas atau suhu ≥ 37,5 °C)") &&
                 collectionOfGejala.containsKey("Mikroskopis positif atau RDT positif"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_11, idKlasifikasi_11));
@@ -94,7 +96,7 @@ public class Demam_Classifier extends Classifier
         {
             res.add(new DiagnosisResult(namaKlasifikasi_15, idKlasifikasi_15));
         }
-        else if (collectionOfGejala.containsKey("Ada nanah pada mata") &&
+        else if (collectionOfGejala.containsKey("Ada nanah pada mata") ||
                 collectionOfGejala.containsKey("Ada luka pada mulut"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_16, idKlasifikasi_16));

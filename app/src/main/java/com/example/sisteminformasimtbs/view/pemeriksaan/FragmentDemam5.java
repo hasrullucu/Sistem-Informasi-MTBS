@@ -2,15 +2,17 @@ package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
 import android.os.Bundle;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.testing.Checkbox_Model;
@@ -22,19 +24,14 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentDemam1 extends Fragment implements View.OnClickListener , Toggler {
+public class FragmentDemam5 extends Fragment implements View.OnClickListener , Toggler {
     private PemeriksaanMain activity ;
 
-    private CheckBox checkBox_1;
-    private Checkbox_Model cb_1;
-    private CheckBox checkBox_2;
-    private Checkbox_Model cb_2;
-    private CheckBox checkBox_3;
-    private Checkbox_Model cb_3;
-    private CheckBox checkBox_4 ;
-    private Checkbox_Model cb_4;
-    private CheckBox checkBox_5;
-    private Checkbox_Model cb_5;
+    private CheckBox checkBox_21;
+    private Checkbox_Model cb_21;
+
+    private CheckBox checkBox_22;
+    private Checkbox_Model cb_22;
 
     // header button
     private ConstraintLayout btn_Gejala ;
@@ -48,12 +45,13 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
     private HashMap<String, Integer> collectionOfGejalaFromDatabase ;
 
     public static final int ID_TOPIK = 4 ;
-    public FragmentDemam1() {
+
+    public FragmentDemam5() {
         // Required empty public constructor
     }
-
-    public static FragmentDemam1 newInstance(PemeriksaanMain activity){
-        FragmentDemam1 result = new FragmentDemam1();
+    public static FragmentDemam5 newInstance(PemeriksaanMain activity){
+        // Required empty public constructor
+        FragmentDemam5 result = new FragmentDemam5();
         result.activity = activity;
         result.collectionOfGejalaFromDatabase = activity.presenter.getGejalaByIdTopik(result.ID_TOPIK);
         return result;
@@ -63,7 +61,9 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View res = inflater.inflate(R.layout.fragment_fragmentdemam1, container, false);
+        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment
+        View res = inflater.inflate(R.layout.fragment_fragment_demam5, container, false);
 
         this.btn_Gejala = res.findViewById(R.id.btn_Gejala) ;
         this.btn_Gejala.setOnClickListener(this);
@@ -76,51 +76,28 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
         this.btn_Tindakan.setOnClickListener(this);
 
 
-        this.checkBox_1 = res.findViewById(R.id.cb_21) ;
-        this.checkBox_2 = res.findViewById(R.id.cb_22) ;
-        this.checkBox_3 = res.findViewById(R.id.cb_18);
-        this.checkBox_4 = res.findViewById(R.id.cb_20);
-        this.checkBox_5 =res.findViewById(R.id.cb_19) ;
+        this.checkBox_21 = res.findViewById(R.id.cb_21) ;
+        this.checkBox_22 = res.findViewById(R.id.cb_22) ;
+
+        this.checkBox_21.setOnClickListener(this);
+        this.checkBox_22.setOnClickListener(this);
 
 
-        // set text cb 1 cb 2 cb 3
 
         int i = 0 ;
         for(Map.Entry<String, Integer> item : this.collectionOfGejalaFromDatabase.entrySet()){
             switch (i){
-                case 0 :
-                    this.cb_1 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_1.setText(this.cb_1.getText_Checkbox());
+                case 20 :
+                    this.cb_21 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_21.setText(this.cb_21.getText_Checkbox());
                     break;
-                case 1 :
-                    this.cb_2 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_2.setText(this.cb_2.getText_Checkbox());
+                case  21:
+                    this.cb_22 = new Checkbox_Model(item.getKey() , item.getValue());
+                    this.checkBox_22.setText(this.cb_22.getText_Checkbox());
                     break ;
-                case 2 :
-
-                    this.cb_3 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_3.setText(this.cb_3.getText_Checkbox());
-                    break;
-
-                case 3:
-                    this.cb_4 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_4.setText(this.cb_4.getText_Checkbox());
-                    break;
-
-                case 4 :
-                    this.cb_5 = new Checkbox_Model(item.getKey() , item.getValue());
-                    this.checkBox_5.setText(this.cb_5.getText_Checkbox());
-                    break ;
-
             }
             i++;
         }
-        this.checkBox_1.setOnClickListener(this);
-        this.checkBox_2.setOnClickListener(this);
-        this.checkBox_3.setOnClickListener(this);
-        this.checkBox_4.setOnClickListener(this);
-        this.checkBox_5.setOnClickListener(this);
-
 
 
         this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
@@ -133,20 +110,15 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
 
     @Override
     public void onClick(View view) {
-        if (this.checkBox_1.getId() == view.getId()) {
-            toggle(cb_1, checkBox_1);
-        } else if (this.checkBox_2.getId() == view.getId()) {
-            toggle(cb_2, checkBox_2);
-        } else if (this.checkBox_3.getId() == view.getId()) {
-            toggle(cb_3, checkBox_3);
-        } else if (this.checkBox_4.getId() == view.getId()) {
-            toggle(cb_4, checkBox_4);
-        } else if (this.checkBox_5.getId() == view.getId()) {
-            toggle(cb_5, checkBox_5);
+        if (this.checkBox_21.getId() == view.getId()) {
+            toggle(cb_21, checkBox_21);
+        } else if (this.checkBox_22.getId() == view.getId()) {
+            Log.d("clicked" , "Clicked");
+            toggle(cb_22, checkBox_22);
         } else if (this.btn_Kembali == view) {
-            this.activity.changeToDiare2();
+            this.activity.changeToDemam4();
         } else if (this.btn_Selanjutnya == view) {
-            this.activity.changeToDemam2();
+            this.activity.changeToMasalahTelinga1();
         } else if (btn_Tindakan == view) {
             activity.saveLastGejala(this);
             activity.changeToTindakanTest();
@@ -159,7 +131,6 @@ public class FragmentDemam1 extends Fragment implements View.OnClickListener , T
             activity.changeToKlasifikasiTest(collectionOfClassification);
         }
     }
-
 
     @Override
     public void toggle(Checkbox_Model cm, CheckBox cb) {

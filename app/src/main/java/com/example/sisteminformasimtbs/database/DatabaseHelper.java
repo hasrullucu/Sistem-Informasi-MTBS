@@ -220,9 +220,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 //        call method to insert
         insertion();
-
-
-
     }
 
     @Override
