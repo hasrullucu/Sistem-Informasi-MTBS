@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/greenBackground"
     android:weightSum="1"
-    tools:context=".testing.Klasifikasi_Test">
+    tools:context=".view.pemeriksaan.FragmentKlasifikasi">
 
     <!-- TODO: Update blank fragment layout -->
 

@@ -1,26 +1,24 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 public class Initializer_Status_HIV extends Initializer {
-    private PemeriksaanMain activity;
-    private FragmentStatusHIV1 statusHIV1;
-    private FragmentStatusHIV2 statusHIV2;
+    private PemeriksaanMain_Activity activity;
+    private FragmentStatusHIV_1 statusHIV1;
 
-    public Initializer_Status_HIV(PemeriksaanMain activity){
+
+    public Initializer_Status_HIV(PemeriksaanMain_Activity activity){
         this.activity = activity;
         initAll();
     }
 
     @Override
     public void initAll() {
-        this.statusHIV1 = FragmentStatusHIV1.newInstance(activity);
-        this.statusHIV2 = FragmentStatusHIV2.newInstance(activity);
+        this.statusHIV1 = FragmentStatusHIV_1.newInstance(activity);
+
     }
 
-    public FragmentStatusHIV1 getStatusHIV1() {
+    public FragmentStatusHIV_1 getStatusHIV1() {
         return statusHIV1;
     }
 
-    public FragmentStatusHIV2 getStatusHIV2() {
-        return statusHIV2;
-    }
+
 }

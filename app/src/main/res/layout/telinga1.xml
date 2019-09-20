@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/greenBackground"
+    android:elevation="4dp"
     android:orientation="vertical"
     android:weightSum="1"
-    android:elevation="4dp"
-    android:background="@color/greenBackground"
-    tools:context=".testing.TandaBahayaUmum_Fragment">
+    tools:context=".view.pemeriksaan.FragmentMasalahTelinga_1">
 
     <include layout="@layout/pemeriksaan_header">
 
@@ -18,8 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
-        >
+        android:layout_weight="0.1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,129 +43,121 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.6"
-        >
+        android:layout_weight="0.6">
 
         <CheckBox
-            android:id="@+id/cb_21"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-
-            android:buttonTint="@color/white"
-            android:text="checkbox"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/montserratbold"
-
-            />
-
-        <CheckBox
-            android:id="@+id/cb_22"
+            android:id="@+id/cb_telinga_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
 
             android:layout_marginTop="8dp"
             android:buttonTint="@color/white"
+            android:fontFamily="@font/montserratbold"
+
             android:text="checkbox"
             android:textColor="@color/white"
-
             android:textSize="20sp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_21"
-            android:fontFamily="@font/montserratbold"
-
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
-            android:id="@+id/cb_18"
+            android:id="@+id/cb_telinga_6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
 
             android:layout_marginTop="8dp"
             android:buttonTint="@color/white"
+            android:fontFamily="@font/montserratbold"
 
             android:text="checkbox"
             android:textColor="@color/white"
             android:textSize="20sp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_20"
-            android:fontFamily="@font/montserratbold"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/cb_telinga_5" />
 
         <CheckBox
-            android:id="@+id/cb_19"
+            android:id="@+id/cb_telinga_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
 
-            android:layout_marginTop="8dp"
             android:buttonTint="@color/white"
             android:fontFamily="@font/montserratbold"
             android:text="checkbox"
+
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintHorizontal_bias="1.0"
-
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_21" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_telinga_4" />
 
         <CheckBox
-            android:id="@+id/cb_21"
+            android:id="@+id/cb_telinga_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
 
-            android:layout_marginTop="8dp"
-
             android:buttonTint="@color/white"
+            android:fontFamily="@font/montserratbold"
             android:text="checkbox"
+
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_18"
-            android:fontFamily="@font/montserratbold"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/cb_telinga_3" />
 
         <CheckBox
-            android:id="@+id/cb_20"
+            android:id="@+id/cb_telinga_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
 
-            android:layout_marginTop="8dp"
             android:buttonTint="@color/white"
+            android:fontFamily="@font/montserratbold"
             android:text="checkbox"
 
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_22"
-            android:fontFamily="@font/montserratbold"
 
-            />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_telinga_2" />
+
+        <CheckBox
+            android:id="@+id/cb_telinga_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+
+            android:buttonTint="@color/white"
+            android:fontFamily="@font/montserratbold"
+            android:text="checkbox"
+
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_telinga_1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include layout="@layout/pemeriksaan_footer">
-    </include>
+    <include layout="@layout/pemeriksaan_footer"></include>
 
 
 </LinearLayout>

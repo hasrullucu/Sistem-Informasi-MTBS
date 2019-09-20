@@ -1,32 +1,28 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 public class Initializer_MasalahTelinga extends Initializer{
-    private PemeriksaanMain activity;
+    private PemeriksaanMain_Activity activity;
 
     // all fragment for masalah telinga
     //fragment 1 masalah telinga
-    private FragmentMasalahTelinga1 fragmentMasalahTelinga1;
-    // fragment 2 masalah telinga
-    private FragmentMasalahTelinga2 fragmentMasalahTelinga2;
+    private FragmentMasalahTelinga_1 fragmentMasalahTelinga1;
+    // fragment 2 masalah
+
 
     // fragment 2 masalah telinga
-    public Initializer_MasalahTelinga(PemeriksaanMain activity){
+    public Initializer_MasalahTelinga(PemeriksaanMain_Activity activity){
         this.activity = activity;
         initAll();
     }
 
-    public FragmentMasalahTelinga2 getFragmentMasalahTelinga2() {
-        return this.fragmentMasalahTelinga2;
-    }
 
-    public FragmentMasalahTelinga1 getFragmentMasalahTelinga1() {
+
+    public FragmentMasalahTelinga_1 getFragmentMasalahTelinga1() {
         return this.fragmentMasalahTelinga1;
     }
 
     @Override
     public void initAll() {
-        this.fragmentMasalahTelinga1 = FragmentMasalahTelinga1.newInstance(this.activity);
-        this.fragmentMasalahTelinga2 = FragmentMasalahTelinga2.newInstance(this.activity);
-
+        this.fragmentMasalahTelinga1 = FragmentMasalahTelinga_1.newInstance(this.activity);
     }
 }

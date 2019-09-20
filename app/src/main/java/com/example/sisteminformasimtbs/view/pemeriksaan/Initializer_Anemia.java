@@ -1,10 +1,10 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 public class Initializer_Anemia extends Initializer {
-    private PemeriksaanMain activity;
+    private PemeriksaanMain_Activity activity;
     private FragmentAnemia fragmentAnemia;
 
-    public Initializer_Anemia(PemeriksaanMain activity){
+    public Initializer_Anemia(PemeriksaanMain_Activity activity){
         this.activity = activity;
         initAll();
     }

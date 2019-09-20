@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/greenBackground"
     android:weightSum="1"
-    tools:context=".testing.Tindakan_Test">
+    tools:context=".view.pemeriksaan.FragmentTindakan">
 
     <!-- TODO: Update blank fragment layout -->
     <include layout="@layout/pemeriksaan_header">

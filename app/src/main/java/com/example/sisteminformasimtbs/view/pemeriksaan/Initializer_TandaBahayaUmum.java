@@ -1,15 +1,13 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
-import com.example.sisteminformasimtbs.testing.TandaBahayaUmum_Fragment;
-
 public class Initializer_TandaBahayaUmum extends Initializer
 {
-    private PemeriksaanMain activity;
+    private PemeriksaanMain_Activity activity;
     private TandaBahayaUmum_Fragment tandaBahayaUmumFragment ;
 
 
 
-    public Initializer_TandaBahayaUmum (PemeriksaanMain activity )
+    public Initializer_TandaBahayaUmum (PemeriksaanMain_Activity activity )
     {
         this.activity = activity;
         initAll();

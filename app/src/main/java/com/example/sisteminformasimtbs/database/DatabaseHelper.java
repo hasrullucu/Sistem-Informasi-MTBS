@@ -1,13 +1,11 @@
 package com.example.sisteminformasimtbs.database;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.sisteminformasimtbs.model.dataclass.Balita;
 import com.example.sisteminformasimtbs.model.dataclass.BentukObat;
 import com.example.sisteminformasimtbs.model.dataclass.Gejala;
 import com.example.sisteminformasimtbs.model.dataclass.KlasifikasiPenyakit;
@@ -19,18 +17,17 @@ import com.example.sisteminformasimtbs.model.relation.GejalaMemilikiKlasifikasi;
 import com.example.sisteminformasimtbs.model.relation.KlasifikasiMemilikiTindakan;
 import com.example.sisteminformasimtbs.model.relation.ObatMemilikiBentukObat;
 import com.example.sisteminformasimtbs.model.relation.TindakanMemilikiBentukObat;
-import com.example.sisteminformasimtbs.testing.TindakanResult;
-import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
+import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
+import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 //     get Main Activity
-    private PemeriksaanMain activity;
+    private PemeriksaanMain_Activity activity;
     // Log cat tag
     private static final String LOG = "DatabaseHelper";
 
@@ -182,7 +179,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
 
-    public DatabaseHelper(Context context , PemeriksaanMain activity ) {
+    public DatabaseHelper(Context context , PemeriksaanMain_Activity activity ) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.activity = activity;
         onUpgrade(this.getWritableDatabase(), DATABASE_VERSION , DATABASE_VERSION );

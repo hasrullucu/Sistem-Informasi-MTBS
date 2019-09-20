@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain;
+import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity;
 import com.example.sisteminformasimtbs.view.petunjuk.Petunjuk_Activity;
 
 public class MainMenu_Activity extends AppCompatActivity implements View.OnClickListener {
@@ -33,7 +32,7 @@ public class MainMenu_Activity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if(view.getId() == this.btn_Mulai.getId()){
-            Intent intent = new Intent(getApplicationContext() , PemeriksaanMain.class);
+            Intent intent = new Intent(getApplicationContext() , PemeriksaanMain_Activity.class);
             startActivity(intent);
         }else if(view.getId() == this.btn_Petunjuk.getId()){
            Intent intent = new Intent(getApplicationContext() , Petunjuk_Activity.class);

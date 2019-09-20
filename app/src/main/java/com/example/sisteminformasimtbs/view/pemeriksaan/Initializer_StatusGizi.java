@@ -2,28 +2,40 @@ package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 public class Initializer_StatusGizi extends Initializer
 {
-    private FragmentStatusGizi1 statusGizi1;
-    private FragmentStatusGizi2 statusGizi2;
-    private PemeriksaanMain activity;
+    // fragment 1 , 2 , 3
+    private PemeriksaanMain_Activity activity;
 
-    public Initializer_StatusGizi (PemeriksaanMain activity)
+    private FragmentStatusGizi_1 fragmentStatusGizi_1;
+    private FragmentStatusGizi_2 fragmentStatusGizi_2;
+    private FragmentStatusGizi_3 fragmentStatusGizi3;
+
+    public FragmentStatusGizi_2 getFragmentStatusGizi_2() {
+        return fragmentStatusGizi_2;
+    }
+
+    public Initializer_StatusGizi (PemeriksaanMain_Activity activity)
     {
         this.activity = activity;
         initAll();
     }
 
+    public FragmentStatusGizi_3 getFragmentStatusGizi3() {
+        return fragmentStatusGizi3;
+    }
+
     @Override
     public void initAll()
     {
-        this.statusGizi1 = FragmentStatusGizi1.newInstance(activity);
-        this.statusGizi2 = FragmentStatusGizi2.newInstance(activity);
+       // create fragment for status gizi
+        this.fragmentStatusGizi_1 = FragmentStatusGizi_1.newInstance(activity);
+        this.fragmentStatusGizi_2 = FragmentStatusGizi_2.newInstance(activity);
+        this.fragmentStatusGizi3 = FragmentStatusGizi_3.newInstance(activity);
+
     }
 
-    public FragmentStatusGizi1 getStatusGizi1() {
-        return statusGizi1;
-    }
+// getter
 
-    public FragmentStatusGizi2 getStatusGizi2() {
-        return statusGizi2;
+    public FragmentStatusGizi_1 getFragmentStatusGizi_1() {
+        return fragmentStatusGizi_1;
     }
 }

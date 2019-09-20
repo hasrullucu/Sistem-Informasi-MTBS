@@ -9,7 +9,7 @@
     android:background="@color/greenBackground"
     android:orientation="vertical"
     android:weightSum="5"
-    tools:context=".view.pemeriksaan.PemeriksaanMain">
+    tools:context=".view.pemeriksaan.PemeriksaanMain_Activity">
 
     <include layout="@layout/btn_kembali_layout" android:id="@+id/btn_Kembali"></include>
 
