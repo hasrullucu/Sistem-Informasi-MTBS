@@ -4,23 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/greenBackground"
     tools:context=".view.langkahtindakan.LangkahTindakanActivity">
 
-    <include
-        android:id="@+id/btn_Kembali"
-        layout="@layout/btn_kembali_layout"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="25dp">
-
-
-    </include>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewLangkah"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Kembali">
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_height="match_parent">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="0.4"
+         >
 
+        <include
+            android:id="@+id/btn_Kembali"
+            layout="@layout/btn_kembali_layout"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="25dp">
+        </include>
+     </LinearLayout>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewLangkah"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/list_item_langkahtindakan">
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

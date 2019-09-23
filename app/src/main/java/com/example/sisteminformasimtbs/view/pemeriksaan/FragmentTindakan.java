@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
@@ -28,7 +29,8 @@ public class FragmentTindakan extends Fragment implements View.OnClickListener {
     private PemeriksaanMain_Activity activity ;
 
     private  int INDEX_TINDAKAN_FRAGMENT ;
-
+    private TextView judulTindakan;
+    private String judulTindakantext;
 
     private RecyclerView tindakanRecyclerView ;
     private TindakanListAdapter tindakanListAdapter ;
@@ -49,11 +51,12 @@ public class FragmentTindakan extends Fragment implements View.OnClickListener {
     public FragmentTindakan() {
     }
 
-    public static FragmentTindakan newInstance(PemeriksaanMain_Activity activity , LinkedList<TindakanResult> listOfTindakan , int index){
+    public static FragmentTindakan newInstance(PemeriksaanMain_Activity activity , LinkedList<TindakanResult> listOfTindakan , int index , String judulTindakan){
         FragmentTindakan res = new FragmentTindakan();
         res.activity = activity;
         res.listOfTindakan = listOfTindakan;
         res.INDEX_TINDAKAN_FRAGMENT = index;
+        res.judulTindakantext = judulTindakan;
         return res;
     }
 
@@ -63,6 +66,8 @@ public class FragmentTindakan extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View res =  inflater.inflate(R.layout.fragment_tindakan__test, container, false);
+       this.judulTindakan = res.findViewById(R.id.judulTindakan) ;
+       this.judulTindakan.setText(this.judulTindakantext);
        this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
        this.btn_Kembali.setOnClickListener(this);
 

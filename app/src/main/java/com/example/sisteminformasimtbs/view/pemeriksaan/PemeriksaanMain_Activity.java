@@ -14,6 +14,7 @@ import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class PemeriksaanMain_Activity extends AppCompatActivity {
 
@@ -91,13 +92,15 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 
     public void changeToTindakanTest(){
         this.collectionOfTindakanFragment.clear();
-        LinkedList<LinkedList<TindakanResult>> collectionOfLinkedListTindakan = this.presenter.getAllTindakan();
-        if(collectionOfLinkedListTindakan.size() !=0 ){
-            for(int i = 0 ; i  < collectionOfLinkedListTindakan.size() ; i++){
-                LinkedList<TindakanResult> listOfTindakan = collectionOfLinkedListTindakan.get(i);
+        HashMap<String , LinkedList<TindakanResult>> collectionOfLinkedList  = this.presenter.getAllTindakan_test();
+        if(collectionOfLinkedList.size() !=0 ){
+            int i = 0 ;
+            for(Map.Entry<String , LinkedList<TindakanResult>> item : collectionOfLinkedList.entrySet()){
+                LinkedList<TindakanResult> listOfTindakan = item.getValue();
                 // initialize the fragment
-                FragmentTindakan now = FragmentTindakan.newInstance(this , listOfTindakan , i);
+                FragmentTindakan now = FragmentTindakan.newInstance(this , listOfTindakan , i , item.getKey());
                 this.collectionOfTindakanFragment.add(now);
+                i++;
             }
             changeFragment(this.collectionOfTindakanFragment.get(0));
         }else{

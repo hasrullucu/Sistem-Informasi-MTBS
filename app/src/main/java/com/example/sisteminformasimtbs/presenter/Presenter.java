@@ -13,6 +13,7 @@ import com.example.sisteminformasimtbs.model.classifier.Diare_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.MasalahTelinga_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.StatusHiv_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.TandaBahayaUmum_Classifier;
+import com.example.sisteminformasimtbs.model.dataclass.Tindakan;
 import com.example.sisteminformasimtbs.view.pemeriksaan.TandaBahayaUmum_Fragment;
 import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity;
@@ -56,7 +57,7 @@ public class Presenter {
 
     public HashMap<String, Integer> getGejalaByIdTopik(int idTopik)
     {
-        HashMap<String , Integer > res = this.db.getGejalaByIdTopik(idTopik);
+        HashMap<String , Integer> res = this.db.getGejalaByIdTopik(idTopik);
         return res ;
     }
 
@@ -132,6 +133,7 @@ public class Presenter {
     public LinkedList<LinkedList<TindakanResult>> getAllTindakan(){
         //created LinkedList consist of linkedlist for every classification
         HashMap<String , Integer> collectionOfClassification = this.classifyAll();
+
         LinkedList<LinkedList<TindakanResult>> collectionOfLinkedListTindakan = new LinkedList<LinkedList<TindakanResult>>();
 
         // for each for every classification, create a new linked of 1 topic with all tindakan
@@ -144,6 +146,24 @@ public class Presenter {
             collectionOfLinkedListTindakan.add(linkedList);
         }
         return collectionOfLinkedListTindakan ;
+    }
+
+    public HashMap<String, LinkedList<TindakanResult>> getAllTindakan_test(){
+        //created LinkedList consist of linkedlist for every classification
+        HashMap<String , Integer> collectionOfClassification = this.classifyAll();
+
+        HashMap<String , LinkedList<TindakanResult>> collectionOfLinkedList = new HashMap<>();
+
+        // for each for every classification, create a new linked of 1 topic with all tindakan
+        // insert to the linkedlist
+        // insert the linkedlist ot the collecctionof linked list tindakan
+
+        // add dummy data for testing
+        for(Map.Entry<String, Integer> itemKlasifikasi : collectionOfClassification.entrySet()){
+            LinkedList<TindakanResult> linkedList = db.getTindakanByIdKlasifikasi(itemKlasifikasi.getValue());
+            collectionOfLinkedList.put(itemKlasifikasi.getKey() , linkedList);
+        }
+        return collectionOfLinkedList;
     }
 
 
