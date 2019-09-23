@@ -1,5 +1,7 @@
 package com.example.sisteminformasimtbs.model.classifier;
 
+import android.util.Log;
+
 import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
 
 import java.util.HashMap;
@@ -45,7 +47,7 @@ public class StatusGizi_Classifier extends Classifier
             }
         }
 
-        if (denganKomplikasi > 1)
+        if (denganKomplikasi >= 1)
         {
             if (collectionOfGejala.containsKey("Ada tanda bahaya umum") || collectionOfGejala.containsKey("Klasifikasi berat") ||
                     collectionOfGejala.containsKey("Masalah pemberian ASI pada umur < 6 bulan"))
@@ -53,7 +55,7 @@ public class StatusGizi_Classifier extends Classifier
                 return new DiagnosisResult(namaKlasifikasi_24, idKlasifikasi_24);
             }
         }
-        else if (tanpaKomplikasi > 1)
+        else if (tanpaKomplikasi >= 1)
         {
             return new DiagnosisResult(namaKlasifikasi_25, idKlasifikasi_25);
         }
