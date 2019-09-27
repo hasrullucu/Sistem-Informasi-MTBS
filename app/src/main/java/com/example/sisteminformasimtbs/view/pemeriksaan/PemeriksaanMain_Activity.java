@@ -225,6 +225,11 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
             changeFragment(now);
         }
 
+        public void changeToBelajar(){
+            FragmentStatusHIV_1 now = this.initializer_status_hiv.getStatusHIV1();
+            changeFragment(now);
+        }
+
 
 //
 //        public void changeToKlasifikasiTandaBahayaUmum(){
