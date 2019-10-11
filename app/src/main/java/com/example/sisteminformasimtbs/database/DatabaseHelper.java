@@ -169,16 +169,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //                        + ")";
 
 
-
-
-
-
-
-
-
-
-
-
     public DatabaseHelper(Context context , PemeriksaanMain_Activity activity ) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.activity = activity;
@@ -198,8 +188,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL(Gejala.CREATE_GEJALA);
         sqLiteDatabase.execSQL(Tindakan.CREATE_TINDAKAN);
         sqLiteDatabase.execSQL(LangkahTindakan.CREATE_LANGKAHTINDAKAN);
-        sqLiteDatabase.execSQL(BentukObat.CREATE_BENTUKOBAT);
         sqLiteDatabase.execSQL(Obat.CREATE_OBAT);
+        sqLiteDatabase.execSQL(BentukObat.CREATE_BENTUKOBAT);
+
 //        sqLiteDatabase.execSQL(CREATE_PROVINSI);
 //        sqLiteDatabase.execSQL(CREATE_KOTAKABUPATEN);
 //        sqLiteDatabase.execSQL(CREATE_ENDEMIS);
@@ -267,10 +258,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         KlasifikasiPenyakit.insert_All_Row(db);
         Tindakan.insert_All_Row(db);
         LangkahTindakan.insert_All_Row(db);
+        BentukObat.insert_All_Row(db);
+        Obat.insert_All_Row(db);
 
         //insert data master n TO n
         GejalaMemilikiKlasifikasi.insert_All_Row(db);
         KlasifikasiMemilikiTindakan.insert_All_Row(db);
+        TindakanMemilikiBentukObat.insert_All_Row(db);
+        ObatMemilikiBentukObat.insert_All_Row(db);
     }
 
     public HashMap<String , Integer> getGejalaByIdTopik (int idTopik)
@@ -296,10 +291,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     public LinkedList<TindakanResult> getTindakanByIdKlasifikasi(int idKlasifikasi){
-        String query = "SELECT Tindakan.idTindakan, namaTindakan FROM Tindakan\n" +
+        String query = "SELECT Tindakan.idTindakan, namaTindakan, tipeTindakan FROM Tindakan\n" +
                 " INNER JOIN KlasifikasiMemilikiTindakan ON Tindakan.idTindakan = KlasifikasiMemilikiTindakan.idTindakan\n" +
                 " WHERE idKlasifikasi = " + idKlasifikasi;
-
 
         Cursor c = this.getReadableDatabase().rawQuery(query, null);
 
@@ -309,6 +303,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         {
             Integer idTindakan = c.getInt(c.getColumnIndex("idTindakan"));
             String namaTindakan = c.getString(c.getColumnIndex("namaTindakan"));
+
+            if (c.getInt(c.getColumnIndex("tipeTindakan")) == 3 || c.getInt(c.getColumnIndex("tipeTindakan")) == 2)
+            {
+                namaTindakan += "\n\n" + this.getObatByIdTindakan(idTindakan);
+            }
+
             TindakanResult tindakanResult = new TindakanResult(idTindakan , namaTindakan);
             listTindakan.add(tindakanResult);
         }
@@ -330,7 +330,63 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
 
         return listTindakan ;
+    }
 
+    public String getObatByIdTindakan (int idTindakan){
+//        get idBentukObat dari id tindakan
+        String query = "SELECT BentukObat.idBentukObat, batasBawah, batasAtas, syarat, dosis, namaBentukObat, namaObat, pemberian " +
+                "FROM TindakanMemilikiBentukObat " +
+                "INNER JOIN BentukObat ON TindakanMemilikiBentukObat.idBentukObat = BentukObat.idBentukObat " +
+                "INNER JOIN ObatMemilikiBentukObat ON BentukObat.idBentukObat = ObatMemilikiBentukObat.idBentukObat " +
+                "INNER JOIN Obat ON ObatMemilikiBentukObat.idObat = Obat.idObat " +
+                "WHERE idTindakan = " + idTindakan ;
 
+        Cursor c = this.getReadableDatabase().rawQuery(query, null);
+
+        int idBentukObat = 0;
+        int nilai = 0;
+        String listObat = "";
+
+        while(c.moveToNext())
+        {
+            if (idBentukObat == 0)
+            {
+                int beratBadan = 12;
+                int umur = 4; //dalam bulan
+
+                if (c.getString(3).equalsIgnoreCase("Berat badan"))
+                {
+                    nilai = beratBadan;
+                }
+                else
+                {
+                    nilai = umur;
+                }
+            }
+
+            int batasBawah = c.getInt(1);
+            int batasAtas = c.getInt(2);
+
+//            cek apakah batas bawah dan atas nya sesuai apa ga
+            if ( batasBawah <= nilai && nilai < batasAtas )
+            {
+                Log.d("msdukk if tulis ke list" , "asasasasa");
+                String namaObat = c.getString(6);
+                String namaBentukObat = c.getString(5);
+                String pemberian = c.getString(7);
+                String dosis = c.getString(4);
+
+                if (listObat.length() == 0)
+                {
+                    listObat += namaObat + " : " + pemberian + " \n" + namaBentukObat + " -> " + dosis;
+                }
+                else
+                {
+                    listObat += "\n" + namaBentukObat + " -> " + dosis;
+                }
+            }
+        }
+
+        return listObat ;
     }
 }

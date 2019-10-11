@@ -1,5 +1,9 @@
 package com.example.sisteminformasimtbs.model.relation;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import com.example.sisteminformasimtbs.model.dataclass.BentukObat;
 import com.example.sisteminformasimtbs.model.dataclass.Obat;
 
@@ -51,5 +55,23 @@ public class ObatMemilikiBentukObat {
 
     public void setIdBentukObat(int idBentukObat) {
         this.idBentukObat = idBentukObat;
+    }
+
+    private static long insert_One_Row(SQLiteDatabase db, int id, int idObat, int idBentukObat){
+        ContentValues res = new ContentValues();
+
+        res.put(COL_ID, id);
+        res.put(Obat.COL_IDOBAT , idObat);
+        res.put(BentukObat.COL_IDBENTUKOBAT, idBentukObat);
+
+        long ret = db.insert(TABLE_OBAT_BENTUKOBAT, null , res);
+        Log.d("in_query_lang" , ret+"");
+        return ret;
+    }
+
+    public static void insert_All_Row(SQLiteDatabase db ){
+        //insert bentuk obat diazepam
+        insert_One_Row(db ,1 ,1, 1);
+        insert_One_Row(db, 2, 1, 2);
     }
 }

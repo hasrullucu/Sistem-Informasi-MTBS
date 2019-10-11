@@ -16,7 +16,7 @@ public class Tindakan {
     // COLUMN NAME TABLE - TINDAKAN
     public static final String COL_IDTINDAKAN ="idTindakan";
     public static final String COL_NAMATINDAKAN= "namaTindakan" ;
-    public static final String COL_TIPETINDAKAN = "tipetindakan";
+    public static final String COL_TIPETINDAKAN = "tipeTindakan";
 
 
     public static final String CREATE_TINDAKAN = "create table "+ TABLE_TINDAKAN
@@ -61,7 +61,7 @@ public class Tindakan {
 
         res.put(COL_IDTINDAKAN , idTindakan);
         res.put(COL_NAMATINDAKAN , namaTindakan);
-        res.put(COL_TIPETINDAKAN , 1);
+        res.put(COL_TIPETINDAKAN , tipeTindakan);
 
         long ret = db.insert(TABLE_TINDAKAN , null , res);
         Log.d("in_query_tin" , ret+"");
@@ -69,7 +69,13 @@ public class Tindakan {
     }
 
     public static void insert_All_Row(SQLiteDatabase db){
-        insert_One_Row(db , 1 , "Bila sedang kejang beri diazepam" , 1);
+//        tipe tindakan :
+//        0 -> ga ada langkah tindakan
+//        1 -> ada langkah tindakan
+//        2 -> ada obat
+//        3 -> ada langkah tindakan dan obat
+
+        insert_One_Row(db , 1 , "Bila sedang kejang beri diazepam" , 3);
         insert_One_Row(db , 2 , "Bila ada stridor pastikan tidak ada sumbatan jalan napas",0);
         insert_One_Row(db , 3,"Bila ada stridor, sianosis dan ujung tangan dan kaki pucat dan dingin berikan oksigen 3-5 liter/\n" +
                 "menit melalui nasal prong dengan perangkat oksigen standar (tabung oksigen dan humidifier)", 0);

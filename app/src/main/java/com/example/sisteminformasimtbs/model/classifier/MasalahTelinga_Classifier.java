@@ -1,6 +1,4 @@
-
-
-        package com.example.sisteminformasimtbs.model.classifier;
+package com.example.sisteminformasimtbs.model.classifier;
 
 import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
 

@@ -217,5 +217,7 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 125,34,65);
         insert_One_Row(db, 126,8,21);
         insert_One_Row(db, 127,8,6);
+
+        insert_One_Row(db, 128,36,30);
     }
 }

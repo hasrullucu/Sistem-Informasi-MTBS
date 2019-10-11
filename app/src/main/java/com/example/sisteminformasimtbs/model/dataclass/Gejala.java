@@ -81,6 +81,7 @@ public class Gejala {
         insert_One_Row(db, 42,"Bintik-bintik perdarahan di kulit negatif");
         insert_One_Row(db, 43,"Uji torniket negatif");
         insert_One_Row(db, 44,"Tidak ada satupun gejala di atas");
+        insert_One_Row(db, 71, "Tidak ada tanda-tanda diatas");
 
         //masalah telinga
         insert_One_Row(db, 45,"Pembengkakan yang nyeri di belakang telinga");
