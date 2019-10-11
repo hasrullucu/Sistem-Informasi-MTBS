@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
 import com.example.sisteminformasimtbs.model.classifier.StatusGizi_Classifier;
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
 import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
 import com.example.sisteminformasimtbs.model.classifier.Anemia_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.Batuk_Classifier;
@@ -42,6 +43,8 @@ public class Presenter {
         this.listOfClassifier = new LinkedList<>();
         this.db = new DatabaseHelper(activity.getApplicationContext(), activity);
         addAllClassifier();
+
+
 
     }
 
@@ -166,5 +169,8 @@ public class Presenter {
         return collectionOfLinkedList;
     }
 
-
+    public void saveDataBalita(){
+        Balita.insertDataBalita(this.db.getWritableDatabase(), "Hashrul" , "Cutratna" , "L" , "jl mantap" , "1234" , 1);
+        this.db.getBalita();
+    }
 }

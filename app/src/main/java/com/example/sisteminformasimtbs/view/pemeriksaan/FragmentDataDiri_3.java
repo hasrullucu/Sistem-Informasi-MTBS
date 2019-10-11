@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.DateLogic;
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -93,6 +94,7 @@ public class FragmentDataDiri_3 extends Fragment implements View.OnClickListener
             this.activity.changeToDataDiri_2();
         }
         else if(view==btn_Selanjutnya){
+            this.activity.presenter.saveDataBalita();
             this.activity.changeToTandaBahayaUmum();
         }
     }
