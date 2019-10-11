@@ -1,11 +1,13 @@
 package com.example.sisteminformasimtbs.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
 import com.example.sisteminformasimtbs.model.dataclass.BentukObat;
 import com.example.sisteminformasimtbs.model.dataclass.Gejala;
 import com.example.sisteminformasimtbs.model.dataclass.KlasifikasiPenyakit;
@@ -23,6 +25,8 @@ import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+
+import static com.example.sisteminformasimtbs.model.dataclass.KlasifikasiPenyakit.COL_IDTOPIKPENYAKIT;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper{
@@ -61,15 +65,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //    private static final String TABLE_KUNJUNGAN_PENYAKIT = "kunjungan_penyakit";
 
 
-    // COLUMN NAME TABLE - BALITA
-//    private static final String COL_NAMABALITA = "namabalita";
-//    private static final String COL_IDBALITA = "idbalita";
-//    private static final String COL_NAMAIBU = "namaibu";
-//    private static final String COL_ALAMAT = "alamat";
-//    private static final String COL_JENISKELAMIN = "jeniskelamin";
-//    private static final String COL_TANGGALLAHIR = "tanggallahir";
-//    private static final String COL_UMUR = "umur";
-
 
     // COLUMN NAME TABLE - KUNJUNGAN
 //    private static final String COL_IDKUNJUNGAN = "idkunjungan";
@@ -105,11 +100,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // id universal
     private static final String COL_ID = "id";
 
-
-
-
-
-
     //COLUMN NAME TABLE  OBAT_BENTUKOBAT
     // id universal
     // fk dari obat
@@ -118,18 +108,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
 
-
-    //CREATE TABLE-BALITA
-//    private static final String CREATE_BALITA =
-//                        "CREATE TABLE "+ TABLE_BALITA + "("
-//                        + COL_NAMABALITA + " TEXT NOT NULL, "
-//                        + COL_IDBALITA + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-//                        + COL_NAMAIBU + " TEXT NOT NULL,"
-//                        + COL_ALAMAT + " TEXT NOT NULL,"
-//                        + COL_JENISKELAMIN + " TEXT  NOT NULL,"
-//                        + COL_TANGGALLAHIR + " DATE NOT NULL,"
-//                        + COL_UMUR + " INTEGER NOT NULL"
-//                        + ")";
 
 
     // CREATE TABLE-KUNJUNGAN
@@ -168,7 +146,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //                        + COL_IDPENYAKIT + " INTEGER NOT NULL"
 //                        + ")";
 
-
     public DatabaseHelper(Context context , PemeriksaanMain_Activity activity ) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.activity = activity;
@@ -181,7 +158,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         this.mDefaultWritableDatabase = sqLiteDatabase;
 //        CREATE MAIN TABLE
-//        sqLiteDatabase.execSQL(Balita.CREATE_BALITA);
+
+        sqLiteDatabase.execSQL(Balita.CREATE_BALITA);
 //        sqLiteDatabase.execSQL(CREATE_KUNJUNGAN);
         sqLiteDatabase.execSQL(TopikPenyakit.CREATE_PENYAKIT);
         sqLiteDatabase.execSQL(KlasifikasiPenyakit.CREATE_KLASIFIKASI);
@@ -193,7 +171,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 //        sqLiteDatabase.execSQL(CREATE_PROVINSI);
 //        sqLiteDatabase.execSQL(CREATE_KOTAKABUPATEN);
-//        sqLiteDatabase.execSQL(CREATE_ENDEMIS);
+//        sqLiteDatabase.execSQL(CREATE_ENDEMIS);U
 
         Log.d("DATABASE" , "MAIN TABLE CREATED");
 
@@ -231,7 +209,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
         // DROP IF EXISTS MAIN TABLE
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_BALITA);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Balita.TABLE_BALITA);
 //        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_KUNJUNGAN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + KlasifikasiPenyakit.TABLE_KLASIFIKASIPENYAKIT);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Gejala.TABLE_GEJALA);
@@ -243,9 +221,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_KOTAKABUPATEN);
 //        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_ENDEMIS);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TopikPenyakit.TABLE_TOPIKPENYAKIT);
-
         // DROP IF EXIST
-
 
         onCreate(sqLiteDatabase);
     }
@@ -312,7 +288,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             TindakanResult tindakanResult = new TindakanResult(idTindakan , namaTindakan);
             listTindakan.add(tindakanResult);
         }
-
         return listTindakan;
     }
 
@@ -328,9 +303,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             String namaLangkahTindakan  =  c.getString(1);
             listTindakan.add(namaLangkahTindakan);
         }
-
         return listTindakan ;
     }
+
 
     public String getObatByIdTindakan (int idTindakan){
 //        get idBentukObat dari id tindakan
@@ -389,4 +364,22 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         return listObat ;
     }
+
+
+
+    public void getBalita(){
+        String query = "SELECT * FROM Balita" ;
+        int count = 0;
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        while(c.moveToNext()){
+            count++;
+        }
+
+        Log.d("databalita" , "Data balita : " + count) ;
+    }
+
+
+
+  
 }
+

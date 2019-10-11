@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
 import com.example.sisteminformasimtbs.presenter.Presenter;
 import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
 
@@ -54,7 +55,6 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 //        private Initializer_TindakanTandaBahayaUmum initializer_tindakanTandaBahayaUmum;
 //        private FragmentManager fragmentManager;
     // database
-    private DatabaseHelper db;
 
 
     @Override
@@ -70,11 +70,10 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.fragContainer, this.tandaBahayaUmum_test );
 //        fragmentTransaction.commit();
+
     }
 
-//    public void changeToBatukTest(){
-//        changeFragment(this.batuk_test);
-//    }
+
 
     public void changeToTandaBahayaUmum(){
         TandaBahayaUmum_Fragment fragment = this.initializer_tandaBahayaUmum.getTandaBahayaUmumFragment();

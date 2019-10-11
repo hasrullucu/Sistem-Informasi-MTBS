@@ -1,5 +1,9 @@
 package com.example.sisteminformasimtbs.model.dataclass;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 /**
  * Kelas model untuk objek balita
  *
@@ -26,6 +30,34 @@ public class Balita {
      * @param tanggalLahir
      * @param umur
      */
+    //     COLUMN NAME TABLE - BALITA
+    private static final String COL_NAMABALITA = "namabalita";
+    private static final String COL_IDBALITA = "idbalita";
+    private static final String COL_NAMAIBU = "namaibu";
+    private static final String COL_ALAMAT = "alamat";
+    private static final String COL_JENISKELAMIN = "jeniskelamin";
+    private static final String COL_TANGGALLAHIR = "tanggallahir";
+    private static final String COL_UMUR = "umur";
+
+
+    // TABLE_NAME Balita
+    public static final String TABLE_BALITA  = "Balita";
+
+
+
+//    CREATE Table balita
+    public static final String CREATE_BALITA =
+                        "CREATE TABLE "+ TABLE_BALITA + "("
+                        + COL_NAMABALITA + " TEXT NOT NULL, "
+                        + COL_IDBALITA + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                        + COL_NAMAIBU + " TEXT NOT NULL,"
+                        + COL_ALAMAT + " TEXT NOT NULL,"
+                        + COL_JENISKELAMIN + " TEXT  NOT NULL,"
+                        + COL_TANGGALLAHIR + " DATE NOT NULL,"
+                        + COL_UMUR + " INTEGER NOT NULL"
+                        + ")";
+
+
 
     public Balita(String nama, int idBalita, String namaIbu, int nomorPasien, String alamat, char jenisKelamin, String tanggalLahir, int umur) {
         this.nama = nama;
@@ -38,10 +70,26 @@ public class Balita {
         this.umur = umur;
     }
 
-    public Balita ()
-    {
+    public static long insertDataBalita(SQLiteDatabase db , String nama , String namaIbu , String jenisKelamin , String alamat , String tanggalLahir , int umur){
+        ContentValues res = new ContentValues();
+//
+//        res.put(COL_IDTOPIKPENYAKIT , idTopikPenyakit);
+//        res.put(COL_NAMATOPIKPENYAKIT , namaTopikPenyakit);
+//        res.put(COL_TIPEPENYAKIT, tipePenyakit);
+          res.put(COL_NAMABALITA  , nama);
+          res.put(COL_NAMAIBU , namaIbu) ;
+          res.put(COL_TANGGALLAHIR , tanggalLahir) ;
+          res.put(COL_UMUR , umur) ;
+          res.put(COL_ALAMAT , alamat);
+          res.put(COL_JENISKELAMIN , jenisKelamin);
 
+        long ret = db.insert(TABLE_BALITA , null , res);
+        Log.d("insertbalita:ID " , ret+"");
+        return ret;
     }
+
+
+
 
     /**
      * Getter id balita
