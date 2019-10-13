@@ -51,7 +51,7 @@ public class BentukObat {
     private static long insert_One_Row(SQLiteDatabase db, int idBentukObat, String namaBentukObat){
         ContentValues res = new ContentValues();
 
-        res.put(COL_IDBENTUKOBAT , idBentukObat);
+        res.put(COL_IDBENTUKOBAT, idBentukObat);
         res.put(COL_NAMABENTUKOBAT, namaBentukObat);
 
         long ret = db.insert(TABLE_BENTUKOBAT, null , res);
@@ -61,7 +61,20 @@ public class BentukObat {
 
     public static void insert_All_Row(SQLiteDatabase db ){
         //insert bentuk obat diazepam
-        insert_One_Row(db ,1 , "Diazepam (10 mg/2 ml)");
+        insert_One_Row(db ,1, "Diazepam (10 mg/2 ml)");
         insert_One_Row(db, 2, "Diazepam per rektum siap");
+        insert_One_Row(db, 3,"Tablet (500 mg)");
+        insert_One_Row(db, 4,"Sirup (125 mg/5 ml)");
+        insert_One_Row(db, 5,"Sirup (250 mg/5ml)");
+        insert_One_Row(db, 6,"Kapsul (250 mg)");
+        insert_One_Row(db, 7,"Tablet dewasa (80 mg/400 mg) hari");
+        insert_One_Row(db, 8,"Tablet anak (20 mg/100 mg)");
+        insert_One_Row(db, 9,"Sirup per 5 ml (40 mg/200 mg)");
+        insert_One_Row(db, 10,"Tablet anak (20mg TMP + 100mg SMZ)");
+        insert_One_Row(db, 11,"Tablet (100 mg)");
+        insert_One_Row(db, 12,"Sirup (100mg/5ml)");
+
+//        belum pasti
+        insert_One_Row(db, 13,"Tablet (500 mg)");
     }
 }

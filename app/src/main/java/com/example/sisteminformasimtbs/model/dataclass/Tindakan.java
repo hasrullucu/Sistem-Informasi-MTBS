@@ -85,8 +85,8 @@ public class Tindakan {
 
         //batuk
         insert_One_Row(db, 7,"Beri Oksigen maksimal 2-3 liter/menit dengan menggunakan nasal prong",0);
-        insert_One_Row(db, 8,"Beri dosis pertama antibiotik yang sesuai",0);
-        insert_One_Row(db, 9,"Beri amoksisilin 2X sehari selama 3 hari atau 5 hari",0);
+        insert_One_Row(db, 8,"Beri dosis pertama antibiotik yang sesuai",2);
+        insert_One_Row(db, 9,"Beri amoksisilin 2X sehari selama 3 hari atau 5 hari",2);
         insert_One_Row(db, 10,"Beri pelega tenggorokan dan pereda batuk yang aman",0);
         insert_One_Row(db, 11,"Obati wheezing bila ada",1);
         insert_One_Row(db, 12,"Apabila batuk ≥ 14 hari RUJUK untuk pemeriksaan lanjutan",0);
@@ -95,14 +95,14 @@ public class Tindakan {
         // diare
         insert_One_Row(db, 15,"Jika tidak ada klasifikasi berat lain : beri cairan untuk dehidrasi berat dan tablet Zinc sesuai rencana terapi C",1);
         insert_One_Row(db, 16,"Jika anak juga mempunyai klasifikasi berat lain : RUJUK SEGERA dan jika masih bisa minum, berikan ASI dan larutan oralit selama perjalanan",0);
-        insert_One_Row(db, 17,"Jika anak > 2 tahun dan ada wabah kolera di daerah tersebut, beri antibiotik untuk kolera",0);
+        insert_One_Row(db, 17,"Jika anak > 2 tahun dan ada wabah kolera di daerah tersebut, beri antibiotik untuk kolera",2);
         insert_One_Row(db, 18,"Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi B",1);
         insert_One_Row(db, 19,"Kunjungan ulang 3 hari jika tidak ada perbaikan",0);
         insert_One_Row(db, 20,"Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi A",1);
         insert_One_Row(db, 21,"Atasi dehidrasi sebelum dirujuk, kecuali ada klasifikasi berat lain",0);
         insert_One_Row(db, 22,"Nasihati pemberian makan untuk Diare Persisten",1);
         insert_One_Row(db, 23,"Beri tablet Zinc selama 10 hari berturut-turut",0);
-        insert_One_Row(db, 24,"Beri antibiotik yang sesuai",0);
+        insert_One_Row(db, 24,"Beri antibiotik yang sesuai",2);
         // demama
         insert_One_Row(db, 25,"Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",0);
         insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk fragment_fragmentdemam1 ≥ 38,5 °C",0);

@@ -69,5 +69,12 @@ public class Obat{
     public static void insert_All_Row(SQLiteDatabase db ){
         // langkah tindakan Tanda Bahaya Umum id = 1
         insert_One_Row(db ,1 , "Diazepam", "");
+
+        insert_One_Row(db, 2,"Amoksisilin","2 X sehari selama 3 hari untuk Pneumonia ATAU \n\t2 X selama 5 hari untuk Pneumonia dengan klasifikasi HIV merah");
+        insert_One_Row(db, 3,"Tetrasiklin","4 x sehari selama 3 hari");
+        insert_One_Row(db, 4,"Kotrimoksasol","2 X sehari selama 3 hari");
+        insert_One_Row(db, 5,"Kotrimoksasol 4mg/kgBB/kali","2 x sehari selama 5 hari");
+        insert_One_Row(db, 6,"Sefiksim 1,5 - 3 mg/KgB","2x sehari selama 5 hari");
+        insert_One_Row(db, 7,"Metronidazol","3 x sehari selama 10 hari (untuk amuba)");
     }
 }
