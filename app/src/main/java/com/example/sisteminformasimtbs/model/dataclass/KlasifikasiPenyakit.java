@@ -131,5 +131,6 @@ public class KlasifikasiPenyakit {
         insert_One_Row(db, 33,"TERPAJAN HIV",1,8,1);
         insert_One_Row(db, 34,"MUNGKIN BUKAN INFEKSI HIV",1,8,3);
         insert_One_Row(db, 35,"DIARE PERSISTEN",2,3,1);
+        insert_One_Row(db, 36,"CAMPAK",1,4,3);
     }
 }

@@ -1,5 +1,9 @@
 package com.example.sisteminformasimtbs.model.dataclass;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 /**
  * Kelas  Jenis Obat untuk identifikasi jenis obat seperti
  * (Kapsul , sirup)
@@ -7,8 +11,7 @@ package com.example.sisteminformasimtbs.model.dataclass;
  */
 public class BentukObat {
     private int idBentukObat;
-    private String namaBentukObat ;
-    private String satuan ;
+    private String namaBentukObat;
 
     // table name
     public static final String TABLE_BENTUKOBAT = "BentukObat";
@@ -17,19 +20,16 @@ public class BentukObat {
     // COLUMN NAME TABLE - JENISOBAT
     public static final String COL_IDBENTUKOBAT  = "idBentukObat";
     private static final String COL_NAMABENTUKOBAT = "namaBentukObat";
-    private static final String COL_SATUAN = "satuan";
 
-    public static final String CREATE_BENTUKOBAT  = "create table "+TABLE_BENTUKOBAT
-            + "("
+    public static final String CREATE_BENTUKOBAT  = "create table " + TABLE_BENTUKOBAT
+            + " ("
             + COL_IDBENTUKOBAT +" int primary key, "
-            + COL_NAMABENTUKOBAT+ " varchar(255), "
-            + COL_SATUAN + " satuan varchar"
+            + COL_NAMABENTUKOBAT+ " varchar(255) "
             +" );";
 
-    public BentukObat(int idBentukObat, String namaBentukObat, String satuan) {
+    public BentukObat(int idBentukObat, String namaBentukObat) {
         this.idBentukObat = idBentukObat;
         this.namaBentukObat = namaBentukObat;
-        this.satuan = satuan;
     }
 
     public int getIdBentukObat() {
@@ -48,11 +48,33 @@ public class BentukObat {
         this.namaBentukObat = namaBentukObat;
     }
 
-    public String getSatuan() {
-        return satuan;
+    private static long insert_One_Row(SQLiteDatabase db, int idBentukObat, String namaBentukObat){
+        ContentValues res = new ContentValues();
+
+        res.put(COL_IDBENTUKOBAT, idBentukObat);
+        res.put(COL_NAMABENTUKOBAT, namaBentukObat);
+
+        long ret = db.insert(TABLE_BENTUKOBAT, null , res);
+        Log.d("in_query_lang" , ret+"");
+        return ret;
     }
 
-    public void setSatuan(String satuan) {
-        this.satuan = satuan;
+    public static void insert_All_Row(SQLiteDatabase db ){
+        //insert bentuk obat diazepam
+        insert_One_Row(db ,1, "Diazepam (10 mg/2 ml)");
+        insert_One_Row(db, 2, "Diazepam per rektum siap");
+        insert_One_Row(db, 3,"Tablet (500 mg)");
+        insert_One_Row(db, 4,"Sirup (125 mg/5 ml)");
+        insert_One_Row(db, 5,"Sirup (250 mg/5ml)");
+        insert_One_Row(db, 6,"Kapsul (250 mg)");
+        insert_One_Row(db, 7,"Tablet dewasa (80 mg/400 mg) hari");
+        insert_One_Row(db, 8,"Tablet anak (20 mg/100 mg)");
+        insert_One_Row(db, 9,"Sirup per 5 ml (40 mg/200 mg)");
+        insert_One_Row(db, 10,"Tablet anak (20mg TMP + 100mg SMZ)");
+        insert_One_Row(db, 11,"Tablet (100 mg)");
+        insert_One_Row(db, 12,"Sirup (100mg/5ml)");
+
+//        belum pasti
+        insert_One_Row(db, 13,"Tablet (500 mg)");
     }
 }

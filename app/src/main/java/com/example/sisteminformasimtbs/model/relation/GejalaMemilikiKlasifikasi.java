@@ -171,5 +171,7 @@ public class GejalaMemilikiKlasifikasi {
         insert_One_Row(db, 79,34,69);
         insert_One_Row(db, 80,35,20);
         insert_One_Row(db, 81,35,21);
+
+        insert_One_Row(db, 82,36,71);
     }
 }
