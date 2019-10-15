@@ -170,7 +170,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL(Obat.CREATE_OBAT);
 //        sqLiteDatabase.execSQL(CREATE_PROVINSI);
 //        sqLiteDatabase.execSQL(CREATE_KOTAKABUPATEN);
-//        sqLiteDatabase.execSQL(CREATE_ENDEMIS);U
+//        sqLiteDatabase.execSQL(CREATE_ENDEMIS);
 
         Log.d("DATABASE" , "MAIN TABLE CREATED");
 

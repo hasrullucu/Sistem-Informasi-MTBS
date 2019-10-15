@@ -34,7 +34,6 @@ public class Initializer_StatusGizi extends Initializer
     }
 
 // getter
-
     public FragmentStatusGizi_1 getFragmentStatusGizi_1() {
         return fragmentStatusGizi_1;
     }

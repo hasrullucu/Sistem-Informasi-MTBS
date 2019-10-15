@@ -1,17 +1,25 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sisteminformasimtbs.R;
+import com.example.sisteminformasimtbs.model.classifier.ColorClassifier;
 import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
 
 import java.util.LinkedList;
+
+import static com.example.sisteminformasimtbs.R.color.greenStatus;
 
 public class KlasifikasiListAdapter extends RecyclerView.Adapter<KlasifikasiListAdapter.KlasifikasiViewHolder> {
     private LinkedList<DiagnosisResult> collectionOfClassificationResult ;
@@ -29,12 +37,26 @@ public class KlasifikasiListAdapter extends RecyclerView.Adapter<KlasifikasiList
         return viewHolder;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull KlasifikasiViewHolder holder, int position) {
         final DiagnosisResult now = this.collectionOfClassificationResult.get(position) ;
         holder.tv_NamaKlasifikasi.setText( " " + now.getNamaKlasifikasiPenyakit());
+
         holder.tv_IdKlasifikasi.setText(" " + now.getIdKlasifikasi());
-        // layout set onclick
+        holder.tv_IdKlasifikasi.setVisibility(View.INVISIBLE);
+
+        // change Background
+        int res = ColorClassifier.check(now.getIdKlasifikasi());
+        Log.d("color" , "id : " + now.getIdKlasifikasi()+" res : " + res);
+        if(res == 2){
+            holder.container.setBackgroundColor(Color.parseColor("#FB4040"));
+        }else if(res == 1){
+            holder.container.setBackgroundColor(Color.parseColor("#FFDF38"));
+        }else if(res ==0){
+            holder.container.setBackgroundColor(Color.parseColor("#0AA06E"));
+
+        }
     }
 
     @Override
@@ -45,10 +67,18 @@ public class KlasifikasiListAdapter extends RecyclerView.Adapter<KlasifikasiList
     public static class KlasifikasiViewHolder extends RecyclerView.ViewHolder{
         public TextView tv_NamaKlasifikasi;
         public TextView tv_IdKlasifikasi ;
+
+        public ConstraintLayout container ;
         public KlasifikasiViewHolder(@NonNull View itemView) {
             super(itemView);
             this.tv_NamaKlasifikasi =(TextView) itemView.findViewById(R.id.tv_NamaKlasifikasi);
             this.tv_IdKlasifikasi = (TextView) itemView.findViewById(R.id.tv_IdKlasifikasi);
+            this.container = (ConstraintLayout) itemView.findViewById(R.id.klasifikasi_container);
         }
     }
+
+
 }
+
+
+
