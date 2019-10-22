@@ -105,7 +105,7 @@ public class Tindakan {
         insert_One_Row(db, 24,"Beri antibiotik yang sesuai",2);
         // demama
         insert_One_Row(db, 25,"Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",0);
-        insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk fragment_fragmentdemam1 ≥ 38,5 °C",0);
+        insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk fragment_fragmentdemam1 ≥ 38,5 °C",2);
         insert_One_Row(db, 27,"Beri obat anti malaria oral pilihan pertama",0);
         insert_One_Row(db, 28,"Jika fragment_fragmentdemam1 berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut",0);
         insert_One_Row(db, 29,"Obati penyebab lain dari fragment_fragmentdemam1",0);
@@ -120,8 +120,8 @@ public class Tindakan {
         insert_One_Row(db, 38,"Beri dosis pertama parasetamol, jika fragment_fragmentdemam1 tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",0);
         insert_One_Row(db, 39,"Kunjungan ulang 1 hari",0);
         // masalah telinga
-        insert_One_Row(db, 40,"Beri dosis pertama parasetamol untuk mengatasi nyeri",0);
-        insert_One_Row(db, 41,"Beri antibiotik yang sesuai selama 7 hari",0);
+        insert_One_Row(db, 40,"Beri dosis pertama parasetamol untuk mengatasi nyeri",2);
+        insert_One_Row(db, 41,"Beri antibiotik yang sesuai selama 7 hari",2);
         insert_One_Row(db, 42,"Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H O 3%.",1);
         insert_One_Row(db, 43,"Kunjungan ulang 5 hari",0);
         insert_One_Row(db, 44,"Beri tetes telinga yang sesuai",1);
@@ -139,7 +139,7 @@ public class Tindakan {
         // anemia
         insert_One_Row(db, 55,"Bila masih menyusu, teruskan pemberian ASI",0);
         insert_One_Row(db, 56,"Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari",0);
-        insert_One_Row(db, 57,"Beri zat besi",0);
+        insert_One_Row(db, 57,"Beri zat besi",2);
         insert_One_Row(db, 58,"Lakukan pemeriksaan tinja untuk deteksi kecacingan",0);
         insert_One_Row(db, 59,"Jika daerah Endemis Tinggi Malaria: periksa dan obati malaria terlebih dahulu jika positif.",0);
         insert_One_Row(db, 60,"Kunjungan ulang 14 hari",0);
@@ -149,5 +149,10 @@ public class Tindakan {
         insert_One_Row(db, 63,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis",0);
         insert_One_Row(db, 64,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis",0);
         insert_One_Row(db, 65,"Tangani infeksi yang ada",0);
+
+
+        insert_One_Row(db, 66,"Beri dosis pertama antibiotik yang sesuai",2);
+        insert_One_Row(db, 67,"Beri vitamin A dosis pengobatan",0);
+        insert_One_Row(db, 68,"Beri vitamin A dosis pengobatan",0);
     }
 }

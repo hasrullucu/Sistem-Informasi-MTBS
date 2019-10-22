@@ -149,7 +149,7 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 65,15,31);
         insert_One_Row(db, 66,15,26);
         insert_One_Row(db, 67,15,6);
-        insert_One_Row(db, 68,16,30);
+        insert_One_Row(db, 68,16,67);
         insert_One_Row(db, 69,16,32);
         insert_One_Row(db, 70,16,33);
         insert_One_Row(db, 71,16,34);
@@ -168,7 +168,7 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 84,19,14);
 
         //masalah telinga
-        insert_One_Row(db, 85,20,8);
+        insert_One_Row(db, 85,20,66);
         insert_One_Row(db, 86,20,40);
         insert_One_Row(db, 87,20,6);
         insert_One_Row(db, 88,21,41);
@@ -218,6 +218,6 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 126,8,21);
         insert_One_Row(db, 127,8,6);
 
-        insert_One_Row(db, 128,36,30);
+        insert_One_Row(db, 128,36,68);
     }
 }
