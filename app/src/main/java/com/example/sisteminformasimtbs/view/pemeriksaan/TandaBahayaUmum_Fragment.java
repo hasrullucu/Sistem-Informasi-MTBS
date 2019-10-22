@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.Checkbox_Model;
@@ -62,6 +63,9 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
     private Button btn_Kembali ;
     private Button btn_Selanjutnya ;
 
+    // PROGRESS BAR
+    private LinearLayout progressbar ;
+
     private HashMap<String, Integer> collectionOfGejalaFromDatabase ;
 
     public static final int ID_TOPIK = 1 ;
@@ -88,6 +92,8 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View res = inflater.inflate(R.layout.fragment_tandabahayaumum_test, container, false);
+
+
 
         this.btn_Gejala = res.findViewById(R.id.btn_Gejala) ;
         this.btn_Gejala.setOnClickListener(this);
@@ -168,6 +174,12 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
 
         this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
         this.btn_Selanjutnya.setOnClickListener(this);
+
+        // progress bar
+        this.progressbar = res.findViewById(R.id.progressbar_background);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.progressbar.getLayoutParams();
+        params.weight = 0.1f;
+        this.progressbar.setLayoutParams(params);
         return res;
     }
 

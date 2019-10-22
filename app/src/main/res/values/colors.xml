@@ -13,4 +13,5 @@
     <color name="tosca">#82C6B1</color>
     <color name="redstatus">#FB4040</color>
     <color name="yellowStatus">#FFE663</color>
+    <color name="greenStatus">#74ED88</color>
 </resources>

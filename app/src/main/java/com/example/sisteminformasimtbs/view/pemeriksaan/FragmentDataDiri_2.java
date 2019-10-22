@@ -2,6 +2,8 @@ package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,7 +40,7 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
      private EditText kunjungan_EditText ;
 
 
-
+    private DatePickerDialog.OnDateSetListener mDateSetListener ;
     // date picker
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter ;
@@ -118,9 +120,6 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
         Calendar nowDate = Calendar.getInstance();
 
-
-
-
         /**
          * Update TextView dengan tanggal yang kita pilih
          */
@@ -145,7 +144,38 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         else if(view==btn_Selanjutnya){
             this.activity.changeToDataDiri_4();
         }else if(view == this.btn_pickCalendar){
-            showDateDialog();
+//            showDateDialog();
+            onCalendarClick();
         }
+    }
+
+
+    private void onCalendarClick(){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+
+        DatePickerDialog dialog = new DatePickerDialog(
+               getActivity(),
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                mDateSetListener,
+                year,month,day
+        );
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+//
+//        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                month = month + 1;
+//                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+//
+//                String date = month + "/" + day + "/" + year;
+//                mDisplayDate.setText(date);
+//            }
+//        };
     }
 }

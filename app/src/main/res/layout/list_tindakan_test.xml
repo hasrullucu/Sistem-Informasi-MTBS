@@ -41,7 +41,7 @@
             android:text="id"
             android:layout_weight="0.2"
 
-            android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+            android:drawableRight="@drawable/ic_detail_btn"
             />
 
 

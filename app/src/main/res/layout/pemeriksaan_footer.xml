@@ -36,9 +36,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         android:orientation="horizontal"
+        android:weightSum="1"
         >
+
+        <LinearLayout
+            android:id="@+id/progressbar_background"
+            android:layout_width="0dp"
+            android:background="@color/mustardBackground"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+
+
+        </LinearLayout>
     </LinearLayout>
 
     <Button
