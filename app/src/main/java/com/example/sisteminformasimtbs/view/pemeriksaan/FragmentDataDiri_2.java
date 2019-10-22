@@ -46,7 +46,6 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
     private SimpleDateFormat dateFormatter ;
     private DateLogic dateLogic;
 
-
     public FragmentDataDiri_2() {
         // Required empty public constructor
     }
@@ -166,16 +165,17 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
-//
-//        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                month = month + 1;
-//                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
-//
-//                String date = month + "/" + day + "/" + year;
-//                mDisplayDate.setText(date);
-//            }
-//        };
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d("tanggal", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                Log.d("tanggal" , month+day+year+"");
+                btn_pickCalendar.setText(month+""+day+year);
+            }
+        };
     }
 }

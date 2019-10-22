@@ -18,6 +18,8 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class PemeriksaanMain_Activity extends AppCompatActivity {
+    public Balita balitaNow ;
+
 
     public Presenter presenter ;
 
@@ -62,14 +64,12 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pemeriksaan_main);
         this.presenter = new Presenter(this);
+
         initAll();
         // test
 
         this.collectionOfTindakanFragment = new LinkedList<>();
         changeToDataDiri_1();
-//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.fragContainer, this.tandaBahayaUmum_test );
-//        fragmentTransaction.commit();
 
     }
 

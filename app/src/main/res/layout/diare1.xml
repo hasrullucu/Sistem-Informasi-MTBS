@@ -18,7 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2"
+        android:layout_weight="0.1"
         >
 
         <TextView
@@ -44,12 +44,15 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+
 
         <CheckBox
             android:id="@+id/cb_diare_6"
@@ -185,6 +188,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <include layout="@layout/pemeriksaan_footer">
     </include>
