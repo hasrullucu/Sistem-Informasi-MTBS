@@ -170,7 +170,7 @@ public class Presenter {
     }
 
     public void saveDataBalita(){
-        Balita.insertDataBalita(this.db.getWritableDatabase(), "Hashrul" , "Cutratna" , "L" , "jl mantap" , "1234" , 1);
-        this.db.getBalita();
+//        Balita.insertDataBalita(this.db.getWritableDatabase(), "Hashrul" , "Cutratna" , "L" , "jl mantap" , "1234" , 1);
+//        this.db.getBalita();
     }
 }
