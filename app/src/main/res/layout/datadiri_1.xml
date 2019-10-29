@@ -135,7 +135,7 @@
         android:background="@color/mustardColor"
         android:elevation="4dp"
         android:fontFamily="@font/montserratbold"
-        android:hint="nama ibu"
+        android:hint="alamat"
         android:padding="4dp"
         android:textColorHint="@color/shadowColor"
         android:textSize="14sp"
@@ -166,6 +166,7 @@
         app:layout_constraintVertical_bias="0.545" />
 
     <RadioGroup
+        android:id="@+id/rg_JenisKelamin"
         android:layout_width="306dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
@@ -208,6 +209,8 @@
 
     </RadioGroup>
 
-    <include layout="@layout/btn_selanjutnya_layout" android:id="@+id/btn_Selanjutnya"></include>
+    <include layout="@layout/btn_selanjutnya_layout" android:id="@+id/btn_Selanjutnya">
+
+    </include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
