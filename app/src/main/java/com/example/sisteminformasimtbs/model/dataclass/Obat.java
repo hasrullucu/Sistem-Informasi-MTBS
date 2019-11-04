@@ -69,12 +69,17 @@ public class Obat{
     public static void insert_All_Row(SQLiteDatabase db ){
         // langkah tindakan Tanda Bahaya Umum id = 1
         insert_One_Row(db ,1 , "Diazepam", "");
-
         insert_One_Row(db, 2,"Amoksisilin","2 X sehari selama 3 hari untuk Pneumonia ATAU \n\t2 X selama 5 hari untuk Pneumonia dengan klasifikasi HIV merah");
         insert_One_Row(db, 3,"Tetrasiklin","4 x sehari selama 3 hari");
         insert_One_Row(db, 4,"Kotrimoksasol","2 X sehari selama 3 hari");
         insert_One_Row(db, 5,"Kotrimoksasol 4mg/kgBB/kali","2 x sehari selama 5 hari");
         insert_One_Row(db, 6,"Sefiksim 1,5 - 3 mg/KgB","2x sehari selama 5 hari");
         insert_One_Row(db, 7,"Metronidazol","3 x sehari selama 10 hari (untuk amuba)");
+        insert_One_Row(db, 8,"Parasetamol","Setiap 6 jam sampai demam atau nyeri telinga hilang");
+        insert_One_Row(db, 9,"Vitamin A","Hari ke 1, dan hari ke 2");
+        insert_One_Row(db, 10,"Vitamin A Untuk Pengobatan Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus","Hari ke 1, Hari Ke 2, dan Hari Ke 15");
+        insert_One_Row(db, 11,"Vitamin A Untuk Pengobatan Campak TANPA Komplikasi Mata dan / atau Mulut","Hari ke 1");
+        insert_One_Row(db, 12,"Amoksisilin 40mg/kgBB/hari","2 X sehari selama 7 hari untuk Infeksi Telinga Akut");
+        insert_One_Row(db, 13,"Zat Besi","1 X tiap hari selama 4 minggu untuk anak umur 6 bulan sampai 5 tahun");
     }
 }

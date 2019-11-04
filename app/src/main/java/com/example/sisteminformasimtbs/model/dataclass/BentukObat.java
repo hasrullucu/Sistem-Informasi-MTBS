@@ -76,5 +76,17 @@ public class BentukObat {
 
 //        belum pasti
         insert_One_Row(db, 13,"Tablet (500 mg)");
+
+        insert_One_Row(db, 14,"Tablet 500 mg");
+        insert_One_Row(db, 15,"Tablet 100 mg");
+        insert_One_Row(db, 16,"Sirup 120 mg/5 ml");
+        insert_One_Row(db, 17,"Kapsul");
+        insert_One_Row(db, 18,"Kapsul");
+        insert_One_Row(db, 19,"Kapsul");
+        insert_One_Row(db, 20,"Tablet (500 mg)");
+        insert_One_Row(db, 21,"Sirup 125 mg/5ml");
+        insert_One_Row(db, 22,"Sirup 250 mg/5ml");
+        insert_One_Row(db, 23,"Tablet Besi Folat (60 mg besi elemental dan 0,25 mg asam folat)");
+        insert_One_Row(db, 24,"Sirup Besi (setiap 5 ml mengandung 30 mg besi elemental)");
     }
 }

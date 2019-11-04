@@ -87,5 +87,14 @@ public class ObatMemilikiBentukObat {
 
 //        belum tentu
         insert_One_Row(db,13,7,13);
+
+        insert_One_Row(db,14,8,14);
+        insert_One_Row(db,15,8,15);
+        insert_One_Row(db,16,8,16);
+        insert_One_Row(db,17,12,20);
+        insert_One_Row(db,18,12,21);
+        insert_One_Row(db,19,12,22);
+        insert_One_Row(db,20,13,23);
+        insert_One_Row(db,21,13,24);
     }
 }

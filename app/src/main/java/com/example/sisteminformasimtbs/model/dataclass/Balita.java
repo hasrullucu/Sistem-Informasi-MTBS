@@ -10,10 +10,9 @@ import android.util.Log;
  *
  */
 public class Balita {
-    private String nama ;
     private int idBalita ;
+    private String nama ;
     private String namaIbu ;
-    private int nomorPasien ;
     private String alamat ;
     private char jenisKelamin ;
     private String tanggalLahir ;
@@ -31,55 +30,44 @@ public class Balita {
      * @param umur
      */
     //     COLUMN NAME TABLE - BALITA
-    private static final String COL_NAMABALITA = "namabalita";
     private static final String COL_IDBALITA = "idbalita";
+    private static final String COL_NAMABALITA = "namabalita";
     private static final String COL_NAMAIBU = "namaibu";
     private static final String COL_ALAMAT = "alamat";
     private static final String COL_JENISKELAMIN = "jeniskelamin";
     private static final String COL_TANGGALLAHIR = "tanggallahir";
     private static final String COL_UMUR = "umur";
 
-
     // TABLE_NAME Balita
     public static final String TABLE_BALITA  = "Balita";
-
-
 
 //    CREATE Table balita
     public static final String CREATE_BALITA =
                         "CREATE TABLE "+ TABLE_BALITA + "("
-                        + COL_NAMABALITA + " TEXT NOT NULL, "
                         + COL_IDBALITA + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                        + COL_NAMABALITA + " TEXT NOT NULL, "
                         + COL_NAMAIBU + " TEXT NOT NULL,"
                         + COL_ALAMAT + " TEXT NOT NULL,"
                         + COL_JENISKELAMIN + " TEXT  NOT NULL,"
-                        + COL_TANGGALLAHIR + " DATE NOT NULL,"
-                        + COL_UMUR + " INTEGER NOT NULL"
+                        + COL_TANGGALLAHIR + " DATE NOT NULL"
                         + ")";
 
-
-
-    public Balita(String nama, int idBalita, String namaIbu, int nomorPasien, String alamat, char jenisKelamin, String tanggalLahir, int umur) {
+    public Balita(String nama, int idBalita, String namaIbu, String alamat, char jenisKelamin, String tanggalLahir) {
         this.nama = nama;
         this.idBalita = idBalita;
         this.namaIbu = namaIbu;
-        this.nomorPasien = nomorPasien;
         this.alamat = alamat;
         this.jenisKelamin = jenisKelamin;
         this.tanggalLahir = tanggalLahir;
         this.umur = umur;
     }
 
-    public static long insertDataBalita(SQLiteDatabase db , String nama , String namaIbu , String jenisKelamin , String alamat , String tanggalLahir , int umur){
+    public static long insertDataBalita(SQLiteDatabase db, String nama, String namaIbu, String jenisKelamin, String alamat, String tanggalLahir){
         ContentValues res = new ContentValues();
-//
-//        res.put(COL_IDTOPIKPENYAKIT , idTopikPenyakit);
-//        res.put(COL_NAMATOPIKPENYAKIT , namaTopikPenyakit);
-//        res.put(COL_TIPEPENYAKIT, tipePenyakit);
+
           res.put(COL_NAMABALITA  , nama);
           res.put(COL_NAMAIBU , namaIbu) ;
           res.put(COL_TANGGALLAHIR , tanggalLahir) ;
-          res.put(COL_UMUR , umur) ;
           res.put(COL_ALAMAT , alamat);
           res.put(COL_JENISKELAMIN , jenisKelamin);
 
@@ -87,9 +75,6 @@ public class Balita {
         Log.d("insertbalita:ID " , ret+"");
         return ret;
     }
-
-
-
 
     /**
      * Getter id balita
@@ -104,22 +89,6 @@ public class Balita {
      */
     public void setIdBalita(int idBalita) {
         this.idBalita = idBalita;
-    }
-
-    /**
-     * Getter nomor pasien
-     * @return
-     */
-    public int getNomorPasien() {
-        return nomorPasien;
-    }
-
-    /**
-     * Setter nomor pasien
-     * @param nomorPasien
-     */
-    public void setNomorPasien(int nomorPasien) {
-        this.nomorPasien = nomorPasien;
     }
 
     /**
