@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
+import com.example.sisteminformasimtbs.model.IndonesiaDateFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -79,13 +80,11 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
         this.radioPerempuan.setOnClickListener(this);
 
         Calendar nowDate = Calendar.getInstance();
+        int day = nowDate.get(Calendar.DAY_OF_MONTH);
+        int month = nowDate.get(Calendar.MONTH);
+        int year = nowDate.get(Calendar.YEAR);
 
-        this.dateFormatter = new SimpleDateFormat("dd MMM yyyy", Locale.US);
-        this.tanggalPemeriksaanAuto.setText(dateFormatter.format(nowDate.getTime()));
-
-
-
-
+        this.tanggalPemeriksaanAuto.setText(IndonesiaDateFormatter.convert(year, month , day));
         return res;
     }
 
@@ -95,12 +94,22 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
             activity.finish();
         }
         else if(view.getId()==btn_Selanjutnya.getId()){
-            this.activity.changeToDataDiri_2();
-            Log.d("datadiri" , this.tanggalPemeriksaanAuto.getText() +"");
-            Log.d("datadiri" , this.alamat_EditText.getText() + "");
-            Log.d("datadiri" , this.namaAnak_EditText.getText() + "");
-            Log.d("datadiri" , this.namaIbu_EditText.getText() + "") ;
-            Log.d("datadiri" , this.nowKelamin+"");
+            String namaAnak = this.namaAnak_EditText.getText().toString();
+            String namaIbu  = this.namaIbu_EditText.getText().toString();
+            RadioButton rJenisKelamin = this.activity.findViewById(this.rg_JenisKelamin.getCheckedRadioButtonId());
+            String alamat = this.alamat_EditText.getText().toString();
+
+            if(isValidated(namaAnak , namaIbu , rJenisKelamin , alamat)){
+                this.activity.balitaNow.setNamaAnak(namaAnak);
+                this.activity.balitaNow.setNamaIbu(namaIbu);
+                this.activity.balitaNow.setAlamat(alamat);
+                this.activity.balitaNow.setJenisKelamin(getJenisKelamin(rJenisKelamin.getText().toString()));
+                this.activity.changeToDataDiri_2();
+
+            }else{
+                Toast.makeText(getContext() , "Anda perlu mengisi semua data balita" , Toast.LENGTH_LONG).show();
+            }
+
 
         }
         else if(view.getId() == this.radioPerempuan.getId()){
@@ -113,5 +122,27 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
                 this.nowKelamin = "lakilaki";
             }
         }
+    }
+
+    private char getJenisKelamin(String jenisKelamin){
+        if(jenisKelamin.equals("Laki-laki")){
+            return 'L';
+        }
+
+        return 'P';
+    }
+
+    private boolean isValidated(String namaAnak , String namaIbu , RadioButton rJenisKelamin , String alamat){
+
+        if(rJenisKelamin == null){
+            return false;
+        }
+        char  jenisKelamin = getJenisKelamin(rJenisKelamin.getText().toString());
+        Log.d("tes" , namaAnak + " " + namaIbu + " " + jenisKelamin + " " + alamat);
+        if(namaAnak.equals("") || namaIbu.equals("") || !Character.isLetter(jenisKelamin) || alamat.equals("")){
+            return false;
+        }
+        return true ;
+
     }
 }

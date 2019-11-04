@@ -1,6 +1,7 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,11 +14,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.DateLogic;
+import com.example.sisteminformasimtbs.model.IndonesiaDateFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +34,8 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
     protected PemeriksaanMain_Activity activity;
      private Button btn_pickCalendar;
 
+     private String rawDate ;
+
      private LinearLayout btn_Kembali ;
      private LinearLayout btn_Selanjutnya ;
 
@@ -38,6 +43,7 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
      private EditText tinggi_EditText ;
      private EditText suhu_EditText ;
      private EditText kunjungan_EditText ;
+     private EditText keluhan_EditText ;
 
 
     private DatePickerDialog.OnDateSetListener mDateSetListener ;
@@ -75,6 +81,7 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         this.tinggi_EditText = res.findViewById(R.id.tinggi_EditText);
         this.suhu_EditText = res.findViewById(R.id.suhu_EditText) ;
         this.kunjungan_EditText = res.findViewById(R.id.kunjungan_EditText);
+        this.keluhan_EditText = res.findViewById(R.id.keluhan_EditText);
         return res;
     }
 
@@ -141,14 +148,41 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
             this.activity.changeToDataDiri_1();
         }
         else if(view==btn_Selanjutnya){
-            this.activity.changeToDataDiri_4();
+            // validated all the edit text
+            double suhu = getSuhu();
+            double beratBadan = getBeratBadan();
+            double tinggiBadan = getTinggiBadan();
+            int kunjungan = getKunjungan();
+
+            String keluhan = this.keluhan_EditText.getText().toString();
+            String tanggal = this.rawDate;
+            if(isValidated(suhu , beratBadan , tinggiBadan , kunjungan , keluhan,tanggal)){
+                // save patient data in second page
+                this.activity.balitaNow.setSuhu(suhu);
+                this.activity.balitaNow.setBeratBadan(beratBadan);
+                this.activity.balitaNow.setTinggiBadan(tinggiBadan);
+                this.activity.balitaNow.setKunjungan(kunjungan);
+                this.activity.balitaNow.setKeluhan(keluhan);
+                this.activity.balitaNow.setTanggalLahir(tanggal);
+
+                this.activity.changeToDataDiri_4();
+            }else{
+                Toast.makeText(getContext() , "Anda perlu mengisi semua data balita" , Toast.LENGTH_LONG).show();
+            }
+
+
+
+
+
         }else if(view == this.btn_pickCalendar){
 //            showDateDialog();
             onCalendarClick();
+//            Log.d("click" , "clicked");
         }
     }
 
 
+    @SuppressLint("NewApi")
     private void onCalendarClick(){
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -162,20 +196,54 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
                 mDateSetListener,
                 year,month,day
         );
-
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
-
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 Log.d("tanggal", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
-
-                String date = month + "/" + day + "/" + year;
+                rawDate = ""+day+month+year;
                 Log.d("tanggal" , month+day+year+"");
-                btn_pickCalendar.setText(month+""+day+year);
+                btn_pickCalendar.setText(IndonesiaDateFormatter.convert(year, month , day));
             }
         };
+        dialog.setOnDateSetListener(mDateSetListener);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+    }
+
+
+    private boolean isValidated(double suhu , double beratBadan  , double tinggiBadan , int kunjungan , String keluhan , String tanggal ){
+        if(suhu == 0 || beratBadan == 0 || tinggiBadan == 0 || kunjungan == 0 ||rawDate == null|| keluhan.equals("") ){
+            return false;
+        }
+
+        return true;
+    }
+
+
+    private double getSuhu(){
+        String textSuhu  = this.suhu_EditText.getText().toString();
+        if(textSuhu.equals("")) return 0 ;
+        return Double.parseDouble(textSuhu);
+    }
+
+    private double getBeratBadan(){
+        String textBerat = this.berat_EditText.getText().toString();
+        if(textBerat.equals("")) return 0;
+        return Double.parseDouble(textBerat);
+    }
+
+    private double getTinggiBadan(){
+        String textTinggiBadan = this.tinggi_EditText.getText().toString();
+        if(textTinggiBadan.equals("")) return 0;
+        return Double.parseDouble(textTinggiBadan);
+    }
+
+    private int getKunjungan(){
+        String textKunjungan = this.kunjungan_EditText.getText().toString();
+        if(textKunjungan.equals("")) return 0 ;
+        return Integer.parseInt(textKunjungan);
     }
 }

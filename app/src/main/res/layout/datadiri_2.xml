@@ -8,10 +8,13 @@
     android:layout_height="match_parent"
     android:background="@color/greenBackground"
     android:orientation="vertical"
+    android:padding="8dp"
     android:weightSum="5"
     tools:context=".view.pemeriksaan.PemeriksaanMain_Activity">
 
-    <include layout="@layout/btn_kembali_layout" android:id="@+id/btn_Kembali"></include>
+    <include
+        android:id="@+id/btn_Kembali"
+        layout="@layout/btn_kembali_layout"></include>
 
     <TextView
         android:id="@+id/textView"
@@ -51,11 +54,11 @@
         android:elevation="4dp"
         android:fontFamily="@font/montserratbold"
         android:gravity="center|left"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:text="tanggal lahir"
+        android:hint="Tanggal Lahir"
+        android:padding="8dp"
         android:textAllCaps="false"
-        android:textColor="@color/shadowColor"
+        android:textColor="@color/white"
+        android:textColorHint="@color/shadowColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +80,8 @@
         android:fontFamily="@font/montserratbold"
         android:hint="berat badan"
         android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/shadowColor"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,6 +105,8 @@
         android:fontFamily="@font/montserratbold"
         android:hint="tinggi badan"
         android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/shadowColor"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +115,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:elevation="4dp"
         android:id="@+id/suhu_EditText"
         android:layout_width="121.5dp"
         android:layout_height="49dp"
@@ -119,10 +125,13 @@
         android:layout_marginRight="211dp"
         android:layout_marginBottom="321dp"
         android:background="@color/mustardColor"
+        android:elevation="4dp"
         android:ems="10"
         android:fontFamily="@font/montserratbold"
         android:hint="suhu"
         android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/shadowColor"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,7 +140,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:elevation="4dp"
         android:id="@+id/kunjungan_EditText"
         android:layout_width="121.5dp"
         android:layout_height="49dp"
@@ -142,16 +150,21 @@
         android:layout_marginRight="29dp"
         android:layout_marginBottom="235dp"
         android:background="@color/mustardColor"
+        android:elevation="4dp"
         android:ems="10"
         android:fontFamily="@font/montserratbold"
         android:hint="kunjungan"
         android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/shadowColor"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    4
 
     <EditText
         android:id="@+id/keluhan_EditText"
@@ -171,15 +184,19 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
 
+        android:textColor="@color/white"
         android:textColorHint="@color/shadowColor"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776" />4
+        app:layout_constraintVertical_bias="0.725" />
 
-    <include layout="@layout/btn_selanjutnya_layout" android:id="@+id/btn_Selanjutnya"></include>
+    <include
+        android:id="@+id/btn_Selanjutnya"
+        layout="@layout/btn_selanjutnya_layout"></include>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

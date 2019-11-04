@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
 import com.example.sisteminformasimtbs.model.dataclass.Balita;
+import com.example.sisteminformasimtbs.model.dataclass.PasienNow;
 import com.example.sisteminformasimtbs.presenter.Presenter;
 import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
 
@@ -18,8 +19,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class PemeriksaanMain_Activity extends AppCompatActivity {
-    public Balita balitaNow ;
-
+    public PasienNow balitaNow ;
 
     public Presenter presenter ;
 
@@ -68,6 +68,7 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
         initAll();
         // test
 
+        this.balitaNow = new PasienNow();
         this.collectionOfTindakanFragment = new LinkedList<>();
         changeToDataDiri_1();
 
