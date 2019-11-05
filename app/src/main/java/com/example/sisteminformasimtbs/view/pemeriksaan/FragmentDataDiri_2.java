@@ -165,6 +165,21 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
                 this.activity.balitaNow.setKeluhan(keluhan);
                 this.activity.balitaNow.setTanggalLahir(tanggal);
 
+                String a = "nama : " + this.activity.balitaNow.getNamaAnak() + "\n "
+                        + "ibu :  " + this.activity.balitaNow.getNamaIbu() + "\n"
+                        + "jenis kelamin :" + this.activity.balitaNow.getJenisKelamin() + "\n"
+                        + "alamat " + this.activity.balitaNow.getAlamat() + " \n"
+                        + "tanggal lahir " + this.activity.balitaNow.getTanggalLahir() + "\n"
+                        + "suhu badan" + this.activity.balitaNow.getSuhu() + " \n"
+                        + "panjang badan " + this.activity.balitaNow.getTinggiBadan() + "\n"
+                        + "berat badan : " + this.activity.balitaNow.getBeratBadan() + "\n"
+                        + "kunjungan " + this.activity.balitaNow.getKunjungan() + "\n"
+                        + "keluhan " + this.activity.balitaNow.getKeluhan() + "\n"
+                        + "condition" + this.activity.balitaNow.checkAllNotNull() + " ";
+
+                Log.d("balitanow" , a);
+
+
                 this.activity.changeToDataDiri_4();
             }else{
                 Toast.makeText(getContext() , "Anda perlu mengisi semua data balita" , Toast.LENGTH_LONG).show();
@@ -175,7 +190,6 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
 
         }else if(view == this.btn_pickCalendar){
-//            showDateDialog();
             onCalendarClick();
 //            Log.d("click" , "clicked");
         }

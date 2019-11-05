@@ -178,7 +178,7 @@ public class TandaBahayaUmum_Fragment extends Fragment implements View.OnClickLi
         // progress bar
         this.progressbar = res.findViewById(R.id.progressbar_background);
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.progressbar.getLayoutParams();
-        params.weight = 0.1f;
+        params.weight = (1f/15)* 1;
         this.progressbar.setLayoutParams(params);
         return res;
     }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.Checkbox_Model;
@@ -26,6 +27,7 @@ import java.util.Map;
  */
 public class FragmentDemam_3 extends Fragment implements View.OnClickListener , Toggler {
     private PemeriksaanMain_Activity activity ;
+    private LinearLayout progressbar;
 
     private CheckBox checkBox_11;
     private Checkbox_Model cb_11;
@@ -138,6 +140,10 @@ public class FragmentDemam_3 extends Fragment implements View.OnClickListener , 
 
         this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
         this.btn_Selanjutnya.setOnClickListener(this);
+        this.progressbar = res.findViewById(R.id.progressbar_background);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.progressbar.getLayoutParams();
+        params.weight = (1f/15)* 7;
+        this.progressbar.setLayoutParams(params);
         return res;
     }
 

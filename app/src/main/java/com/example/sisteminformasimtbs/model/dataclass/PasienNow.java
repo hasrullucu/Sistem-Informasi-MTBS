@@ -15,8 +15,15 @@ public class PasienNow {
     private int kunjungan  = 0;
 
     public boolean checkAllNotNull(){
-        if(namaAnak != null && namaIbu != null && alamat != null && Character.isLetter(jenisKelamin)
-        && suhu != 0 && beratBadan != 0 && tinggiBadan != 0 && tanggalPemeriksaan != null && tanggalLahir != null && kunjungan != 0) return true;
+        if(namaAnak != null &&
+                namaIbu != null &&
+                alamat != null &&
+                Character.isLetter(jenisKelamin) &&
+                suhu != 0 &&
+                beratBadan != 0 &&
+                tinggiBadan != 0 &&
+                tanggalPemeriksaan != null &&
+                tanggalLahir != null && kunjungan != 0) return true;
         return false;
     }
 
