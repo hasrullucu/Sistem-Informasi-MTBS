@@ -52,12 +52,9 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 //     Kelas inisialisasi semua fragment Status HIV
         private Initializer_Status_HIV initializer_status_hiv;
     // Kelas inisialisasi semua fragment klasifikasi tanda bahaya umum
-//        private Initializer_KlasifikasiTandaBahayaUmum initializer_klasifikasiTandaBahayaUmum;
-    // Kelas inisialisasi semua fragment tindakan tanda bahaya umum
-//        private Initializer_TindakanTandaBahayaUmum initializer_tindakanTandaBahayaUmum;
-//        private FragmentManager fragmentManager;
-    // database
 
+
+        private Initializer_HasilPemeriksaan initializer_hasilPemeriksaan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +86,16 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
         fr2.replace(R.id.fragContainer, FragmentKlasifikasi.newInstance(this , collectionOfClassificationResult));
         fr2.commit();
     }
+
+    public void changeToHasilPemeriksaanAkhir(HashMap<String , Integer> collectionOfClassificationResult){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.remove(Fragment_HasilPemeriksaan_2.newInstance(this , collectionOfClassificationResult)).commit();
+
+        FragmentTransaction fr2 = getSupportFragmentManager().beginTransaction();
+        fr2.replace(R.id.fragContainer, Fragment_HasilPemeriksaan_2.newInstance(this , collectionOfClassificationResult));
+        fr2.commit();
+    }
+
 
     public void changeToTindakanTest(){
         this.collectionOfTindakanFragment.clear();
@@ -225,17 +232,13 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
             changeFragment(now);
         }
 
+        public void changeToHasilPemeriksaan(){
+          Fragment_HasilPemeriksaan_1 now = this.initializer_hasilPemeriksaan.getFragment_hasilPemeriksaan_1();
+           changeFragment(now);
+        }
 
-//
-//        public void changeToKlasifikasiTandaBahayaUmum(){
-//            FragmentKlasifikasiTandaBahayaUmum now = this.initializer_klasifikasiTandaBahayaUmum.getKlasifikasiTandaBahayaUmum();
-//            changeFragment(now);
-//        }
-//
-//        public void changeToTindakanTandaBahayaUmum(){
-//            FragmentTindakanTandaBahayaUmum now = this.initializer_tindakanTandaBahayaUmum.getTindakanTandaBahayaUmum();
-//            changeFragment(now);
-//        }
+//        create hasil pemeriskaan 2
+
 
         public void saveLastGejala(Fragment fragment){
             this.lastGejala = fragment;
@@ -253,10 +256,8 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
             this.initializer_statusGizi = new Initializer_StatusGizi(this);
             this.initializer_anemia = new Initializer_Anemia(this);
             this.initializer_status_hiv = new Initializer_Status_HIV(this);
+            this.initializer_hasilPemeriksaan = new Initializer_HasilPemeriksaan(this);
 
-
-//            this.initializer_klasifikasiTandaBahayaUmum = new Initializer_KlasifikasiTandaBahayaUmum(this);
-//            this.initializer_tindakanTandaBahayaUmum = new Initializer_TindakanTandaBahayaUmum(this);
         }
     }
 

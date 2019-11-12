@@ -97,47 +97,46 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test text mantap"
-                android:textColor="@color/white"
                 android:fontFamily="@font/montserratbold"
-                android:textSize="14sp"
-                >
+                android:text="Giovanni Anggasta"
+                android:textColor="@color/white"
+                android:textSize="14sp">
 
             </TextView>
+
             <TextView
                 android:id="@+id/namaIbu_Kesimpulan_EditText"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test text mantap"
-                android:textColor="@color/white"
                 android:fontFamily="@font/montserratbold"
-                android:textSize="14sp"
-                >
+                android:text="LAKI-LAKI"
+                android:textColor="@color/white"
+                android:textSize="14sp">
 
             </TextView>
+
             <TextView
                 android:id="@+id/tinggi_berat_EditText"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test text mantap"
-                android:textColor="@color/white"
                 android:fontFamily="@font/montserratbold"
-                android:textSize="14sp"
-                >
+                android:text="8 KG / 45 CM"
+                android:textColor="@color/white"
+                android:textSize="14sp">
 
             </TextView>
+
             <TextView
                 android:id="@+id/umur_EditText"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/mustardBackground"
                 android:fontFamily="@font/montserratbold"
-                android:text="test text mantap"
-                android:textSize="14sp"
-                >
+                android:text="1 Tahun 2 Bulan"
+                android:textColor="@color/mustardBackground"
+                android:textSize="14sp">
 
             </TextView>
 
@@ -163,6 +162,7 @@
         android:layout_weight="0.1">
 
         <TextView
+            android:id="@+id/kunjungan"
             android:padding="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -170,13 +170,10 @@
             android:background="@drawable/my_button_bg"
             android:textSize="18sp"
             android:fontFamily="@font/montserratbold"
-            android:textColor="white"
+            android:textColor="@color/white"
             >
 
         </TextView>
-
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -184,13 +181,10 @@
         android:layout_height="0dp"
         android:layout_weight="0.2"
         android:gravity="center"
+        android:orientation="vertical"
         >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </Button>
+        <include layout="@layout/btn_akhiri_pemeriksaan"></include>
 
     </LinearLayout>
 </LinearLayout>

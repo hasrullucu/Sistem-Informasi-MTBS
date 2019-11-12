@@ -167,6 +167,7 @@ public class FragmentStatusHIV_1 extends Fragment implements View.OnClickListene
         else if(this.btn_Kembali == view){
             this.activity.changeToAnemia();
         }else if(this.btn_Selanjutnya == view){
+            this.activity.changeToHasilPemeriksaan();
 
         }else if(btn_Tindakan == view){
             activity.saveLastGejala(this);
