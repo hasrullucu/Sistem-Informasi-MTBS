@@ -72,8 +72,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.35"
-            android:background="@color/white"
             >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/doktormtbs">
+
+            </ImageView>
 
         </LinearLayout>
         <LinearLayout
@@ -86,6 +92,9 @@
             >
 
             <TextView
+                android:id="@+id/namaAnak_Kesimpulan_EditText"
+
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="test text mantap"
@@ -96,6 +105,8 @@
 
             </TextView>
             <TextView
+                android:id="@+id/namaIbu_Kesimpulan_EditText"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="test text mantap"
@@ -106,6 +117,8 @@
 
             </TextView>
             <TextView
+                android:id="@+id/tinggi_berat_EditText"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="test text mantap"
@@ -116,9 +129,11 @@
 
             </TextView>
             <TextView
+                android:id="@+id/umur_EditText"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/mustardBackground"
                 android:fontFamily="@font/montserratbold"
                 android:text="test text mantap"
                 android:textSize="14sp"
@@ -127,13 +142,55 @@
             </TextView>
 
         </LinearLayout>
+    </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewKlasifikasi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+
+        tools:listitem="@layout/list_klasifikasi_test"
+        >
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KUNJUNGAN ULANG 2 HARI"
+            android:background="@drawable/my_button_bg"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="white"
+            >
+
+        </TextView>
 
 
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        >
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
+        </Button>
 
+    </LinearLayout>
 </LinearLayout>
