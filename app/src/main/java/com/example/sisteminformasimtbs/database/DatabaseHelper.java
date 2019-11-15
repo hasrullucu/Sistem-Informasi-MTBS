@@ -1,6 +1,5 @@
 package com.example.sisteminformasimtbs.database;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -267,6 +266,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     public LinkedList<TindakanResult> getTindakanByIdKlasifikasi(int idKlasifikasi){
+        double beratBadan = activity.balitaNow.getBeratBadan();
+        int umur = 4;
+
         String query = "SELECT Tindakan.idTindakan, namaTindakan, tipeTindakan FROM Tindakan\n" +
                 " INNER JOIN KlasifikasiMemilikiTindakan ON Tindakan.idTindakan = KlasifikasiMemilikiTindakan.idTindakan\n" +
                 " WHERE idKlasifikasi = " + idKlasifikasi;
@@ -282,7 +284,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
             if (c.getInt(c.getColumnIndex("tipeTindakan")) == 3 || c.getInt(c.getColumnIndex("tipeTindakan")) == 2)
             {
-                namaTindakan += this.getObatByIdTindakan(idTindakan);
+                namaTindakan += this.getObatByIdTindakan(idTindakan, beratBadan, umur);
             }
 
             TindakanResult tindakanResult = new TindakanResult(idTindakan , namaTindakan);
@@ -307,7 +309,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
-    public String getObatByIdTindakan (int idTindakan){
+    public String getObatByIdTindakan (int idTindakan, double beratBadan, int umur){
 //        get idBentukObat dari id tindakan
         String query = "SELECT BentukObat.idBentukObat, batasBawah, batasAtas, syarat, dosis, namaBentukObat, namaObat, pemberian " +
                 "FROM TindakanMemilikiBentukObat " +
@@ -319,7 +321,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor c = this.getReadableDatabase().rawQuery(query, null);
 
         int idBentukObat = 0;
-        int nilai = 0;
+        double nilai = 0;
         String listObat = "";
         String namaObat = "";
 
@@ -327,9 +329,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         {
             if (idBentukObat == 0)
             {
-                int beratBadan = 12;
-                int umur = 4; //dalam bulan
-
                 if (c.getString(3).equalsIgnoreCase("Berat badan"))
                 {
                     nilai = beratBadan;
@@ -343,13 +342,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             int batasBawah = c.getInt(1);
             int batasAtas = c.getInt(2);
 
-//            Log.d("bawah, atas, jenis", "" + batasBawah + " " + batasAtas + " " + c.getString(5));
-
 //            cek apakah batas bawah dan atas nya sesuai apa ga
             if ( batasBawah <= nilai && nilai < batasAtas )
             {
-//                Log.d("msdukk if tulis ke list" , "asasasasa");
-
                 String namaBentukObat = c.getString(5);
                 String pemberian = c.getString(7);
                 String dosis = c.getString(4);
@@ -384,6 +379,4 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     {
 
     }
-
-//    public void insert
 }

@@ -3,8 +3,10 @@ package com.example.sisteminformasimtbs.presenter;
 import android.util.Log;
 
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
+import com.example.sisteminformasimtbs.model.KunjunganUlang_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.StatusGizi_Classifier;
 import com.example.sisteminformasimtbs.model.dataclass.Balita;
+import com.example.sisteminformasimtbs.model.dataclass.PasienNow;
 import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 import com.example.sisteminformasimtbs.model.classifier.Anemia_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.Batuk_Classifier;
@@ -191,5 +193,11 @@ public class Presenter {
 
 //            masukin ke db
         }
+    }
+
+    public int getKunjunganUlang ()
+    {
+        KunjunganUlang_Classifier ku = new KunjunganUlang_Classifier();
+        return ku.getMinKunjunganUlang(classifyAll());
     }
 }

@@ -1,5 +1,7 @@
 package com.example.sisteminformasimtbs.model;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,7 +14,8 @@ public class KunjunganUlang_Classifier
 
     public KunjunganUlang_Classifier ()
     {
-        this.kunjunganUlang = new HashMap();
+        this.kunjunganUlang = new HashMap<Integer, Integer>();
+        insertKunjunganUlang();
     }
 
     private void insertKunjunganUlang ()
@@ -35,20 +38,31 @@ public class KunjunganUlang_Classifier
         this.kunjunganUlang.put(29, 14);
     }
 
-    public int getMinKunjunganUlang (HashMap klasifikasi)
+    public int getMinKunjunganUlang (HashMap<String, Integer> klasifikasi)
     {
         int minKunjunganUlang = Integer.MAX_VALUE;
+        int count = 0;
 
         Iterator iter = klasifikasi.entrySet().iterator();
         while (iter.hasNext()) {
             Map.Entry entry = (Map.Entry) iter.next();
             int idKlas = (int) entry.getValue();
-            int kunjunganUlangDay = this.kunjunganUlang.get(idKlas);
+            int kunjunganUlangDay;
 
-            if (kunjunganUlangDay > minKunjunganUlang)
+            if (this.kunjunganUlang.get(idKlas) != null)
             {
-                minKunjunganUlang = kunjunganUlangDay;
+                kunjunganUlangDay = this.kunjunganUlang.get(idKlas);
+                if (kunjunganUlangDay < minKunjunganUlang)
+                {
+                    minKunjunganUlang = kunjunganUlangDay;
+                    count++;
+                }
             }
+        }
+
+        if (count == 0)
+        {
+            minKunjunganUlang = 0;
         }
 
         return minKunjunganUlang;

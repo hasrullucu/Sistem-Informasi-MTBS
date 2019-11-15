@@ -14,8 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
+import com.example.sisteminformasimtbs.model.IndonesiaDateFormatter;
+import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
+import com.example.sisteminformasimtbs.view.mainmenu.MainMenu_Activity;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -24,12 +27,20 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClickListener {
-
     private PemeriksaanMain_Activity activity;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+
     private LinearLayout btn_akhirPemeriksaan;
+    private LinearLayout btn_kembali ;
+
+    private TextView kunjunganUlang;
+    private TextView tanggalPemeriksaan;
+    private TextView namaAnak;
+    private TextView jenisKelamin;
+    private TextView tinggiBerat;
+    private TextView umur;
 
     private LinkedList<DiagnosisResult> collectionOfClassificationResult ;
 
@@ -62,6 +73,36 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
 
         this.btn_akhirPemeriksaan  = res.findViewById(R.id.btn_akhiriPemeriksaan);
         this.btn_akhirPemeriksaan.setOnClickListener(this);
+
+        this.kunjunganUlang = res.findViewById(R.id.kunjungan);
+        this.tanggalPemeriksaan = res.findViewById(R.id.tanggalPemeriksaan);
+        this.namaAnak = res.findViewById(R.id.namaAnak_Kesimpulan_EditText);
+        this.jenisKelamin = res.findViewById(R.id.namaIbu_Kesimpulan_EditText);
+        this.tinggiBerat = res.findViewById(R.id.tinggi_berat_EditText);
+        this.umur = res.findViewById(R.id.umur_EditText);
+
+        this.kunjunganUlang.setText("KUNJUNGAN ULANG " + activity.presenter.getKunjunganUlang() + " HARI");
+        Calendar nowDate = Calendar.getInstance();
+        int day = nowDate.get(Calendar.DAY_OF_MONTH);
+        int month = nowDate.get(Calendar.MONTH);
+        int year = nowDate.get(Calendar.YEAR);
+
+        this.tanggalPemeriksaan.setText("" + IndonesiaDateFormatter.convert(year, month , day));
+        this.namaAnak.setText("" + activity.balitaNow.getNamaAnak());
+        this.tinggiBerat.setText(activity.balitaNow.getBeratBadan() + " KG / " + activity.balitaNow.getTinggiBadan() + " CM");
+//        this.umur.setText(activity.balitaNow.getUmur());
+
+        if (activity.balitaNow.getJenisKelamin() == 'P')
+        {
+            this.jenisKelamin.setText("Perempuan");
+        }
+        else
+        {
+            this.jenisKelamin.setText("Laki-Laki");
+        }
+
+        this.btn_kembali = res.findViewById(R.id.include);
+        this.btn_kembali.setOnClickListener(this);
         return res;
     }
 
@@ -69,6 +110,8 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
     public void onClick(View view) {
         if(view == this.btn_akhirPemeriksaan){
             activity.finish();
+        }else if(view == this.btn_kembali){
+            activity.changeToHasilPemeriksaan();
         }
     }
 }

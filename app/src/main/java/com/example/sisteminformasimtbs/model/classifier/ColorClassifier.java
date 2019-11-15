@@ -7,7 +7,7 @@ public class ColorClassifier{
 
     private static int[] arrOfRed = new int[]{1,2,5,10,13,15,17,20,24,28,31,8};
     private static int[] arrOfYellow = new int[]{3,6,35,9,11,16,18,21,22,25,26,29,32,33};
-    private static int[] arrOfGreen = new int[]{4,7,12,14,19,23,27,30,34};
+    private static int[] arrOfGreen = new int[]{4,7,12,14,19,23,27,30,34,36};
 
     /**
      * Method for checking classification level

@@ -170,13 +170,8 @@
             android:background="@drawable/my_button_bg"
             android:textSize="18sp"
             android:fontFamily="@font/montserratbold"
-<<<<<<< HEAD
-            android:textColor="@android:color/white">
-=======
             android:textColor="@color/white"
             >
->>>>>>> master
-
         </TextView>
     </LinearLayout>
 
