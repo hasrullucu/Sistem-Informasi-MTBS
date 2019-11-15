@@ -236,5 +236,14 @@ public class TindakanMemilikiBentukObat {
         insert_One_Row(db, 101,41,22,6,10,"Berat badan","5 ml");
         insert_One_Row(db, 102,41,22,10,16,"Berat badan","7.5 ml");
         insert_One_Row(db, 103,41,22,16,19,"Berat badan","10 ml");
+        insert_One_Row(db, 104,30,17,0,6,"Umur","50.000 IU (1/2 kapsul biru)");
+        insert_One_Row(db, 105,30,17,6,12,"Umur","100.000 IU (kapsul biru)");
+        insert_One_Row(db, 106,30,17,12,60,"Umur","200.000 IU (kapsul merah)");
+        insert_One_Row(db, 107,67,17,0,6,"Umur","50.000 IU (1/2 kapsul biru)");
+        insert_One_Row(db, 108,67,17,6,12,"Umur","100.000 IU (kapsul biru)");
+        insert_One_Row(db, 109,67,17,12,60,"Umur","200.000 IU (kapsul merah)");
+        insert_One_Row(db, 110,68,19,0,6,"Umur","50.000 IU (1/2 kapsul biru)");
+        insert_One_Row(db, 111,68,19,6,12,"Umur","100.000 IU (kapsul biru)");
+        insert_One_Row(db,112,68,19,12,60,"Umur","200.000 IU (kapsul merah)");
     }
 }

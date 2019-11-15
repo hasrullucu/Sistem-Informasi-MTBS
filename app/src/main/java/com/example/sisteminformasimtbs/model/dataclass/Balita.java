@@ -17,6 +17,7 @@ public class Balita {
     private char jenisKelamin ;
     private String tanggalLahir ;
     private int umur ;
+    private char wilayah;
 
     /**
      *  Constructor kelsa balita
@@ -37,6 +38,7 @@ public class Balita {
     private static final String COL_JENISKELAMIN = "jeniskelamin";
     private static final String COL_TANGGALLAHIR = "tanggallahir";
     private static final String COL_UMUR = "umur";
+    private static final String COL_WILAYAH = "wilayah";
 
     // TABLE_NAME Balita
     public static final String TABLE_BALITA  = "Balita";
@@ -49,20 +51,22 @@ public class Balita {
                         + COL_NAMAIBU + " TEXT NOT NULL,"
                         + COL_ALAMAT + " TEXT NOT NULL,"
                         + COL_JENISKELAMIN + " TEXT  NOT NULL,"
-                        + COL_TANGGALLAHIR + " DATE NOT NULL"
+                        + COL_TANGGALLAHIR + " DATE NOT NULL,"
+                        + COL_WILAYAH + " TEXT NOT NULL"
                         + ")";
 
-    public Balita(String nama, int idBalita, String namaIbu, String alamat, char jenisKelamin, String tanggalLahir) {
+    public Balita(String nama, int idBalita, String namaIbu, String alamat, char jenisKelamin, String tanggalLahir, char wilayah) {
         this.nama = nama;
         this.idBalita = idBalita;
         this.namaIbu = namaIbu;
         this.alamat = alamat;
         this.jenisKelamin = jenisKelamin;
         this.tanggalLahir = tanggalLahir;
-        this.umur = umur;
+        this.wilayah = wilayah;
+//        this.umur = umur;
     }
 
-    public static long insertDataBalita(SQLiteDatabase db, String nama, String namaIbu, String jenisKelamin, String alamat, String tanggalLahir){
+    public static long insertDataBalita(SQLiteDatabase db, String nama, String namaIbu, String jenisKelamin, String alamat, String tanggalLahir, String wilayah){
         ContentValues res = new ContentValues();
 
           res.put(COL_NAMABALITA  , nama);
@@ -70,6 +74,7 @@ public class Balita {
           res.put(COL_TANGGALLAHIR , tanggalLahir) ;
           res.put(COL_ALAMAT , alamat);
           res.put(COL_JENISKELAMIN , jenisKelamin);
+          res.put(COL_WILAYAH, wilayah);
 
         long ret = db.insert(TABLE_BALITA , null , res);
         Log.d("insertbalita:ID " , ret+"");

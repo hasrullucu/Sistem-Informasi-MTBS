@@ -1,4 +1,4 @@
-package com.example.sisteminformasimtbs.model.dataclass;
+package com.example.sisteminformasimtbs.model.relation;
 
 public class DiagnosisResult {
    private String namaKlasifikasiPenyakit;

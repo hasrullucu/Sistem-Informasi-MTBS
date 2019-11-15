@@ -170,8 +170,7 @@
             android:background="@drawable/my_button_bg"
             android:textSize="18sp"
             android:fontFamily="@font/montserratbold"
-            android:textColor="white"
-            >
+            android:textColor="@android:color/white">
 
         </TextView>
 

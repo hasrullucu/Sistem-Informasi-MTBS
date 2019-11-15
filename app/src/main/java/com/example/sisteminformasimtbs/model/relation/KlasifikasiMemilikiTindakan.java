@@ -108,8 +108,8 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 26,6,13);
         insert_One_Row(db, 27,6,19);
         insert_One_Row(db, 28,7,20);
-        insert_One_Row(db, 29,7,21);
-        insert_One_Row(db, 30,7,6);
+        insert_One_Row(db, 29,7,13); //21
+        insert_One_Row(db, 30,7,19); //6
         insert_One_Row(db, 31,35,22);
         insert_One_Row(db, 32,35,23);
         insert_One_Row(db, 33,35,13);
@@ -121,7 +121,7 @@ public class KlasifikasiMemilikiTindakan {
 
         //fragment_fragmentdemam1
         insert_One_Row(db, 39,10,25);
-        insert_One_Row(db, 40,10,8);
+        insert_One_Row(db, 40,10,69);
         insert_One_Row(db, 41,10,4);
         insert_One_Row(db, 42,10,26);
         insert_One_Row(db, 43,10,6);
@@ -145,7 +145,7 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 61,14,14);
         insert_One_Row(db, 62,14,28);
         insert_One_Row(db, 63,15,30);
-        insert_One_Row(db, 64,15,8);
+        insert_One_Row(db, 64,15,70);
         insert_One_Row(db, 65,15,31);
         insert_One_Row(db, 66,15,26);
         insert_One_Row(db, 67,15,6);
@@ -219,5 +219,11 @@ public class KlasifikasiMemilikiTindakan {
         insert_One_Row(db, 127,8,6);
 
         insert_One_Row(db, 128,36,68);
+        insert_One_Row(db, 129,29,71);
+        insert_One_Row(db, 130,30,56);
+        insert_One_Row(db, 131,30,71);
+        insert_One_Row(db, 132,27,56);
+        insert_One_Row(db, 133,27,71);
+        insert_One_Row(db, 134,26,71);
     }
 }

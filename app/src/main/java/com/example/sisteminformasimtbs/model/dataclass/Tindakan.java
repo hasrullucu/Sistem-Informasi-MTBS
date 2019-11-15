@@ -103,13 +103,13 @@ public class Tindakan {
         insert_One_Row(db, 22,"Nasihati pemberian makan untuk Diare Persisten",1);
         insert_One_Row(db, 23,"Beri tablet Zinc selama 10 hari berturut-turut",0);
         insert_One_Row(db, 24,"Beri antibiotik yang sesuai",2);
-        // demama
+        // demam
         insert_One_Row(db, 25,"Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",0);
-        insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk fragment_fragmentdemam1 ≥ 38,5 °C",2);
+        insert_One_Row(db, 26,"Berikan satu dosis parasetamol untuk demam ≥ 38,5 °C",2);
         insert_One_Row(db, 27,"Beri obat anti malaria oral pilihan pertama",0);
-        insert_One_Row(db, 28,"Jika fragment_fragmentdemam1 berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut",0);
-        insert_One_Row(db, 29,"Obati penyebab lain dari fragment_fragmentdemam1",0);
-        insert_One_Row(db, 30,"Beri vitamin A dosis pengobatan",0);
+        insert_One_Row(db, 28,"Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut",0);
+        insert_One_Row(db, 29,"Obati penyebab lain dari demam",0);
+        insert_One_Row(db, 30,"Beri vitamin A dosis pengobatan",2);
         insert_One_Row(db, 31,"Jika ada kekeruhan pada kornea atau nanah pada mata berikan salep mata antibiotik",0);
         insert_One_Row(db, 32,"Jika ada nanah pada mata, beri salep mata antibiotik",0);
         insert_One_Row(db, 33,"Jika ada luka pada mulut oleskan antiseptik mulut",0);
@@ -117,7 +117,7 @@ public class Tindakan {
         insert_One_Row(db, 35,"Jika ada syok, beri Oksigen 2-4 liter/menit dan beri segera cairan intravena sesuai petunjuk",0);
         insert_One_Row(db, 36,"Jika tidak ada syok tapi sering muntah atau malas minum, beri cairan infus Ringer Laktat/Ringer Asetat, jumlah cairan rumatan",0);
         insert_One_Row(db, 37,"Jika tidak ada syok, tidak muntah dan masih mau minum, beri oralit atau cairan lain sebanyak mungkin dalam perjalanan ke rumah sakit",0);
-        insert_One_Row(db, 38,"Beri dosis pertama parasetamol, jika fragment_fragmentdemam1 tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",0);
+        insert_One_Row(db, 38,"Beri dosis pertama parasetamol, jika demam tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",0);
         insert_One_Row(db, 39,"Kunjungan ulang 1 hari",0);
         // masalah telinga
         insert_One_Row(db, 40,"Beri dosis pertama parasetamol untuk mengatasi nyeri",2);
@@ -138,21 +138,26 @@ public class Tindakan {
         insert_One_Row(db, 54,"Anjurkan untuk menimbang berat badan anak setiap bulan",0);
         // anemia
         insert_One_Row(db, 55,"Bila masih menyusu, teruskan pemberian ASI",0);
-        insert_One_Row(db, 56,"Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari",0);
+        insert_One_Row(db, 56,"Lakukan Penilaian Pemberian Makan pada anak.",2);
+        insert_One_Row(db, 71,"Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari", 2);
         insert_One_Row(db, 57,"Beri zat besi",2);
         insert_One_Row(db, 58,"Lakukan pemeriksaan tinja untuk deteksi kecacingan",0);
         insert_One_Row(db, 59,"Jika daerah Endemis Tinggi Malaria: periksa dan obati malaria terlebih dahulu jika positif.",0);
         insert_One_Row(db, 60,"Kunjungan ulang 14 hari",0);
-        insert_One_Row(db, 61,"Jika anak < 2 tahun, nilai pemberian makanan pada anak. Jika ada masalah pemberian makan, kunjungan ulang 7 hari",0);
+        insert_One_Row(db, 61,"Jika anak < 2 tahun : ",2);
         // status hiv
-        insert_One_Row(db, 62,"Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan terapi ARV dan Kotrimoksasol profilaksis",0);
-        insert_One_Row(db, 63,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis",0);
-        insert_One_Row(db, 64,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis",0);
+        insert_One_Row(db, 62,"Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan terapi ARV dan Kotrimoksasol profilaksis",2);
+        insert_One_Row(db, 63,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis",2);
+        insert_One_Row(db, 64,"Rujuk ke puskesmas / RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis",2);
         insert_One_Row(db, 65,"Tangani infeksi yang ada",0);
 
 
         insert_One_Row(db, 66,"Beri dosis pertama antibiotik yang sesuai",2);
-        insert_One_Row(db, 67,"Beri vitamin A dosis pengobatan",0);
-        insert_One_Row(db, 68,"Beri vitamin A dosis pengobatan",0);
+        insert_One_Row(db, 67,"Beri vitamin A dosis pengobatan",2);
+        insert_One_Row(db, 68,"Beri vitamin A dosis pengobatan",2);
+        insert_One_Row(db, 69,"Beri dosis pertama antibiotik yang sesuai", 0);
+        insert_One_Row(db, 70,"Beri dosis pertama antibiotik yang sesuai", 0);
+
+
     }
 }

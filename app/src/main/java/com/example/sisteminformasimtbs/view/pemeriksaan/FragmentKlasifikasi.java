@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
+import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 
 import java.util.HashMap;
 import java.util.LinkedList;

@@ -334,7 +334,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 {
                     nilai = beratBadan;
                 }
-                else
+                else if (c.getString(3).equalsIgnoreCase("Umur"))
                 {
                     nilai = umur;
                 }
@@ -379,4 +379,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         Log.d("databalita" , "Data balita : " + count) ;
     }
+
+    public void insertDataKunjungan ()
+    {
+
+    }
+
+//    public void insert
 }

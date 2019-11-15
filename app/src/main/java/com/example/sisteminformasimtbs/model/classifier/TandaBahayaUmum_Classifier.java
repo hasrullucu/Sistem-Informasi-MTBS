@@ -1,6 +1,6 @@
 package com.example.sisteminformasimtbs.model.classifier;
 
-import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
+import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,10 +29,7 @@ public class TandaBahayaUmum_Classifier extends Classifier {
         }
         if(isClassified) return new DiagnosisResult(nama_klasifikasi_1 , id_klasifikasi_1);
         return new DiagnosisResult("0", 0);
-
-
     }
-
 
     public void setAllGejalaInDatabase(){
         this.collectionOfGejalaInDatabase.put("Tidak bisa minum atau menyusu" , 1);

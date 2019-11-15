@@ -5,7 +5,7 @@ import android.util.Log;
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
 import com.example.sisteminformasimtbs.model.classifier.StatusGizi_Classifier;
 import com.example.sisteminformasimtbs.model.dataclass.Balita;
-import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
+import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 import com.example.sisteminformasimtbs.model.classifier.Anemia_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.Batuk_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.Classifier;
@@ -14,7 +14,7 @@ import com.example.sisteminformasimtbs.model.classifier.Diare_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.MasalahTelinga_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.StatusHiv_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.TandaBahayaUmum_Classifier;
-import com.example.sisteminformasimtbs.model.dataclass.Tindakan;
+import com.example.sisteminformasimtbs.model.dataclass.Kunjungan;
 import com.example.sisteminformasimtbs.view.pemeriksaan.TandaBahayaUmum_Fragment;
 import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity;
@@ -169,8 +169,27 @@ public class Presenter {
         return collectionOfLinkedList;
     }
 
-    public void saveDataBalita(){
-//        Balita.insertDataBalita(this.db.getWritableDatabase(), "Hashrul" , "Cutratna" , "L" , "jl mantap" , "1234" , 1);
+    public void saveDataBalita(String nama, int idBalita, String namaIbu, String alamat, String jenisKelamin, String tanggalLahir, String wilayah){
+        Balita.insertDataBalita(this.db.getWritableDatabase(), nama, namaIbu, jenisKelamin, alamat, tanggalLahir, wilayah);
 //        this.db.getBalita();
+    }
+
+    public void saveDataKunjungan (String tanggalKunjungan, double beratBadan, double panjangBadan,
+                                   double suhu, int kunjunganKe, int tipeKunjungan, String keluhan, int idBalita)
+    {
+        Kunjungan.insertKunjungan(this.db.getWritableDatabase(), tanggalKunjungan, beratBadan,
+                panjangBadan, suhu, kunjunganKe, tipeKunjungan, keluhan, idBalita);
+    }
+
+    public void saveDiagnosis (int idKunjungan)
+    {
+        for (int i = 0; i < listOfClassifier.size(); i++)
+        {
+            Classifier c = listOfClassifier.get(i);
+
+//            dapetin id klasifikasinya
+
+//            masukin ke db
+        }
     }
 }

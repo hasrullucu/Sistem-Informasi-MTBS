@@ -10,16 +10,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.classifier.ColorClassifier;
-import com.example.sisteminformasimtbs.model.dataclass.DiagnosisResult;
+import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 
 import java.util.LinkedList;
-
-import static com.example.sisteminformasimtbs.R.color.greenStatus;
 
 public class KlasifikasiListAdapter extends RecyclerView.Adapter<KlasifikasiListAdapter.KlasifikasiViewHolder> {
     private LinkedList<DiagnosisResult> collectionOfClassificationResult ;
