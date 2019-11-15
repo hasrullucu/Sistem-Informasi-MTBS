@@ -23,8 +23,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.75"
-        >
+        android:layout_weight="0.75">
 
         <ImageView
             android:id="@+id/checked"
@@ -32,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:src="@drawable/doktormtbs"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="-16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_selesai"
@@ -43,38 +43,33 @@
             android:layout_marginTop="28dp"
             android:fontFamily="@font/montserratbold"
             android:text="PEMERIKSAAN SELESAI"
-            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="26sp"
-            app:layout_constraintTop_toBottomOf="@+id/checked"
-            tools:layout_editor_absoluteX="45dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checked" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:fontFamily="@font/montserratbold"
             android:text="silahkan lanjut ke halaman berikutnya untuk melihat hasil klasifikasi"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/text_selesai"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_selesai" />
+
+        <include
+            android:id="@+id/btn_hasil_pemeriksaan"
+            layout="@layout/btn_hasil_pemeriksaan_layout">
 
 
-        <include layout="@layout/btn_hasil_pemeriksaan_layout" android:id="@+id/btn_hasil_pemeriksaan"></include>
+        </include>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-    </LinearLayout>
+</LinearLayout>

@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 
+import java.util.HashMap;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -22,7 +24,7 @@ public class FragmentStatusHIV_2 extends Fragment implements View.OnClickListene
         // Required empty public constructor
     }
 
-    public static FragmentStatusHIV_2 newInstance(PemeriksaanMain_Activity activity){
+    public static FragmentStatusHIV_2 newInstance(PemeriksaanMain_Activity activity, HashMap<String , Integer> collectionOfClassificationResult){
         FragmentStatusHIV_2 result = new FragmentStatusHIV_2();
         result.activity = activity;
         return result;
@@ -52,6 +54,7 @@ public class FragmentStatusHIV_2 extends Fragment implements View.OnClickListene
             this.activity.changeToStatusHIV1();
         }else if(v == this.btnNext){
 //
+
         }
     }
 }
