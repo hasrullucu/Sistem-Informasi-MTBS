@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sisteminformasimtbs.R;
@@ -48,6 +49,13 @@ public class FragmentTindakan extends Fragment implements View.OnClickListener {
     private ConstraintLayout btn_Gejala ;
     private ConstraintLayout btn_Klasifikasi ;
     private ConstraintLayout btn_Tindakan ;
+
+
+
+    // PROGRESS BAR
+    private LinearLayout progressbar ;
+
+
     public FragmentTindakan() {
     }
 
@@ -88,6 +96,12 @@ public class FragmentTindakan extends Fragment implements View.OnClickListener {
 
        this.tindakanRecyclerView.setLayoutManager(new LinearLayoutManager(activity));
        this.tindakanRecyclerView.setAdapter(this.tindakanListAdapter);
+
+        // progress bar
+        this.progressbar = res.findViewById(R.id.progressbar_background);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.progressbar.getLayoutParams();
+        params.weight = (1f/this.activity.getCollectionFragmentTindakanSize())* (INDEX_TINDAKAN_FRAGMENT+1);
+        this.progressbar.setLayoutParams(params);
 
 
        return res ;

@@ -2,9 +2,10 @@ package com.example.sisteminformasimtbs.model;
 
 import android.util.Log;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
-public class IndonesiaDateFormatter {
+public class IndonesiaFormatter {
     private static HashMap<Integer , String> collectionOfMonth = new HashMap<Integer, String>(){{
         this.put(0,"Januari");
         this.put(1,"Febuari");
@@ -21,14 +22,14 @@ public class IndonesiaDateFormatter {
     }} ;
 
 
-    public static String convert(int year, int month , int day){
+    public static String convertDate(int year, int month , int day){
         String indonesiaMonth = convertMonth(month) ;
         Log.d("now", "month : " + month);
         return day+" "+indonesiaMonth+" "+year;
     }
 
     /**
-     * Method to convert number of month into Indonesian's month convention
+     * Method to convertDate number of month into Indonesian's month convention
      * example month = 1 - > januari
      *         month = 12 -> desember
      * @param month
@@ -36,5 +37,23 @@ public class IndonesiaDateFormatter {
      */
     private static String convertMonth(int month){
         return collectionOfMonth.get(month);
+    }
+
+    public static String convertUmur(int year , int month , int day){
+        String res = "";
+        Calendar now  = Calendar.getInstance();
+        int nowYear = now.get(Calendar.YEAR);
+        int nowMonth = now.get(Calendar.MONTH);
+        int nowDay   = now.get(Calendar.DAY_OF_MONTH);
+
+        Log.d("test" , "balita" + year + " " + month + " " );
+        Log.d("test" , "sekarang" + nowYear + " " + nowMonth + " " );
+        int selisihUmur = nowYear-year ;
+        int selisihBulan = nowMonth-month ;
+        if(selisihUmur >0 ) res+= selisihUmur + " Tahun ";
+        if(selisihBulan > 0) res+= selisihBulan+ " Bulan";
+
+        return res;
+
     }
 }

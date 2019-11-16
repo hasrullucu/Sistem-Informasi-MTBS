@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserratbold"
                 android:text="1 Tahun 2 Bulan"
-                android:textColor="@color/mustardBackground"
+                android:textColor="@color/mustardColor"
                 android:textSize="14sp">
 
             </TextView>

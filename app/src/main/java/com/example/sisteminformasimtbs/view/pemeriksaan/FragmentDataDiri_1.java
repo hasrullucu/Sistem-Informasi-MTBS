@@ -15,11 +15,10 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.model.IndonesiaDateFormatter;
+import com.example.sisteminformasimtbs.model.IndonesiaFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 
 /**
@@ -86,7 +85,7 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
 
         this.activity.balitaNow.setTanggalPemeriksaan(""+day+month+year);
 
-        this.tanggalPemeriksaanAuto.setText(IndonesiaDateFormatter.convert(year, month , day));
+        this.tanggalPemeriksaanAuto.setText(IndonesiaFormatter.convertDate(year, month , day));
         return res;
     }
 

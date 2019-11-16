@@ -14,9 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.model.IndonesiaDateFormatter;
+import com.example.sisteminformasimtbs.model.IndonesiaFormatter;
 import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
-import com.example.sisteminformasimtbs.view.mainmenu.MainMenu_Activity;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -40,7 +39,7 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
     private TextView namaAnak;
     private TextView jenisKelamin;
     private TextView tinggiBerat;
-    private TextView umur;
+    private TextView umur_EditText;
 
     private LinkedList<DiagnosisResult> collectionOfClassificationResult ;
 
@@ -79,7 +78,7 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
         this.namaAnak = res.findViewById(R.id.namaAnak_Kesimpulan_EditText);
         this.jenisKelamin = res.findViewById(R.id.namaIbu_Kesimpulan_EditText);
         this.tinggiBerat = res.findViewById(R.id.tinggi_berat_EditText);
-        this.umur = res.findViewById(R.id.umur_EditText);
+        this.umur_EditText = res.findViewById(R.id.umur_EditText);
 
         this.kunjunganUlang.setText("KUNJUNGAN ULANG " + activity.presenter.getKunjunganUlang() + " HARI");
         Calendar nowDate = Calendar.getInstance();
@@ -87,11 +86,15 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
         int month = nowDate.get(Calendar.MONTH);
         int year = nowDate.get(Calendar.YEAR);
 
-        this.tanggalPemeriksaan.setText("" + IndonesiaDateFormatter.convert(year, month , day));
+        this.tanggalPemeriksaan.setText("" + IndonesiaFormatter.convertDate(year, month , day));
         this.namaAnak.setText("" + activity.balitaNow.getNamaAnak());
         this.tinggiBerat.setText(activity.balitaNow.getBeratBadan() + " KG / " + activity.balitaNow.getTinggiBadan() + " CM");
-//        this.umur.setText(activity.balitaNow.getUmur());
 
+        int tahunBalita = activity.balitaNow.getTahun();
+        int bulanBalita = activity.balitaNow.getBulan();
+        int tanggalBalita = activity.balitaNow.getTanggal();
+
+        this.umur_EditText.setText(IndonesiaFormatter.convertUmur(tahunBalita,bulanBalita,tanggalBalita));
         if (activity.balitaNow.getJenisKelamin() == 'P')
         {
             this.jenisKelamin.setText("Perempuan");

@@ -11,8 +11,14 @@ public class PasienNow {
     private double tinggiBadan  = 0;
     private String tanggalPemeriksaan ;
     private String tanggalLahir ;
+    private int tanggal ;
+    private int bulan ;
+    private int tahun ;
     private String keluhan ;
     private int kunjungan  = 0;
+
+
+
 
     public boolean checkAllNotNull(){
         if(namaAnak != null &&
@@ -113,6 +119,30 @@ public class PasienNow {
 
     public void setKunjungan(int kunjungan) {
         this.kunjungan = kunjungan;
+    }
+
+    public int getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(int tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public int getBulan() {
+        return bulan;
+    }
+
+    public void setBulan(int bulan) {
+        this.bulan = bulan;
+    }
+
+    public int getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(int tahun) {
+        this.tahun = tahun;
     }
 
     public PasienNow() {

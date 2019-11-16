@@ -1,7 +1,6 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -20,7 +19,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.DateLogic;
-import com.example.sisteminformasimtbs.model.IndonesiaDateFormatter;
+import com.example.sisteminformasimtbs.model.IndonesiaFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -165,6 +164,7 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
                 this.activity.balitaNow.setKeluhan(keluhan);
                 this.activity.balitaNow.setTanggalLahir(tanggal);
 
+
                 String a = "nama : " + this.activity.balitaNow.getNamaAnak() + "\n "
                         + "ibu :  " + this.activity.balitaNow.getNamaIbu() + "\n"
                         + "jenis kelamin :" + this.activity.balitaNow.getJenisKelamin() + "\n"
@@ -177,7 +177,6 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
                         + "keluhan " + this.activity.balitaNow.getKeluhan() + "\n"
                         + "condition" + this.activity.balitaNow.checkAllNotNull() + " ";
 
-                Log.d("balitanow" , a);
 
 
                 this.activity.changeToDataDiri_4();
@@ -191,12 +190,10 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
         }else if(view == this.btn_pickCalendar){
             onCalendarClick();
-//            Log.d("click" , "clicked");
         }
     }
 
 
-    @SuppressLint("NewApi")
     private void onCalendarClick(){
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -213,14 +210,19 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
+                month = month ;
                 Log.d("tanggal", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
                 rawDate = ""+day+month+year;
                 Log.d("tanggal" , month+day+year+"");
-                btn_pickCalendar.setText(IndonesiaDateFormatter.convert(year, month , day));
+                btn_pickCalendar.setText(IndonesiaFormatter.convertDate(year, month , day));
+
+                activity.balitaNow.setTanggal(day);
+                activity.balitaNow.setBulan(month);
+                activity.balitaNow.setTahun(year);
+
             }
         };
-        dialog.setOnDateSetListener(mDateSetListener);
+//        dialog.setOnDateSetListener(mDateSetListener);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
 
