@@ -48,7 +48,7 @@ public class TindakanListAdapter extends RecyclerView.Adapter<TindakanListAdapte
        final ArrayList<String> res = activity.presenter.getLangkahTindakan(now.getIdTindakan());
         final int size = res.size() ;
         holder.idTindakan.setText("");
-        if(size == 0) holder.idTindakan.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+        if(size == 0) holder.idTindakan.setBackgroundResource(android.R.color.transparent);
 
         if(now.getNamaTindakan().equals("RUJUK SEGERA")){
             holder.idTindakan.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_warning , 0);
