@@ -75,10 +75,10 @@
             >
 
             <ImageView
+                android:id="@+id/iv_jenis_kelamin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/doktormtbs">
-
+                android:src="@drawable/ic_boy">
             </ImageView>
 
         </LinearLayout>
