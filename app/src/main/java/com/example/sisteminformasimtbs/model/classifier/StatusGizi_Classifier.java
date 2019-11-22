@@ -53,7 +53,7 @@ public class StatusGizi_Classifier extends Classifier
                 return new DiagnosisResult(namaKlasifikasi_24, idKlasifikasi_24);
             }
         }
-        else if (tanpaKomplikasi >= 1)
+        if (tanpaKomplikasi > 0)
         {
             return new DiagnosisResult(namaKlasifikasi_25, idKlasifikasi_25);
         }

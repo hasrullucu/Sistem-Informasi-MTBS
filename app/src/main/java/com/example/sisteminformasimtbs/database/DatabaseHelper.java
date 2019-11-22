@@ -267,7 +267,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public LinkedList<TindakanResult> getTindakanByIdKlasifikasi(int idKlasifikasi){
         double beratBadan = activity.balitaNow.getBeratBadan();
-        int umur = 4;
+        int umur = this.activity.balitaNow.getUmurInBulan();
+        Log.d("umur", "umur : " + umur);
 
         String query = "SELECT Tindakan.idTindakan, namaTindakan, tipeTindakan FROM Tindakan\n" +
                 " INNER JOIN KlasifikasiMemilikiTindakan ON Tindakan.idTindakan = KlasifikasiMemilikiTindakan.idTindakan\n" +
@@ -285,6 +286,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             if (c.getInt(c.getColumnIndex("tipeTindakan")) == 3 || c.getInt(c.getColumnIndex("tipeTindakan")) == 2)
             {
                 namaTindakan += this.getObatByIdTindakan(idTindakan, beratBadan, umur);
+                Log.d("obattttttt", "masukk");
+                Log.d("obattttttt", "" + namaTindakan);
             }
 
             TindakanResult tindakanResult = new TindakanResult(idTindakan , namaTindakan);
@@ -324,19 +327,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         double nilai = 0;
         String listObat = "";
         String namaObat = "";
+        int a = 0;
 
         while(c.moveToNext())
         {
-            if (idBentukObat == 0)
+            if (a == 0)
             {
                 if (c.getString(3).equalsIgnoreCase("Berat badan"))
                 {
                     nilai = beratBadan;
+                    Log.d("typeeeeeeeeeeeeeee", "berat badan");
                 }
                 else if (c.getString(3).equalsIgnoreCase("Umur"))
                 {
                     nilai = umur;
+                    Log.d("typeeeeeeeeeeeeeee", "umur");
                 }
+                a++;
             }
 
             int batasBawah = c.getInt(1);

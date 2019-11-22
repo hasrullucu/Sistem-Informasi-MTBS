@@ -96,5 +96,8 @@ public class ObatMemilikiBentukObat {
         insert_One_Row(db,19,12,22);
         insert_One_Row(db,20,13,23);
         insert_One_Row(db,21,13,24);
+        insert_One_Row(db, 22, 9, 17);
+        insert_One_Row(db, 23, 10, 18);
+        insert_One_Row(db, 24, 11, 19);
     }
 }

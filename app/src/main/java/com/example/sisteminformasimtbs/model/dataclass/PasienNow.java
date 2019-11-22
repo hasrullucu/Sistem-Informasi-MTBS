@@ -1,5 +1,9 @@
 package com.example.sisteminformasimtbs.model.dataclass;
 
+import android.util.Log;
+
+import java.util.Calendar;
+
 public class PasienNow {
     private String namaAnak ;
     private String namaIbu ;
@@ -16,8 +20,6 @@ public class PasienNow {
     private int tahun ;
     private String keluhan ;
     private int kunjungan  = 0;
-
-
 
 
     public boolean checkAllNotNull(){
@@ -145,7 +147,16 @@ public class PasienNow {
         this.tahun = tahun;
     }
 
-    public PasienNow() {
+   public int getUmurInBulan(){
+       String res = "";
+       Calendar now  = Calendar.getInstance();
+       int nowYear = now.get(Calendar.YEAR);
+       int nowMonth = now.get(Calendar.MONTH);
+       int nowDay   = now.get(Calendar.DAY_OF_MONTH);
+       int selisihUmur = nowYear-this.tahun;
+       int selisihBulan = nowMonth-this.bulan;
 
-    }
+
+       return selisihUmur*12 + selisihBulan;
+   }
 }

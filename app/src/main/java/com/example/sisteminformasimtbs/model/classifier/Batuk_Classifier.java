@@ -28,7 +28,7 @@ public class Batuk_Classifier extends Classifier {
         }else if(collectionOfGejala.containsKey("Napas cepat")){
             return new DiagnosisResult(namaKlasifikasi_3 , idKlasifikasi_3);
         }
-        else if (collectionOfGejala.containsKey("Tidak cukup tanda-tanda untuk diklasifikasikan sebagai diare dehidrasi berat atau ringan/sedang"))
+        else if (collectionOfGejala.containsKey("Tidak ada tanda-tanda Pneumonia Berat maupun Pneumonia"))
         {
             return new DiagnosisResult(namaKlasifikasi_4, idKlasifikasi_4);
         }
