@@ -1,6 +1,7 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,6 +42,8 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
     private TextView jenisKelamin;
     private TextView tinggiBerat;
     private TextView umur_EditText;
+
+    private ImageView foto;
 
     private LinkedList<DiagnosisResult> collectionOfClassificationResult ;
 
@@ -101,14 +105,21 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
         int bulanBalita = activity.balitaNow.getBulan();
         int tanggalBalita = activity.balitaNow.getTanggal();
 
+        this.foto = res.findViewById(R.id.iv_jenis_kelamin);
+        Drawable iv_girl = getResources().getDrawable(R.drawable.ic_girl);
+        Drawable iv_boy = getResources().getDrawable(R.drawable.ic_boy);
+
         this.umur_EditText.setText(IndonesiaFormatter.convertUmur(tahunBalita,bulanBalita,tanggalBalita));
         if (activity.balitaNow.getJenisKelamin() == 'P')
         {
             this.jenisKelamin.setText("Perempuan");
+            this.foto.setImageDrawable(iv_girl);
+
         }
         else
         {
             this.jenisKelamin.setText("Laki-Laki");
+            this.foto.setImageDrawable(iv_boy);
         }
 
         this.btn_kembali = res.findViewById(R.id.include);
