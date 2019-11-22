@@ -78,13 +78,13 @@ public class LangkahTindakan {
         insert_One_Row(db, 3, "Periksa gula darah, lalu lakukan tatalaksana atau cegah agar tidak turun", 1);
         insert_One_Row(db, 4, "Beri oksigen dan RUJUK", 1);
         insert_One_Row(db, 5, "Jika kejang tidak berhenti setelah 5 menit ulangi dosis dizepam(maksimal 2 kali)", 1);
-        insert_One_Row(db, 6, "Jika kejang belum teratasi, dapat diberikan fenitoin 20mg/kg IV yang dilarutkan dengan NaCL 0,9%", 1);
+        insert_One_Row(db, 6, "Jika sudah terpasang akses vena maka diberikan diazepam 0,25-0,5 mg IV", 1);
+        insert_One_Row(db, 7, "Jika kejang belum teratasi, dapat diberikan fenitoin 20 mg/kg IV yang dilarutkan dengan NaCl 0,9% atau fenorbarbital 20 mg/kg IV (bila tidak tersedia fenobarbital iv berikan sediaan im dalam dosis sama)", 1);
 
         // langkah tindakan Tanda Bahaya Umum id = 4
-        insert_One_Row(db, 7, "Jika anak masih bisa menyusu Mintalah kepada ibu untuk menyusui anaknya", 4);
-        insert_One_Row(db, 8, "Jika anak tidak bisa menyusu tapi masih bisa menelan Beri perahan ASI atau susu formula / air gula", 4);
-        insert_One_Row(db, 9, "Jika anak tidak bisa menelan beri 50ml susu formula / air gula melalui pipa orogastrik", 4);
-        insert_One_Row(db, 10, "Jika tidak tersedia pipa orogastrik, RUJUK SEGERA", 4);
+        insert_One_Row(db, 8, "Jika anak masih bisa menyusu, mintalah kepada ibu untuk menyusui anaknya", 4);
+        insert_One_Row(db, 9, "Jika anak tidak bisa menyusu tapi masih bisa menelan, Beri perahan ASI atau susu formula / air gula 30-50 ml sebelum dirujuk. Cara membuat air gula : Larutkan 4 sendok teh (20 gr) gula dalam 200 ml air matang", 4);
+        insert_One_Row(db, 10, "Jika anak tidak bisa menelan, Beri 50 ml susu formula / air gula melalui pipa orogastrik. Jika tidak tersedia pipa orogastrik, RUJUK SEGERA", 4);
 
 //        langkah tindakan untuk idTndakan = 10
         insert_One_Row(db, 11, "Bahan aman yang dianjurkan: \n- ASI eksklusif sampai umur 6 bulan.\n" +

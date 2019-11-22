@@ -21,10 +21,10 @@ public class Anemia_Classifier extends Classifier {
         }else if(collectionOfGejala.containsKey("Telapak tangan agak pucat") ){
             return new DiagnosisResult(namaKlasifikasi_29 , idKlasifikasi_29);
         }
-        else
+        else if(collectionOfGejala.containsKey("Tidak ditemukan tanda kepucatan pada telapak tangan") )
         {
             return new DiagnosisResult(namaKlasifikasi_30 , idKlasifikasi_30);
         }
-//        return new DiagnosisResult("0", 0);
+        return new DiagnosisResult("0", 0);
     }
 }

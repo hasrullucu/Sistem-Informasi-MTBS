@@ -80,7 +80,14 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
         this.tinggiBerat = res.findViewById(R.id.tinggi_berat_EditText);
         this.umur_EditText = res.findViewById(R.id.umur_EditText);
 
-        this.kunjunganUlang.setText("KUNJUNGAN ULANG " + activity.presenter.getKunjunganUlang() + " HARI");
+
+
+        if (activity.presenter.getKunjunganUlang() > 0) {
+            this.kunjunganUlang.setText("KUNJUNGAN ULANG " + activity.presenter.getKunjunganUlang() + " HARI");
+        } else {
+            this.kunjunganUlang.setText("SELAMAT!!! PASIEN ANDA SEHAT");
+        }
+
         Calendar nowDate = Calendar.getInstance();
         int day = nowDate.get(Calendar.DAY_OF_MONTH);
         int month = nowDate.get(Calendar.MONTH);

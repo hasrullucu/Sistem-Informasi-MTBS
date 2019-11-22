@@ -30,11 +30,9 @@ public class StatusHiv_Classifier extends Classifier {
                 collectionOfGejala.containsKey("Anak dari ibu dengan HIV, status HIV anak tidak diketahui")){
             return new DiagnosisResult(namaKlasifikasi_33 , idKlasifikasi_33);
         }
-        else {
+        else if (collectionOfGejala.containsKey("Tes HIV pada ibu atau anak negatif")){
             return new DiagnosisResult(namaKlasifikasi_34 , idKlasifikasi_34);
         }
-
-
-
+        return new DiagnosisResult("0", 0);
     }
 }

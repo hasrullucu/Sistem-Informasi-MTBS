@@ -34,10 +34,10 @@ public class MasalahTelinga_Classifier extends Classifier
         }else if(collectionOfGejala.containsKey("Tampak cairan/nanah keluar dari telinga dan telah terjadi selama 14 hari atau lebih")){
             return new DiagnosisResult(namaKlasifikasi_22 , idKlasifikasi_22);
         }
-        else {
+        else if (collectionOfGejala.containsKey("Tidak ada nyeri telinga DAN tidak ada nanah keluar dari telinga")){
             return new DiagnosisResult(namaKlasifikasi_23 , idKlasifikasi_23);
         }
-//        return new DiagnosisResult("0", 0);
+        return new DiagnosisResult("0", 0);
     }
 
     public void setAllGejalaInDatabase(){

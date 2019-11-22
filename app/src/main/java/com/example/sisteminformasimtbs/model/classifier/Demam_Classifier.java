@@ -101,7 +101,7 @@ public class Demam_Classifier extends Classifier
         {
             res.add(new DiagnosisResult(namaKlasifikasi_16, idKlasifikasi_16));
         }
-        else
+        else if (collectionOfGejala.containsKey("Campak sekarang atau dalam 3 bulan terakhir"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_36, idKlasifikasi_36));
         }
@@ -119,7 +119,7 @@ public class Demam_Classifier extends Classifier
         {
             res.add(new DiagnosisResult(namaKlasifikasi_18, idKlasifikasi_18));
         }
-        else
+        else if (collectionOfGejala.containsKey("Tidak ada satupun gejala di atas"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_19, idKlasifikasi_19));
         }

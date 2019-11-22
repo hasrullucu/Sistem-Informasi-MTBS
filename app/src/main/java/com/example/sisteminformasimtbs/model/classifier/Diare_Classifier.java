@@ -65,7 +65,10 @@ public class Diare_Classifier extends Classifier {
         Log.d("counterberat" , "counter berat : " + counterBerat);
         if(counterBerat >= 2) res.add(new DiagnosisResult("DIARE DEHIDRASI BERAT" , 5) );
         else if(counterSedang >= 2) res.add(new DiagnosisResult("DIARE DEHIDRASI RINGAN / SEDANG" ,6));
-        else res.add(new DiagnosisResult("DIARE TANPA DEHIDRASI", 7));
+        else if (collectionOfGejala.containsKey("Tidak cukup tanda-tanda untuk diklasifikasikan sebagai diare dehidrasi berat atau ringan/sedang"))
+        {
+            res.add(new DiagnosisResult("DIARE TANPA DEHIDRASI", 7));
+        }
 
         if (collectionOfGejala.containsKey("Dengan dehidrasi") && collectionOfGejala.containsKey("Diare 14 hari atau lebih"))
         {
@@ -75,6 +78,7 @@ public class Diare_Classifier extends Classifier {
         {
             res.add(new DiagnosisResult(namaKlasifikasi_35, idKlasifikasi_35));
         }
+
         if (collectionOfGejala.containsKey("Ada darah dalam tinja"))
         {
             res.add(new DiagnosisResult(namaKlasifikasi_9 , idKlasifikasi_9));
