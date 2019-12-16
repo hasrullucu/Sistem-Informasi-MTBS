@@ -8,8 +8,10 @@ import android.util.Log;
 
 import com.example.sisteminformasimtbs.model.dataclass.Balita;
 import com.example.sisteminformasimtbs.model.dataclass.BentukObat;
+import com.example.sisteminformasimtbs.model.dataclass.Diagnosis;
 import com.example.sisteminformasimtbs.model.dataclass.Gejala;
 import com.example.sisteminformasimtbs.model.dataclass.KlasifikasiPenyakit;
+import com.example.sisteminformasimtbs.model.dataclass.Kunjungan;
 import com.example.sisteminformasimtbs.model.dataclass.LangkahTindakan;
 import com.example.sisteminformasimtbs.model.dataclass.Obat;
 import com.example.sisteminformasimtbs.model.dataclass.Tindakan;
@@ -159,7 +161,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //        CREATE MAIN TABLE
 
         sqLiteDatabase.execSQL(Balita.CREATE_BALITA);
-//        sqLiteDatabase.execSQL(CREATE_KUNJUNGAN);
+        sqLiteDatabase.execSQL(Kunjungan.CREATE_KUNJUNGAN);
         sqLiteDatabase.execSQL(TopikPenyakit.CREATE_PENYAKIT);
         sqLiteDatabase.execSQL(KlasifikasiPenyakit.CREATE_KLASIFIKASI);
         sqLiteDatabase.execSQL(Gejala.CREATE_GEJALA);
@@ -175,11 +177,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Log.d("DATABASE" , "MAIN TABLE CREATED");
 
 //        CREATE RELATION TABLE -
-//        sqLiteDatabase.execSQL(CREATE_KUNJUNGAN_PENYAKIT);
+//        sqLiteDatabase.execSQL(Kunjungan.CREATE_KUNJUNGAN_PENYAKIT);
         sqLiteDatabase.execSQL(GejalaMemilikiKlasifikasi.CREATE_GEJ_KLAS);
         sqLiteDatabase.execSQL(KlasifikasiMemilikiTindakan.CREATE_KLAS_TIN);
         sqLiteDatabase.execSQL(TindakanMemilikiBentukObat.CREATE_TIN_BENTUKOBAT);
         sqLiteDatabase.execSQL(ObatMemilikiBentukObat.CREATE_OBAT_BENTUKOBAT);
+        sqLiteDatabase.execSQL(Diagnosis.CREATE_DIAGNOSIS);
 
         Log.d("DATABASE" , "RELATION TABLE CREATED");
 
@@ -198,11 +201,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Log.d("DATABASE" , "RELATION TABLE DROPPED");
 
 //        DROP IF EXISTS RELATION TABLE
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_KUNJUNGAN_PENYAKIT);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Kunjungan.TABLE_KUNJUNGAN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + GejalaMemilikiKlasifikasi.TABLE_GEJ_KLAS);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + KlasifikasiMemilikiTindakan.TABLE_KLAS_TIN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TindakanMemilikiBentukObat.TABLE_TIN_BENTUKOBAT);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ObatMemilikiBentukObat.TABLE_OBAT_BENTUKOBAT);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Diagnosis.TABLE_DIAGNOSIS);
 
         Log.d("DATABASE" , "MAIN TABLE DROPPED");
 
@@ -385,5 +389,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void insertDataKunjungan ()
     {
 
+    }
+
+
+    public void checkTableIfExist(String tableName){
+        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name='"+tableName+"'";
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        Log.d("tes" , "mantap");
+        Log.d("exist", tableName + " size : " + c.getCount());
     }
 }

@@ -67,6 +67,7 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 
         this.balitaNow = new PasienNow();
         this.collectionOfTindakanFragment = new LinkedList<>();
+
         changeToDataDiri_1();
 
     }

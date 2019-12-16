@@ -51,7 +51,7 @@ public class Balita {
                         + COL_NAMAIBU + " TEXT NOT NULL,"
                         + COL_ALAMAT + " TEXT NOT NULL,"
                         + COL_JENISKELAMIN + " TEXT  NOT NULL,"
-                        + COL_TANGGALLAHIR + " DATE NOT NULL,"
+                        + COL_TANGGALLAHIR + " TEXT NOT NULL,"
                         + COL_WILAYAH + " TEXT NOT NULL"
                         + ")";
 

@@ -6,6 +6,7 @@ import com.example.sisteminformasimtbs.database.DatabaseHelper;
 import com.example.sisteminformasimtbs.model.KunjunganUlang_Classifier;
 import com.example.sisteminformasimtbs.model.classifier.StatusGizi_Classifier;
 import com.example.sisteminformasimtbs.model.dataclass.Balita;
+import com.example.sisteminformasimtbs.model.dataclass.Diagnosis;
 import com.example.sisteminformasimtbs.model.dataclass.PasienNow;
 import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 import com.example.sisteminformasimtbs.model.classifier.Anemia_Classifier;
@@ -45,9 +46,8 @@ public class Presenter {
         this.listOfClassifier = new LinkedList<>();
         this.db = new DatabaseHelper(activity.getApplicationContext(), activity);
         addAllClassifier();
-
-
-
+        this.db.checkTableIfExist(Kunjungan.TABLE_KUNJUNGAN);
+        this.db.checkTableIfExist(Diagnosis.TABLE_DIAGNOSIS);
     }
 
     public void addGejala(String gejala , int id){

@@ -42,14 +42,14 @@ public class Kunjungan {
     public static final String CREATE_KUNJUNGAN =
             "CREATE TABLE "+ TABLE_KUNJUNGAN + "("
                     + COL_IDKUNJUNGAN + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-                    + COL_TANGGALKUNJUNGAN + " DATE NOT NULL, "
+                    + COL_TANGGALKUNJUNGAN + " TEXT NOT NULL, "
                     + COL_BERAT + " NUMERIC NOT NULL,"
                     + COL_PANJANG + " NUMERIC NOT NULL,"
                     + COL_SUHU + " NUMERIC  NOT NULL,"
                     + COL_KUNJUNGANKE + " INTEGER NOT NULL,"
                     + COL_TIPEKUNJUNGAN + " TEXT NOT NULL,"
                     + COL_KELUHAN + " TEXT NOT NULL,"
-                    + COL_IDBALITA + " INTEGER NOT NULL,"
+                    + COL_IDBALITA + " INTEGER NOT NULL"
                     + ")";
 
     public Kunjungan(int idKunjungan, int tipeKunjungan, double suhu, double panjangBadan, double beratBadan, String tanggalKunjungan, int kunjunganKe, String keluhan, int idBalita) {
