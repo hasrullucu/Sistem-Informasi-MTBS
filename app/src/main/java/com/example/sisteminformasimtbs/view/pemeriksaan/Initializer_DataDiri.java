@@ -1,5 +1,7 @@
 package com.example.sisteminformasimtbs.view.pemeriksaan;
 
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
+
 public class Initializer_DataDiri extends Initializer{
     private PemeriksaanMain_Activity activity;
     private FragmentDataDiri_1 dataDiri1;
@@ -29,4 +31,6 @@ public class Initializer_DataDiri extends Initializer{
     public FragmentDataDiri_3 getDataDiri4() {
         return dataDiri4;
     }
+
+
 }

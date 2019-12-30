@@ -159,8 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         this.mDefaultWritableDatabase = sqLiteDatabase;
 //        CREATE MAIN TABLE
-
-        sqLiteDatabase.execSQL(Balita.CREATE_BALITA);
+        sqLiteDatabase.execSQL(Balita.CREATE_BALITA_IF_EXISTS);
         sqLiteDatabase.execSQL(Kunjungan.CREATE_KUNJUNGAN);
         sqLiteDatabase.execSQL(TopikPenyakit.CREATE_PENYAKIT);
         sqLiteDatabase.execSQL(KlasifikasiPenyakit.CREATE_KLASIFIKASI);
@@ -212,7 +211,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
         // DROP IF EXISTS MAIN TABLE
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Balita.TABLE_BALITA);
+//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Balita.TABLE_BALITA);
 //        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_KUNJUNGAN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + KlasifikasiPenyakit.TABLE_KLASIFIKASIPENYAKIT);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Gejala.TABLE_GEJALA);
@@ -245,6 +244,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         KlasifikasiMemilikiTindakan.insert_All_Row(db);
         TindakanMemilikiBentukObat.insert_All_Row(db);
         ObatMemilikiBentukObat.insert_All_Row(db);
+
+
+
+
+
     }
 
     public HashMap<String , Integer> getGejalaByIdTopik (int idTopik)
@@ -316,6 +320,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
+
     public String getObatByIdTindakan (int idTindakan, double beratBadan, int umur){
 //        get idBentukObat dari id tindakan
         String query = "SELECT BentukObat.idBentukObat, batasBawah, batasAtas, syarat, dosis, namaBentukObat, namaObat, pemberian " +
@@ -345,7 +350,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 else if (c.getString(3).equalsIgnoreCase("Umur"))
                 {
                     nilai = umur;
-                    Log.d("typeeeeeeeeeeeeeee", "umur");
                 }
                 a++;
             }
@@ -375,22 +379,96 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return listObat ;
     }
 
-    public void getBalita(){
+    public LinkedList<Balita> getAllBalita(){
+        LinkedList<Balita> allBalita  = new LinkedList<>();
         String query = "SELECT * FROM Balita" ;
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        Log.d("sizebalita" , "size balita dipanggil dari db select * from balita " + c.getCount());
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+                // get data balita now
+                int idBalitaNow = c.getInt(c.getColumnIndex("idbalita"));
+                String namaBalitaNow= c.getString(c.getColumnIndex("namabalita"));
+                String namaIbuNow = c.getString(c.getColumnIndex("namaibu"));
+                String alamatNow = c.getString(c.getColumnIndex("alamat"));
+                char jeniskelaminNow = c.getString(c.getColumnIndex("jeniskelamin")).charAt(0);
+                String tanggalLahirNow = c.getString(c.getColumnIndex("tanggallahir"));
+                char wilayahNow = c.getString(c.getColumnIndex("wilayah")).charAt(0);
+                Balita balitaNow = new Balita(namaBalitaNow , idBalitaNow , namaIbuNow , alamatNow , jeniskelaminNow , tanggalLahirNow , wilayahNow);
+                allBalita.add(balitaNow);
+            }
+        }
+        return allBalita;
+    }
+
+    public Balita getBalita(String namaBalita , String  namaIbu){
+        String query = "SELECT * FROM Balita WHERE namabalita = '" + namaBalita +"' AND namaibu = '"+ namaIbu + "'" ;
         int count = 0;
         Cursor c = this.getReadableDatabase().rawQuery(query , null);
-        while(c.moveToNext()){
-            count++;
+        Balita balitaResult= null;
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+                // get data balita now
+                int idBalitaNow = c.getInt(c.getColumnIndex("idbalita"));
+                String namaBalitaNow= c.getString(c.getColumnIndex("namabalita"));
+                String namaIbuNow = c.getString(c.getColumnIndex("namaibu"));
+                String alamatNow = c.getString(c.getColumnIndex("alamat"));
+                char jeniskelaminNow = c.getString(c.getColumnIndex("jeniskelamin")).charAt(0);
+                String tanggalLahirNow = c.getString(c.getColumnIndex("tanggallahir"));
+                char wilayahNow = c.getString(c.getColumnIndex("wilayah")).charAt(0);
+                balitaResult = new Balita(namaBalitaNow , idBalitaNow , namaIbuNow , alamatNow , jeniskelaminNow , tanggalLahirNow , wilayahNow);
+                count++;
+            }
+        }
+        return balitaResult;
+    }
+
+    public LinkedList<Balita> getBalitaLikeName(String keyword){
+        String query = "SELECT * FROM Balita WHERE namabalita LIKE '%"+keyword+"%' " ;
+        LinkedList<Balita> allBalita  = new LinkedList<>();
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+                // get data balita now
+                int idBalitaNow = c.getInt(c.getColumnIndex("idbalita"));
+                String namaBalitaNow= c.getString(c.getColumnIndex("namabalita"));
+                String namaIbuNow = c.getString(c.getColumnIndex("namaibu"));
+                String alamatNow = c.getString(c.getColumnIndex("alamat"));
+                char jeniskelaminNow = c.getString(c.getColumnIndex("jeniskelamin")).charAt(0);
+                String tanggalLahirNow = c.getString(c.getColumnIndex("tanggallahir"));
+                char wilayahNow = c.getString(c.getColumnIndex("wilayah")).charAt(0);
+                Balita balitaNow = new Balita(namaBalitaNow , idBalitaNow , namaIbuNow , alamatNow , jeniskelaminNow , tanggalLahirNow , wilayahNow);
+                allBalita.add(balitaNow);
+            }
+        }
+        return allBalita;
+
+
+    }
+
+    public Kunjungan getKunjungan(int idBalita , String tanggalKunjungan){
+        String query = "SELECT * FROM KUNJUNGAN WHERE idBalita = "+ idBalita+" AND tanggalKunjungan='"+tanggalKunjungan + "'";
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        Kunjungan kunjunganResult = null;
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+
+                int idKunjunganNow = c.getInt(c.getColumnIndex("idKunjungan"));
+                String tanggalKunjunganNow = c.getString(c.getColumnIndex("tanggalKunjungan"));
+                double beratBadanNow = c.getDouble(c.getColumnIndex("berat"));
+                double panjangBadanNow = c.getDouble(c.getColumnIndex("panjang"));
+                double suhuBadanNow = c.getDouble(c.getColumnIndex("suhu"));
+                int kunjunganKe = c.getInt(c.getColumnIndex("kunjunganKe")) ;
+                int tipeKunjungan = c.getInt(c.getColumnIndex("tipeKunjungan")) ;
+                String keluhan = c.getString(c.getColumnIndex("keluhan"));
+                int idBalitaNow = c.getInt(c.getColumnIndex("idBalita"));
+                kunjunganResult = new Kunjungan(idKunjunganNow,tipeKunjungan , suhuBadanNow,panjangBadanNow,beratBadanNow,tanggalKunjungan,kunjunganKe,keluhan,idBalitaNow);
+            }
         }
 
-        Log.d("databalita" , "Data balita : " + count) ;
-    }
-
-    public void insertDataKunjungan ()
-    {
+        return kunjunganResult;
 
     }
-
 
     public void checkTableIfExist(String tableName){
         String query = "SELECT name FROM sqlite_master WHERE type='table' AND name='"+tableName+"'";

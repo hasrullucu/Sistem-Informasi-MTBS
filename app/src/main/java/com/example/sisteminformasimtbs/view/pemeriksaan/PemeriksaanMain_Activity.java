@@ -26,6 +26,9 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 
     private Fragment lastGejala ;
 
+    public static Balita loadedBalita = null ;
+
+
 
     // LinkedList Of TindakanFragment
     private LinkedList<FragmentTindakan> collectionOfTindakanFragment ;
@@ -53,8 +56,9 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
         private Initializer_Status_HIV initializer_status_hiv;
     // Kelas inisialisasi semua fragment klasifikasi tanda bahaya umum
 
-
         private Initializer_HasilPemeriksaan initializer_hasilPemeriksaan;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +68,18 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
 
         initAll();
         // test
-
         this.balitaNow = new PasienNow();
         this.collectionOfTindakanFragment = new LinkedList<>();
-
         changeToDataDiri_1();
 
     }
 
-
+    public void changeToCariBalita(){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fr2 = getSupportFragmentManager().beginTransaction();
+        fr2.replace(R.id.fragContainer,FragmentCariBalita.newInstance(this));
+        fr2.commit();
+    }
 
     public void changeToTandaBahayaUmum(){
         TandaBahayaUmum_Fragment fragment = this.initializer_tandaBahayaUmum.getTandaBahayaUmumFragment();
@@ -238,7 +245,6 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
            changeFragment(now);
         }
 
-//        create hasil pemeriskaan 2
 
 
         public void saveLastGejala(Fragment fragment){
@@ -260,5 +266,7 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
             this.initializer_hasilPemeriksaan = new Initializer_HasilPemeriksaan(this);
 
         }
+
+
     }
 

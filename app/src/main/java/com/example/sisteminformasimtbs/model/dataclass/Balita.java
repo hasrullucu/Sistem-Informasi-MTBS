@@ -44,8 +44,8 @@ public class Balita {
     public static final String TABLE_BALITA  = "Balita";
 
 //    CREATE Table balita
-    public static final String CREATE_BALITA =
-                        "CREATE TABLE "+ TABLE_BALITA + "("
+    public static final String CREATE_BALITA_IF_EXISTS =
+                        "CREATE TABLE IF NOT EXISTS "+ TABLE_BALITA + "("
                         + COL_IDBALITA + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                         + COL_NAMABALITA + " TEXT NOT NULL, "
                         + COL_NAMAIBU + " TEXT NOT NULL,"
@@ -191,5 +191,14 @@ public class Balita {
      */
     public void setUmur(int umur) {
         this.umur = umur;
+    }
+
+    public void printBalitaWithLog(){
+        String res = "Nama : " + this.nama + " \n"+
+                " Nama Ibu : " + this.namaIbu + " \n"+
+                " Alamat :" + this.alamat + " \n"+
+                " Jenis Kelamin: " + this.jenisKelamin + "\n"+
+                "tanggal Lahir : " + this.tanggalLahir + " \n";
+        Log.d("balita" , res) ;
     }
 }

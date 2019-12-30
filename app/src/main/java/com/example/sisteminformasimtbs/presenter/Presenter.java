@@ -171,9 +171,8 @@ public class Presenter {
         return collectionOfLinkedList;
     }
 
-    public void saveDataBalita(String nama, int idBalita, String namaIbu, String alamat, String jenisKelamin, String tanggalLahir, String wilayah){
+    public void saveDataBalita(String nama,  String namaIbu, String alamat, String jenisKelamin, String tanggalLahir, String wilayah){
         Balita.insertDataBalita(this.db.getWritableDatabase(), nama, namaIbu, jenisKelamin, alamat, tanggalLahir, wilayah);
-//        this.db.getBalita();
     }
 
     public void saveDataKunjungan (String tanggalKunjungan, double beratBadan, double panjangBadan,
@@ -183,21 +182,32 @@ public class Presenter {
                 panjangBadan, suhu, kunjunganKe, tipeKunjungan, keluhan, idBalita);
     }
 
-    public void saveDiagnosis (int idKunjungan)
+    public void saveDiagnosis (int idKunjungan , int idKlasifikasi)
     {
-        for (int i = 0; i < listOfClassifier.size(); i++)
-        {
-            Classifier c = listOfClassifier.get(i);
-
-//            dapetin id klasifikasinya
-
-//            masukin ke db
-        }
+        Diagnosis.insertDiagnosis(this.db.getWritableDatabase() , idKunjungan , idKlasifikasi);
     }
 
     public int getKunjunganUlang ()
     {
         KunjunganUlang_Classifier ku = new KunjunganUlang_Classifier();
         return ku.getMinKunjunganUlang(classifyAll());
+    }
+
+    public Balita getBalitaNow(){
+        String namaBalita = activity.balitaNow.getNamaAnak();
+        String namaIbu = activity.balitaNow.getNamaIbu();
+        return this.db.getBalita(namaBalita , namaIbu);
+    }
+
+    public Kunjungan getKunjunganNow(int idBalita , String tanggalKunjungan){
+        return this.db.getKunjungan(idBalita , tanggalKunjungan);
+    }
+
+    public LinkedList<Balita> getAllBalita(){
+        return this.db.getAllBalita();
+    }
+
+    public LinkedList<Balita> searchBalitaByName(String namaBalita){
+        return this.db.getBalitaLikeName(namaBalita);
     }
 }

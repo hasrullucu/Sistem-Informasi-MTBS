@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.IndonesiaFormatter;
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
+import com.example.sisteminformasimtbs.model.dataclass.Diagnosis;
+import com.example.sisteminformasimtbs.model.dataclass.Kunjungan;
 import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 
 import java.util.Calendar;
@@ -130,9 +133,52 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
     @Override
     public void onClick(View view) {
         if(view == this.btn_akhirPemeriksaan){
-            activity.finish();
+           saveDataPemeriksaanNow();
+           activity.finish();
         }else if(view == this.btn_kembali){
             activity.changeToHasilPemeriksaan();
         }
+    }
+
+    /**
+     * Method to save all the diagnosis purposes
+     *  - usually save balita if not exist
+     *  - save the kunjungan
+     *  - save the diagnosis (reference to the klasifikasi)
+     */
+    private void saveDataPemeriksaanNow(){
+        // check if already exists in the database
+        Balita balitaNow  = activity.presenter.getBalitaNow();
+        if(balitaNow == null){
+            // get data from current diagnosis
+            String namaBalitaNow = activity.balitaNow.getNamaAnak();
+            String namaIbuNow = activity.balitaNow.getNamaIbu();
+            String alamatNow = activity.balitaNow.getAlamat();
+            String jenisKelaminNow  = activity.balitaNow.getJenisKelamin() + "";
+            String tanggalLahirNow = activity.balitaNow.getTanggalLahir();
+            String wilayah = "B";
+            activity.presenter.saveDataBalita(namaBalitaNow , namaIbuNow , alamatNow , jenisKelaminNow , tanggalLahirNow , wilayah);
+            balitaNow = activity.presenter.getBalitaNow();
+        }
+
+        // save kunjungan
+        String tanggalKunjunganNow = activity.balitaNow.getTanggalPemeriksaan();
+        double beratBadanNow = activity.balitaNow.getBeratBadan();
+        double panjangBadanNow = activity.balitaNow.getTinggiBadan();
+        double suhuNow = activity.balitaNow.getSuhu();
+        int kunjunganKeNow = activity.balitaNow.getKunjungan();
+        int tipeKunjungan = 1;
+        String keluhan = activity.balitaNow.getKeluhan();
+
+        activity.presenter.saveDataKunjungan(tanggalKunjunganNow , beratBadanNow, panjangBadanNow,suhuNow , kunjunganKeNow , tipeKunjungan , keluhan,balitaNow.getIdBalita());
+        // get data kunjungan now berdasarkan tanggal dan idBalita
+        Kunjungan kunjunganNow = activity.presenter.getKunjunganNow(balitaNow.getIdBalita() , tanggalKunjunganNow);
+
+        for (DiagnosisResult hasilKlasifikasi : this.collectionOfClassificationResult){
+            int idKunjungan = kunjunganNow.getIdKunjungan();
+            int idKlasifikasiPenyakit = hasilKlasifikasi.getIdKlasifikasi();
+            this.activity.presenter.saveDiagnosis(idKunjungan , idKlasifikasiPenyakit);
+        }
+
     }
 }

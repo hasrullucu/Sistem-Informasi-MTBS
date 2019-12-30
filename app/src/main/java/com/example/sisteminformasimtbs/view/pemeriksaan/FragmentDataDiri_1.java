@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.IndonesiaFormatter;
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +32,7 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
 
 
     private LinearLayout btn_Kembali ;
+    private LinearLayout btn_CariBalita ;
     private LinearLayout btn_Selanjutnya;
 
     private TextView namaAnak_EditText ;
@@ -55,6 +57,18 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
         return res;
     }
 
+    /**
+     * this method is called when replaced fragment is replaced back
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        // check if the data coming from the loaded balita
+        if(activity.loadedBalita != null){
+            setSearchedDataBalita(activity.loadedBalita);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +76,9 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
 
         this.btn_Selanjutnya = res.findViewById(R.id.btn_Selanjutnya);
         this.btn_Selanjutnya.setOnClickListener(this);
+
+        this.btn_CariBalita = res.findViewById(R.id.btn_CariBalita);
+        this.btn_CariBalita.setOnClickListener(this);
 
         this.btn_Kembali = res.findViewById(R.id.btn_Kembali);
         this.btn_Kembali.setOnClickListener(this);
@@ -86,13 +103,20 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
         this.activity.balitaNow.setTanggalPemeriksaan(""+day+month+year);
 
         this.tanggalPemeriksaanAuto.setText(IndonesiaFormatter.convertDate(year, month , day));
+
+
         return res;
     }
 
     @Override
     public void onClick(View view){
+
         if(view.getId()==btn_Kembali.getId()){
             activity.finish();
+        }
+
+        else if(view.getId() == btn_CariBalita.getId()){
+            this.activity.changeToCariBalita();
         }
         else if(view.getId()==btn_Selanjutnya.getId()){
             String namaAnak = this.namaAnak_EditText.getText().toString();
@@ -146,4 +170,23 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
         return true ;
 
     }
+
+    public void setSearchedDataBalita(Balita balitaNow){
+       
+        // set nama anak , nama ibu , alamat , jenis kelamin
+        this.namaAnak_EditText.setText(balitaNow.getNama()+"");
+        this.namaIbu_EditText.setText(balitaNow.getNamaIbu()+"");
+        this.alamat_EditText.setText(balitaNow.getAlamat()+"");
+        char jenisKelamin = balitaNow.getJenisKelamin();
+        if(jenisKelamin == 'P'){
+            this.radioPerempuan.setChecked(true);
+            this.nowKelamin = "lakilaki";
+
+        }else{
+            this.radioLaki.setChecked(true);
+            this.nowKelamin = "perempuan" ;
+        }
+    }
+
+
 }

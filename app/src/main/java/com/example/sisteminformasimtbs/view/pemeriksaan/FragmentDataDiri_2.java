@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.model.DateLogic;
 import com.example.sisteminformasimtbs.model.IndonesiaFormatter;
+import com.example.sisteminformasimtbs.model.dataclass.Balita;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -81,6 +82,8 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         this.suhu_EditText = res.findViewById(R.id.suhu_EditText) ;
         this.kunjungan_EditText = res.findViewById(R.id.kunjungan_EditText);
         this.keluhan_EditText = res.findViewById(R.id.keluhan_EditText);
+
+
         return res;
     }
 
@@ -140,6 +143,18 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
     }
 
+    /**
+     * this method is called when replaced fragment is replaced back
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        // check if the data coming from the loaded balita
+        if(activity.loadedBalita != null){
+            setSearchedDataBalita(activity.loadedBalita);
+        }
+    }
+
 
     @Override
     public void onClick(View view){
@@ -176,9 +191,6 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
                         + "kunjungan " + this.activity.balitaNow.getKunjungan() + "\n"
                         + "keluhan " + this.activity.balitaNow.getKeluhan() + "\n"
                         + "condition" + this.activity.balitaNow.checkAllNotNull() + " ";
-
-
-
                 this.activity.changeToDataDiri_4();
             }else{
                 Toast.makeText(getContext() , "Anda perlu mengisi semua data balita" , Toast.LENGTH_LONG).show();
@@ -261,5 +273,15 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         String textKunjungan = this.kunjungan_EditText.getText().toString();
         if(textKunjungan.equals("")) return 0 ;
         return Integer.parseInt(textKunjungan);
+    }
+
+    public void setSearchedDataBalita(Balita balitaNow){
+//        btn_pickCalendar.setText(IndonesiaFormatter.convertDate(year, month , day));
+          btn_pickCalendar.setText(activity.loadedBalita.getTanggalLahir());
+          this.rawDate = activity.loadedBalita.getTanggalLahir();
+//        activity.balitaNow.setTanggal(day);
+//        activity.balitaNow.setBulan(month);
+//        activity.balitaNow.setTahun(year);
+
     }
 }
