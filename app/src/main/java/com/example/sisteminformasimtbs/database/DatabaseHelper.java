@@ -23,6 +23,7 @@ import com.example.sisteminformasimtbs.model.relation.TindakanMemilikiBentukObat
 import com.example.sisteminformasimtbs.model.dataclass.TindakanResult;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -30,9 +31,7 @@ import java.util.LinkedList;
 import static com.example.sisteminformasimtbs.model.dataclass.KlasifikasiPenyakit.COL_IDTOPIKPENYAKIT;
 
 
-public class DatabaseHelper extends SQLiteOpenHelper{
-//     get Main Activity
-    private PemeriksaanMain_Activity activity;
+public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
     // Log cat tag
     private static final String LOG = "DatabaseHelper";
 
@@ -41,10 +40,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     // DATABASE NAME
     private static final String DATABASE_NAME = "MTBS";
+    // transient will make the sqlite class
+    private SQLiteDatabase mDefaultWritableDatabase = null;
 
     @Override
     public SQLiteDatabase getWritableDatabase() {
-        final SQLiteDatabase db;
+        final  SQLiteDatabase db;
         if(mDefaultWritableDatabase != null){
             db = mDefaultWritableDatabase;
         } else {
@@ -53,8 +54,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return db;
     }
 
-    //
-    private SQLiteDatabase mDefaultWritableDatabase = null;
 
     // Nama-Nama Tabel
 //    private static final String TABLE_BALITA = "balita";
@@ -147,12 +146,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //                        + COL_IDPENYAKIT + " INTEGER NOT NULL"
 //                        + ")";
 
-    public DatabaseHelper(Context context , PemeriksaanMain_Activity activity ) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.activity = activity;
         onUpgrade(this.getWritableDatabase(), DATABASE_VERSION , DATABASE_VERSION );
-
-
     }
 
     @Override
@@ -273,9 +269,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return hashMapGejala ;
     }
 
-    public LinkedList<TindakanResult> getTindakanByIdKlasifikasi(int idKlasifikasi){
-        double beratBadan = activity.balitaNow.getBeratBadan();
-        int umur = this.activity.balitaNow.getUmurInBulan();
+    public LinkedList<TindakanResult> getTindakanByIdKlasifikasi(int idKlasifikasi , int umur , double beratBadan){
         Log.d("umur", "umur : " + umur);
 
         String query = "SELECT Tindakan.idTindakan, namaTindakan, tipeTindakan FROM Tindakan\n" +

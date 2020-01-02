@@ -44,7 +44,7 @@ public class Presenter {
         this.activity = activity;
         this.collectionOfGejala = new HashMap<String ,Integer>();
         this.listOfClassifier = new LinkedList<>();
-        this.db = new DatabaseHelper(activity.getApplicationContext(), activity);
+        this.db = new DatabaseHelper(activity.getApplicationContext());
         addAllClassifier();
         this.db.checkTableIfExist(Kunjungan.TABLE_KUNJUNGAN);
         this.db.checkTableIfExist(Diagnosis.TABLE_DIAGNOSIS);
@@ -146,8 +146,10 @@ public class Presenter {
         // insert the linkedlist ot the collecctionof linked list tindakan
 
         // add dummy data for testing
+        int umurInBulan = activity.balitaNow.getUmurInBulan();
+        double beratBadan  = activity.balitaNow.getBeratBadan();
         for(Map.Entry<String, Integer> itemKlasifikasi : collectionOfClassification.entrySet()){
-            LinkedList<TindakanResult> linkedList = db.getTindakanByIdKlasifikasi(itemKlasifikasi.getValue());
+            LinkedList<TindakanResult> linkedList = db.getTindakanByIdKlasifikasi(itemKlasifikasi.getValue(),umurInBulan , beratBadan);
             collectionOfLinkedListTindakan.add(linkedList);
         }
         return collectionOfLinkedListTindakan ;
@@ -155,6 +157,8 @@ public class Presenter {
 
     public HashMap<String, LinkedList<TindakanResult>> getAllTindakan_test(){
         //created LinkedList consist of linkedlist for every classification
+        int umurInBulan = activity.balitaNow.getUmurInBulan();
+        double beratBadan = activity.balitaNow.getBeratBadan();
         HashMap<String , Integer> collectionOfClassification = this.classifyAll();
 
         HashMap<String , LinkedList<TindakanResult>> collectionOfLinkedList = new HashMap<>();
@@ -165,7 +169,7 @@ public class Presenter {
 
         // add dummy data for testing
         for(Map.Entry<String, Integer> itemKlasifikasi : collectionOfClassification.entrySet()){
-            LinkedList<TindakanResult> linkedList = db.getTindakanByIdKlasifikasi(itemKlasifikasi.getValue());
+            LinkedList<TindakanResult> linkedList = db.getTindakanByIdKlasifikasi(itemKlasifikasi.getValue() , umurInBulan, beratBadan);
             collectionOfLinkedList.put(itemKlasifikasi.getKey() , linkedList);
         }
         return collectionOfLinkedList;

@@ -45,6 +45,8 @@ public class TindakanListAdapter extends RecyclerView.Adapter<TindakanListAdapte
         final TindakanResult now = this.listOfTindakanResult.get(position) ;
         holder.idTindakan.setText("" + now.getIdTindakan());
         holder.namaTindakan.setText("" + now.getNamaTindakan());
+        int umurInBulan = activity.balitaNow.getUmurInBulan();
+        double berat       = activity.balitaNow.getBeratBadan();
        final ArrayList<String> res = activity.presenter.getLangkahTindakan(now.getIdTindakan());
         final int size = res.size() ;
         holder.idTindakan.setText("");
