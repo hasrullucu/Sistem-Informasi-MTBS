@@ -21,7 +21,19 @@ public class IndonesiaFormatter {
         this.put(11, "Desember");
     }} ;
 
+    /**
+     * Method to convert string based  date example : "2-10-2020" into Indonesia Based date "2 oktober 2020"
+     * @param tanggalWithDash
+     * @return
+     */
+    public static String splitAndFormatDate(String tanggalWithDash){
+        String[] splittedTanggalLahir = tanggalWithDash.split("-");
+        int day = Integer.parseInt(splittedTanggalLahir[0]);
+        int month = Integer.parseInt(splittedTanggalLahir[1]);
+        int year = Integer.parseInt(splittedTanggalLahir[2]);
 
+        return convertDate(year , month ,day);
+    }
     public static String convertDate(int year, int month , int day){
         String indonesiaMonth = convertMonth(month) ;
         Log.d("now", "month : " + month);

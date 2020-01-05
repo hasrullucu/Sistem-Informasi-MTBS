@@ -2,21 +2,15 @@ package com.example.sisteminformasimtbs.view.mainmenu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.sisteminformasimtbs.R;
-import com.example.sisteminformasimtbs.database.DatabaseHelper;
-import com.example.sisteminformasimtbs.database.LoadSaveDatabaseAsyncTask;
 import com.example.sisteminformasimtbs.view.pemeriksaan.PemeriksaanMain_Activity;
 import com.example.sisteminformasimtbs.view.petunjuk.Petunjuk_Activity;
 import com.example.sisteminformasimtbs.view.riwayat.RiwayatBalita_Activity;
-
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 
 public class MainMenu_Activity extends AppCompatActivity implements View.OnClickListener {
 

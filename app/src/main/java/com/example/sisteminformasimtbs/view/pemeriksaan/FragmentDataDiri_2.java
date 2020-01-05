@@ -46,6 +46,8 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
      private EditText keluhan_EditText ;
 
 
+    private DatePickerDialog dialog ;
+
     private DatePickerDialog.OnDateSetListener mDateSetListener ;
     // date picker
     private DatePickerDialog datePickerDialog;
@@ -54,6 +56,7 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
     public FragmentDataDiri_2() {
         // Required empty public constructor
+
     }
 
     public static FragmentDataDiri_2 newInstance(PemeriksaanMain_Activity activity){
@@ -61,9 +64,42 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         res.activity=activity;
         res.dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         res.dateLogic  = new DateLogic();
+
+
         return res;
     }
 
+    private void setDialog(){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month ;
+                Log.d("tanggal", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+                rawDate = day+"-"+month+"-"+year;
+                Log.d("tanggal" , month+day+year+"");
+                btn_pickCalendar.setText(IndonesiaFormatter.convertDate(year, month , day));
+
+                activity.balitaNow.setTanggal(day);
+                activity.balitaNow.setBulan(month);
+                activity.balitaNow.setTahun(year);
+
+            }
+        };
+
+        this.dialog = new DatePickerDialog(
+                getActivity(),
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                mDateSetListener,
+                year,month,day
+        );
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,29 +119,15 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
         this.kunjungan_EditText = res.findViewById(R.id.kunjungan_EditText);
         this.keluhan_EditText = res.findViewById(R.id.keluhan_EditText);
 
+        setDialog();
+
 
         return res;
     }
 
 
 
-    private void showDateDialog(){
 
-        /**
-         * Calendar untuk mendapatkan tanggal sekarang
-         */
-        Calendar newCalendar = Calendar.getInstance();
-
-        /**
-         * Initiate DatePicker dialog
-         */
-        datePickerDialog = new DatePickerDialog(this.activity, R.style.DialogTheme, this, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-
-        /**
-         * Tampilkan DatePicker dialog
-         */
-        datePickerDialog.show();
-    }
 
     /**
      *
@@ -196,10 +218,6 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
                 Toast.makeText(getContext() , "Anda perlu mengisi semua data balita" , Toast.LENGTH_LONG).show();
             }
 
-
-
-
-
         }else if(view == this.btn_pickCalendar){
             onCalendarClick();
         }
@@ -207,38 +225,7 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
 
     private void onCalendarClick(){
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-
-        DatePickerDialog dialog = new DatePickerDialog(
-               getActivity(),
-                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                mDateSetListener,
-                year,month,day
-        );
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month ;
-                Log.d("tanggal", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
-                rawDate = ""+day+month+year;
-                Log.d("tanggal" , month+day+year+"");
-                btn_pickCalendar.setText(IndonesiaFormatter.convertDate(year, month , day));
-
-                activity.balitaNow.setTanggal(day);
-                activity.balitaNow.setBulan(month);
-                activity.balitaNow.setTahun(year);
-
-            }
-        };
-//        dialog.setOnDateSetListener(mDateSetListener);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
-
-
+        this.dialog.show();
     }
 
 
@@ -277,11 +264,10 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
     public void setSearchedDataBalita(Balita balitaNow){
 //        btn_pickCalendar.setText(IndonesiaFormatter.convertDate(year, month , day));
-          btn_pickCalendar.setText(activity.loadedBalita.getTanggalLahir());
+        String formattedTanggalLahir = IndonesiaFormatter.splitAndFormatDate(activity.loadedBalita.getTanggalLahir());
+          btn_pickCalendar.setText(formattedTanggalLahir);
           this.rawDate = activity.loadedBalita.getTanggalLahir();
-//        activity.balitaNow.setTanggal(day);
-//        activity.balitaNow.setBulan(month);
-//        activity.balitaNow.setTahun(year);
+
 
     }
 }

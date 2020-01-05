@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.riwayat.FragmentBalitaProfile"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:background="@color/greenBackground"
+    >
+
+<!--    btn kembali-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        >
+        <include layout="@layout/btn_kembali_layout" ></include>
+
+    </LinearLayout>
+<!--text view profile balita-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:text="PROFIL BALITA"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="@color/white"
+            >
+
+        </TextView>
+
+    </LinearLayout>
+<!--card-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:orientation="horizontal"
+
+        android:weightSum="1"
+        >
+<!-- card balita - empty left-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"></LinearLayout>
+<!--card balita -> card balita -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="match_parent"
+            android:background="@drawable/balitaprofilecard_bg"
+
+            android:weightSum="1"
+            android:orientation="vertical"
+            >
+<!--upper-->
+            <LinearLayout
+                android:id="@+id/cardUpper"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_weight="0.6"
+                android:orientation="horizontal"
+                android:weightSum="1">
+<!-- profile foto -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3">
+
+                    <ImageView
+                        android:id="@+id/jenisKelaminImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/boy_withbg">
+
+                    </ImageView>
+                </LinearLayout>
+<!---->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+
+                        android:fontFamily="@font/montserratbold"
+                        android:text="NAMA ANAK"
+                        android:textColor="@color/white"
+                        android:textSize="14sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/namaAnak_TextView"
+                        android:padding="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/balitacardtextview_bg"
+
+                        android:fontFamily="@font/montserratbold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+
+                        android:fontFamily="@font/montserratbold"
+                        android:text="NAMA IBU"
+                        android:textColor="@color/white"
+                        android:textSize="14sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/namaIbu_TextView"
+                        android:padding="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/balitacardtextview_bg"
+
+                        android:fontFamily="@font/montserratbold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+<!--            card under-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4"
+
+                android:orientation="vertical"
+                android:weightSum="1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    >
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.2"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/house_withbg"
+                        android:layout_marginTop="4dp"
+
+                        >
+
+                    </ImageView>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_height="match_parent"
+                        android:id="@+id/alamat_TextView"
+                        android:padding="4dp"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/balitacardtextview_bg"
+                        android:fontFamily="@font/montserratbold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+<!--                address-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    >
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.2"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/address_withbg"
+
+                        android:layout_marginTop="4dp"
+                        >
+
+                    </ImageView>
+                <TextView
+                    android:id="@+id/tanggalLahirTextView"
+                    android:padding="4dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+
+                    android:layout_weight="0.7"
+                    android:background="@drawable/balitacardtextview_bg"
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="@color/white"
+                    android:textSize="14sp">
+
+                </TextView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"></LinearLayout>
+
+
+    </LinearLayout>
+
+<!--Riwayat Pemeriksaan-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:text="RIWAYAT PEMERIKSAAN"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserratbold"
+            android:textAlignment="center"
+            android:textSize="24sp">
+
+        </TextView>
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/riwayatPemeriksaanRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+
+        tools:listitem="@layout/listitem_riwayatpemeriksaan"
+        >
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

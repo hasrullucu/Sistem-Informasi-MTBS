@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/backgroundlistbalita"
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:id="@+id/listKunjungan_item"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/diagnosis_withbg"
+                >
+
+            </ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical"
+            android:weightSum="1"
+            >
+
+            <TextView
+                android:id="@+id/tanggalPemeriksaanTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_tanggal"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserratbold"
+                android:textColor="@color/white"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/keluhanTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Batuk"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserratbold"
+                android:textColor="@color/mustardColor"
+                >
+
+            </TextView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_chevron_right_black_24dp">
+
+            </ImageView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

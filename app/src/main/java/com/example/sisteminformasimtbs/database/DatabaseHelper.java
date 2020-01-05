@@ -16,6 +16,7 @@ import com.example.sisteminformasimtbs.model.dataclass.LangkahTindakan;
 import com.example.sisteminformasimtbs.model.dataclass.Obat;
 import com.example.sisteminformasimtbs.model.dataclass.Tindakan;
 import com.example.sisteminformasimtbs.model.dataclass.TopikPenyakit;
+import com.example.sisteminformasimtbs.model.relation.DiagnosisResult;
 import com.example.sisteminformasimtbs.model.relation.GejalaMemilikiKlasifikasi;
 import com.example.sisteminformasimtbs.model.relation.KlasifikasiMemilikiTindakan;
 import com.example.sisteminformasimtbs.model.relation.ObatMemilikiBentukObat;
@@ -156,7 +157,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         this.mDefaultWritableDatabase = sqLiteDatabase;
 //        CREATE MAIN TABLE
         sqLiteDatabase.execSQL(Balita.CREATE_BALITA_IF_EXISTS);
-        sqLiteDatabase.execSQL(Kunjungan.CREATE_KUNJUNGAN);
+        sqLiteDatabase.execSQL(Kunjungan.CREATE_IF_EXISTS_KUNJUNGAN);
         sqLiteDatabase.execSQL(TopikPenyakit.CREATE_PENYAKIT);
         sqLiteDatabase.execSQL(KlasifikasiPenyakit.CREATE_KLASIFIKASI);
         sqLiteDatabase.execSQL(Gejala.CREATE_GEJALA);
@@ -177,7 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         sqLiteDatabase.execSQL(KlasifikasiMemilikiTindakan.CREATE_KLAS_TIN);
         sqLiteDatabase.execSQL(TindakanMemilikiBentukObat.CREATE_TIN_BENTUKOBAT);
         sqLiteDatabase.execSQL(ObatMemilikiBentukObat.CREATE_OBAT_BENTUKOBAT);
-        sqLiteDatabase.execSQL(Diagnosis.CREATE_DIAGNOSIS);
+        sqLiteDatabase.execSQL(Diagnosis.CREATE_IF_EXISTS_DIAGNOSIS_);
 
         Log.d("DATABASE" , "RELATION TABLE CREATED");
 
@@ -196,19 +197,18 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
         Log.d("DATABASE" , "RELATION TABLE DROPPED");
 
 //        DROP IF EXISTS RELATION TABLE
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Kunjungan.TABLE_KUNJUNGAN);
+//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Kunjungan.TABLE_KUNJUNGAN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + GejalaMemilikiKlasifikasi.TABLE_GEJ_KLAS);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + KlasifikasiMemilikiTindakan.TABLE_KLAS_TIN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TindakanMemilikiBentukObat.TABLE_TIN_BENTUKOBAT);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ObatMemilikiBentukObat.TABLE_OBAT_BENTUKOBAT);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Diagnosis.TABLE_DIAGNOSIS);
+//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Diagnosis.TABLE_DIAGNOSIS);
 
         Log.d("DATABASE" , "MAIN TABLE DROPPED");
 
 
         // DROP IF EXISTS MAIN TABLE
 //        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Balita.TABLE_BALITA);
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_KUNJUNGAN);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + KlasifikasiPenyakit.TABLE_KLASIFIKASIPENYAKIT);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Gejala.TABLE_GEJALA);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + LangkahTindakan.TABLE_LANGKAHTINDAKAN);
@@ -462,6 +462,68 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Serializable {
 
         return kunjunganResult;
 
+    }
+
+    /**
+     *
+     * @param idBalita
+     * @return
+     */
+    public LinkedList<Kunjungan> getAllKunjunganBasedByBalitaId(int idBalita){
+        LinkedList<Kunjungan> allKunjungan = new LinkedList<>() ;
+        String query = "SELECT * FROM KUNJUNGAN WHERE idBalita = "+ idBalita+" ";
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+                int idKunjunganNow = c.getInt(c.getColumnIndex("idKunjungan"));
+                String tanggalKunjunganNow = c.getString(c.getColumnIndex("tanggalKunjungan"));
+                double beratBadanNow = c.getDouble(c.getColumnIndex("berat"));
+                double panjangBadanNow = c.getDouble(c.getColumnIndex("panjang"));
+                double suhuBadanNow = c.getDouble(c.getColumnIndex("suhu"));
+                int kunjunganKe = c.getInt(c.getColumnIndex("kunjunganKe")) ;
+                int tipeKunjungan = c.getInt(c.getColumnIndex("tipeKunjungan")) ;
+                String keluhan = c.getString(c.getColumnIndex("keluhan"));
+                int idBalitaNow = c.getInt(c.getColumnIndex("idBalita"));
+                Kunjungan kunjunganNow = new Kunjungan(idKunjunganNow,tipeKunjungan , suhuBadanNow,panjangBadanNow,beratBadanNow,tanggalKunjunganNow,kunjunganKe,keluhan,idBalitaNow);
+                allKunjungan.add(kunjunganNow);
+            }
+        }
+        return allKunjungan;
+
+    }
+
+    /**
+     *
+     * @param idKunjungan
+     */
+    public LinkedList<Diagnosis> getAllKlasifikasiBasedByKunjunganId(int idKunjungan){
+        LinkedList<Diagnosis> allDiagnosis = new LinkedList<>();
+        String query = "SELECT * FROM DIAGNOSIS WHERE idKunjungan = "+ idKunjungan+" ";
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+                int idKunjunganNow = c.getInt(c.getColumnIndex("idKunjungan")) ;
+                int idKlasifikasiNow = c.getInt(c.getColumnIndex("idKlasifikasi"));
+                Diagnosis now = new Diagnosis(idKunjunganNow , idKlasifikasiNow);
+                allDiagnosis.add(now);
+            }
+        }
+        return allDiagnosis;
+
+    }
+
+    public DiagnosisResult getKlasifikasiBasedOnIdKlasifikasi(int idKlasifikasi){
+        String query = "SELECT * FROM Klasifikasi WHERE idKlasifikasi = "+ idKlasifikasi+" ";
+        Cursor c = this.getReadableDatabase().rawQuery(query , null);
+        DiagnosisResult now = null;
+        if(c.getCount() > 0){
+            while(c.moveToNext()){
+                int idKlasifikasiNow = c.getInt(c.getColumnIndex("idKlasifikasi")) ;
+                String namaKlasifikasi = c.getString(c.getColumnIndex("namaKlasifikasi"));
+                now = new DiagnosisResult(namaKlasifikasi , idKlasifikasiNow);
+            }
+        }
+        return now;
     }
 
     public void checkTableIfExist(String tableName){

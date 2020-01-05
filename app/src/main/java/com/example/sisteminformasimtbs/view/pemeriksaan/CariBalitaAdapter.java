@@ -3,6 +3,7 @@ package com.example.sisteminformasimtbs.view.pemeriksaan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,9 @@ public class CariBalitaAdapter extends RecyclerView.Adapter<CariBalitaAdapter.Ca
         holder.namaBalita.setText("" + now.getNama());
         holder.namaIbu.setText("Nama Ibu : " + now.getNamaIbu());
 
+        if(now.getJenisKelamin() == 'P'){
+            holder.balitaImageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_girl));
+        }
         holder.listBalitaItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,12 +73,14 @@ public class CariBalitaAdapter extends RecyclerView.Adapter<CariBalitaAdapter.Ca
         private TextView namaBalita;
         private LinearLayout listBalitaItem ;
         private TextView  namaIbu;
+        private ImageView balitaImageView;
 
         public CariBalitaViewHolder(@NonNull View itemView) {
             super(itemView);
             this.namaBalita = (TextView) itemView.findViewById(R.id.tv_namaBalita)  ;
             this.listBalitaItem = (LinearLayout) itemView.findViewById(R.id.listBalita_item);
             this.namaIbu = (TextView) itemView.findViewById(R.id.tv_namaIbu);
+            this.balitaImageView = (ImageView) itemView.findViewById(R.id.balitaImageView);
 
         }
     }

@@ -39,15 +39,13 @@ public class Presenter {
 
      private DatabaseHelper db ;
 
-    public Presenter(PemeriksaanMain_Activity activity ){
+    public Presenter(PemeriksaanMain_Activity activity , DatabaseHelper db ){
         Log.d("debug", "masuk prsenter");
         this.activity = activity;
         this.collectionOfGejala = new HashMap<String ,Integer>();
         this.listOfClassifier = new LinkedList<>();
-        this.db = new DatabaseHelper(activity.getApplicationContext());
+        this.db = db;
         addAllClassifier();
-        this.db.checkTableIfExist(Kunjungan.TABLE_KUNJUNGAN);
-        this.db.checkTableIfExist(Diagnosis.TABLE_DIAGNOSIS);
     }
 
     public void addGejala(String gejala , int id){

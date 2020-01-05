@@ -92,7 +92,7 @@ public class Fragment_HasilPemeriksaan_2 extends Fragment implements View.OnClic
         if (activity.presenter.getKunjunganUlang() > 0) {
             this.kunjunganUlang.setText("KUNJUNGAN ULANG " + activity.presenter.getKunjunganUlang() + " HARI");
         } else {
-            this.kunjunganUlang.setText("SELAMAT!!! PASIEN ANDA SEHAT");
+            this.kunjunganUlang.setText("OBATI BALITA SECEPATNYA");
         }
 
         Calendar nowDate = Calendar.getInstance();

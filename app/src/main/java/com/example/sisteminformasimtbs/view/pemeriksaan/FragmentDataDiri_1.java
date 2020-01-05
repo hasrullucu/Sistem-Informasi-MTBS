@@ -100,7 +100,7 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
         int month = nowDate.get(Calendar.MONTH);
         int year = nowDate.get(Calendar.YEAR);
 
-        this.activity.balitaNow.setTanggalPemeriksaan(""+day+month+year);
+        this.activity.balitaNow.setTanggalPemeriksaan(day+"-"+month+"-"+year);
 
         this.tanggalPemeriksaanAuto.setText(IndonesiaFormatter.convertDate(year, month , day));
 

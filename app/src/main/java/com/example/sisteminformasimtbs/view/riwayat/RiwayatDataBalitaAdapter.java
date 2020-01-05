@@ -3,6 +3,7 @@ package com.example.sisteminformasimtbs.view.riwayat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,12 +50,15 @@ public class RiwayatDataBalitaAdapter extends RecyclerView.Adapter<RiwayatDataBa
         holder.namaBalita.setText("" + now.getNama());
         holder.namaIbu.setText("Nama Ibu : " + now.getNamaIbu());
 
+        if(now.getJenisKelamin() == 'P'){
+            holder.balitaImageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_girl));
+        }
         holder.listBalitaItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity.getApplicationContext() , " item : " + now.getNama() , Toast.LENGTH_LONG).show();
               // request all get all kunjungan based on balita id change to another fragment request data here first
-              //
+                activity.changeToProfileBalita(now);
             }
         });
     }
@@ -68,12 +72,14 @@ public class RiwayatDataBalitaAdapter extends RecyclerView.Adapter<RiwayatDataBa
         private TextView namaBalita;
         private LinearLayout listBalitaItem ;
         private TextView  namaIbu;
+        private ImageView balitaImageView;
 
         public RiwayatDataBalitaViewHolder(@NonNull View itemView) {
             super(itemView);
             this.namaBalita = (TextView) itemView.findViewById(R.id.tv_namaBalita)  ;
             this.listBalitaItem = (LinearLayout) itemView.findViewById(R.id.listBalita_item);
             this.namaIbu = (TextView) itemView.findViewById(R.id.tv_namaIbu);
+            this.balitaImageView = (ImageView) itemView.findViewById(R.id.balitaImageView);
 
         }
     }

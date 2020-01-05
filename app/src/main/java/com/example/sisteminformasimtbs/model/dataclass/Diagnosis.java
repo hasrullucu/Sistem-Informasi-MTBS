@@ -2,6 +2,7 @@ package com.example.sisteminformasimtbs.model.dataclass;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class Diagnosis {
     private int idKunjungan ;
@@ -16,12 +17,20 @@ public class Diagnosis {
     public static final String TABLE_DIAGNOSIS  = "Diagnosis";
 
     //    CREATE Table balita
-    public static final String CREATE_DIAGNOSIS =
-            "CREATE TABLE "+ TABLE_DIAGNOSIS + "("
+    public static final String CREATE_IF_EXISTS_DIAGNOSIS_=
+            "CREATE TABLE IF NOT EXISTS "+ TABLE_DIAGNOSIS + "("
                     + COL_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                     + COL_IDKUNJUNGAN + " INTEGER NOT NULL,"
                     + COL_IDKLASIFIKASI + " INTEGER NOT NULL"
                     + ")";
+
+    public int getIdKunjungan() {
+        return idKunjungan;
+    }
+
+    public int getIdKlasifikasi() {
+        return idKlasifikasi;
+    }
 
     public Diagnosis(int idKunjungan, int idKlasifikasi) {
         this.idKunjungan = idKunjungan;
@@ -35,6 +44,7 @@ public class Diagnosis {
         res.put(COL_IDKLASIFIKASI , idKlasifikasi) ;
 
         long ret = db.insert(TABLE_DIAGNOSIS , null , res);
+        Log.d("insertDiagnosisID : ", ret+" ");
         return ret;
     }
 }

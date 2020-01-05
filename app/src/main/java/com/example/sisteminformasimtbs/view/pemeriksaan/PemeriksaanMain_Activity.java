@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import com.example.sisteminformasimtbs.R;
 import com.example.sisteminformasimtbs.database.DatabaseHelper;
+import com.example.sisteminformasimtbs.database.LoadPemeriksaanDatabaseAsyncTask;
 import com.example.sisteminformasimtbs.model.dataclass.Balita;
 import com.example.sisteminformasimtbs.model.dataclass.PasienNow;
 import com.example.sisteminformasimtbs.presenter.Presenter;
@@ -64,14 +67,21 @@ public class PemeriksaanMain_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pemeriksaan_main);
-        this.presenter = new Presenter(this);
+        ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Please Wait");
+        pd.setCanceledOnTouchOutside(false);
+        pd.show();
+        LoadPemeriksaanDatabaseAsyncTask loadPemeriksaanDatabaseAsyncTask = new LoadPemeriksaanDatabaseAsyncTask(this , pd);
+        loadPemeriksaanDatabaseAsyncTask.execute((Object) null);
+    }
 
+    public void initiateProgram(DatabaseHelper db){
+        this.presenter = new Presenter(this , db);
         initAll();
         // test
         this.balitaNow = new PasienNow();
         this.collectionOfTindakanFragment = new LinkedList<>();
         changeToDataDiri_1();
-
     }
 
     public void changeToCariBalita(){

@@ -12,14 +12,14 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
 
-public class LoadSaveDatabaseAsyncTask extends AsyncTask<Object ,DatabaseHelper ,DatabaseHelper> {
+public class LoadRiwayatDatabaseAsyncTask extends AsyncTask<Object ,DatabaseHelper ,DatabaseHelper> {
     private RiwayatBalita_Activity activity;
     private ProgressDialog pd ;
 
 
 
 
-    public LoadSaveDatabaseAsyncTask(RiwayatBalita_Activity activity , ProgressDialog pd ) {
+    public LoadRiwayatDatabaseAsyncTask(RiwayatBalita_Activity activity , ProgressDialog pd ) {
         this.activity = activity;
         this.pd = pd ;
     }
@@ -28,13 +28,12 @@ public class LoadSaveDatabaseAsyncTask extends AsyncTask<Object ,DatabaseHelper 
     protected void onPostExecute(DatabaseHelper db) {
         super.onPostExecute(db);
         this.activity.initiateFragment(db);
-
     }
 
     @Override
     protected DatabaseHelper doInBackground(Object[] objects) {
         DatabaseHelper db = new DatabaseHelper(activity.getApplicationContext());
-
+        this.activity.setDb(db);
         this.pd.dismiss();
         return db;
     }

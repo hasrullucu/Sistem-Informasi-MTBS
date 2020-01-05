@@ -39,8 +39,8 @@ public class Kunjungan {
     public static final String TABLE_KUNJUNGAN  = "Kunjungan";
 
     //    CREATE Table balita
-    public static final String CREATE_KUNJUNGAN =
-            "CREATE TABLE "+ TABLE_KUNJUNGAN + "("
+    public static final String CREATE_IF_EXISTS_KUNJUNGAN =
+            "CREATE TABLE IF NOT EXISTS "+ TABLE_KUNJUNGAN + "("
                     + COL_IDKUNJUNGAN + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                     + COL_TANGGALKUNJUNGAN + " TEXT NOT NULL, "
                     + COL_BERAT + " NUMERIC NOT NULL,"
@@ -141,7 +141,7 @@ public class Kunjungan {
         res.put(COL_IDBALITA, idBalita);
 
         long ret = db.insert(TABLE_KUNJUNGAN , null , res);
-        Log.d("insertbalita:ID " , ret+"");
+        Log.d("insertKunjungan:ID " , ret+"");
         return ret;
     }
 }

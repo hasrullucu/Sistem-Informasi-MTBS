@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greenBackground"
+    android:weightSum="1"
+    android:orientation="vertical"
+    tools:context=".view.riwayat.FragmentRiwayatHasilPemeriksaan">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1">
+
+
+        <include
+            layout="@layout/btn_kembali_layout"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="678dp"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:fontFamily="@font/montserratbold"
+            android:text="@string/hasil_pemeriksaan"
+
+            android:textAlignment="center"
+
+            >
+
+        </TextView>
+        <TextView
+            android:id="@+id/tanggalPemeriksaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:fontFamily="@font/montserratbold"
+            android:text="@string/dummy_tanggal"
+
+            android:textAlignment="center"
+
+            >
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:padding="4sp"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            >
+
+            <ImageView
+                android:id="@+id/iv_jenis_kelamin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/boy_withbg">
+            </ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.65"
+            android:orientation="vertical"
+
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/namaAnak_Kesimpulan_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserratbold"
+                android:text="Giovanni Anggasta"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/namaIbu_Kesimpulan_EditText"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserratbold"
+                android:text="LAKI-LAKI"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tinggi_berat_EditText"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserratbold"
+                android:text="8 KG / 45 CM"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/umur_EditText"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserratbold"
+                android:text="1 Tahun 2 Bulan"
+                android:textColor="@color/mustardColor"
+                android:textSize="14sp">
+
+            </TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewKlasifikasi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+
+        tools:listitem="@layout/list_klasifikasi_test"
+        >
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:id="@+id/kunjungan"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KUNJUNGAN ULANG 2 HARI"
+            android:background="@drawable/my_button_bg"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="@color/white"
+            >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/btn_akhiri_pemeriksaan"></include>
+
+    </LinearLayout>
+</LinearLayout>
