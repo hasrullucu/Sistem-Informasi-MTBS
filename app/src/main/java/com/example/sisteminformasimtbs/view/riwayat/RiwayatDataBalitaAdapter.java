@@ -50,8 +50,11 @@ public class RiwayatDataBalitaAdapter extends RecyclerView.Adapter<RiwayatDataBa
         holder.namaBalita.setText("" + now.getNama());
         holder.namaIbu.setText("Nama Ibu : " + now.getNamaIbu());
 
+
         if(now.getJenisKelamin() == 'P'){
             holder.balitaImageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_girl));
+        }else{
+            holder.balitaImageView.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_boy));
         }
         holder.listBalitaItem.setOnClickListener(new View.OnClickListener() {
             @Override

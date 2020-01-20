@@ -112,9 +112,9 @@ public class FragmentDataDiri_1 extends Fragment implements View.OnClickListener
     public void onClick(View view){
 
         if(view.getId()==btn_Kembali.getId()){
+            activity.loadedBalita =null;
             activity.finish();
         }
-
         else if(view.getId() == btn_CariBalita.getId()){
             this.activity.changeToCariBalita();
         }

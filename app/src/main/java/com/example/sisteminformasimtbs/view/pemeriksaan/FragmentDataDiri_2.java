@@ -264,6 +264,14 @@ public class FragmentDataDiri_2 extends Fragment implements View.OnClickListener
 
     public void setSearchedDataBalita(Balita balitaNow){
 //        btn_pickCalendar.setText(IndonesiaFormatter.convertDate(year, month , day));
+        String tanggal = balitaNow.getTanggalLahir();
+        String[] arr = tanggal.split("-");
+        int day = Integer.parseInt(arr[0]);
+        int month = Integer.parseInt(arr[1]);
+        int year = Integer.parseInt(arr[2]);
+        activity.balitaNow.setTanggal(day);
+        activity.balitaNow.setBulan(month);
+        activity.balitaNow.setTahun(year);
         String formattedTanggalLahir = IndonesiaFormatter.splitAndFormatDate(activity.loadedBalita.getTanggalLahir());
           btn_pickCalendar.setText(formattedTanggalLahir);
           this.rawDate = activity.loadedBalita.getTanggalLahir();

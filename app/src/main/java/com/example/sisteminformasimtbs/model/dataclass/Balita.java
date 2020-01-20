@@ -63,12 +63,10 @@ public class Balita {
         this.jenisKelamin = jenisKelamin;
         this.tanggalLahir = tanggalLahir;
         this.wilayah = wilayah;
-//        this.umur = umur;
     }
 
     public static long insertDataBalita(SQLiteDatabase db, String nama, String namaIbu, String jenisKelamin, String alamat, String tanggalLahir, String wilayah){
         ContentValues res = new ContentValues();
-
           res.put(COL_NAMABALITA  , nama);
           res.put(COL_NAMAIBU , namaIbu) ;
           res.put(COL_TANGGALLAHIR , tanggalLahir) ;
